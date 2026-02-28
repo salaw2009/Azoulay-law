@@ -3,7 +3,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>אזולאי ושות' ~ עורכי דין וגישור | דימונה</title>
     <meta name="description" content="עו״ד שמעון אזולאי — משרד עורכי דין בדימונה. דיני משפחה, גירושין, חוזים, הוצאה לפועל, חדלות פרעון ודיני עבודה. ליווי אישי ומקצועי.">
     <meta name="keywords" content="עורך דין דימונה, עורך דין משפחה דימונה, עורך דין גירושין נגב, עורך דין הוצאה לפועל באר שבע, עורך דין חדלות פרעון דימונה, עורך דין חוזים נגב, עורך דין דיני עבודה דימונה, גישור גירושין דימונה, משרד עורכי דין דימונה">
@@ -13,7 +13,8 @@
     <meta property="og:image" content="og-image.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"></noscript>
 
 <script type="application/ld+json">
 {
@@ -1333,7 +1334,7 @@
 <header class="header" id="header">
     <div class="header-inner">
         <a href="#hero" class="logo">
-            <div class="logo-icon">⚖</div>
+            <div class="logo-icon">⚖️</div>
             <div class="logo-text">
                 <span class="logo-name">אזולאי ושות'</span>
                 <span class="logo-sub">עורכי דין וגישור</span>
@@ -1694,9 +1695,9 @@
     <div class="footer-bottom">
         <p>© 2026 אזולאי ושות' — עורכי דין וגישור. כל הזכויות שמורות.</p>
         <div class="footer-legal">
-            <a onclick="openLegalModal('accessibility')">הצהרת נגישות</a>
-            <a onclick="openLegalModal('privacy')">מדיניות פרטיות</a>
-            <a onclick="openLegalModal('terms')">תנאי שימוש</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('accessibility')">הצהרת נגישות</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('privacy')">מדיניות פרטיות</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('terms')">תנאי שימוש</a>
         </div>
         <p class="footer-credit">נבנה באהבה ❤️ על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
     </div>
@@ -1897,6 +1898,13 @@
     // ===== CONTACT FORM =====
     function handleFormSubmit(e) {
         e.preventDefault();
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const subjectEl = document.getElementById('subject');
+        const subjectText = subjectEl.options[subjectEl.selectedIndex].text;
+        const message = document.getElementById('message').value;
+        const waText = `שלום, שמי ${name}.\nטלפון: ${phone}\nנושא: ${subjectText}${message ? '\n' + message : ''}`;
+        window.open('https://wa.me/972546969157?text=' + encodeURIComponent(waText), '_blank');
         document.getElementById('formSuccess').classList.add('active');
         e.target.reset();
         setTimeout(() => document.getElementById('formSuccess').classList.remove('active'), 5000);
