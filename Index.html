@@ -1934,13 +1934,19 @@
         document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font', 'no-animations');
     }
 
-    // ===== CHATBOT =====
+    // ===== CHATBOT (AI-powered via Supabase Edge Function) =====
+    const SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+    const EDGE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/claude-proxy`;
+
     const chatBubble = document.getElementById('chatBubble');
     const chatWindow = document.getElementById('chatWindow');
     const chatMessages = document.getElementById('chatMessages');
     const chatInput = document.getElementById('chatInput');
     const typingIndicator = document.getElementById('typingIndicator');
     let chatOpened = false;
+    let chatHistory = [];
+    let leadCollected = false;
+    let isSending = false;
 
     function openChat() {
         chatBubble.classList.add('hidden');
@@ -1950,8 +1956,14 @@
             showTyping();
             setTimeout(() => {
                 hideTyping();
-                addBotMessage(`שלום! 👋 אני רותי, העוזרת הדיגיטלית של משרד אזולאי ושות'.\nאני יכולה לעזור לך עם מידע ראשוני על:\n\n👨‍👩‍👧 דיני משפחה\n📝 חוזים\n⚡ הוצאה לפועל\n🔄 חדלות פרעון\n💼 דיני עבודה\n\nבמה אוכל לעזור?`);
-            }, 1000);
+                addBotMessage(
+                    'שלום! 👋 אני רותי, העוזרת הדיגיטלית של משרד אזולאי ושות\'.\n' +
+                    'אני יכולה לעזור לך עם מידע ראשוני על:\n\n' +
+                    '👨‍👩‍👧 דיני משפחה\n📝 חוזים\n⚡ הוצאה לפועל\n🔄 חדלות פרעון\n💼 דיני עבודה\n\n' +
+                    'במה אוכל לעזור?',
+                    []
+                );
+            }, 900);
         }
         chatInput.focus();
     }
@@ -1964,26 +1976,67 @@
     function showTyping() { typingIndicator.classList.add('active'); scrollChat(); }
     function hideTyping() { typingIndicator.classList.remove('active'); }
 
-    function addBotMessage(text, buttons) {
+    function addBotMessage(text, quickActions) {
         const msg = document.createElement('div');
         msg.className = 'chat-msg bot';
-        msg.textContent = text;
-        if (buttons) {
+        // Render newlines
+        msg.innerHTML = text.replace(/\n/g, '<br>');
+
+        if (quickActions && quickActions.length > 0) {
             const btnsDiv = document.createElement('div');
             btnsDiv.className = 'msg-btns';
-            buttons.forEach(b => {
+            quickActions.forEach(qa => {
                 const btn = document.createElement('a');
-                btn.href = b.href || '#';
-                btn.target = b.target || '';
-                btn.className = 'msg-btn ' + (b.cls || 'msg-btn-gold');
-                btn.textContent = b.label;
-                if (b.onclick) btn.onclick = b.onclick;
+                if (qa.action === 'scroll:contact') {
+                    btn.href = '#';
+                    btn.onclick = (e) => {
+                        e.preventDefault();
+                        closeChat();
+                        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                    };
+                    btn.className = 'msg-btn msg-btn-outline';
+                } else if (qa.action.startsWith('https://wa.me')) {
+                    btn.href = qa.action;
+                    btn.target = '_blank';
+                    btn.className = 'msg-btn msg-btn-green';
+                } else {
+                    btn.href = qa.action;
+                    btn.className = 'msg-btn msg-btn-gold';
+                }
+                btn.textContent = qa.label;
                 btnsDiv.appendChild(btn);
             });
             msg.appendChild(btnsDiv);
         }
+
         chatMessages.insertBefore(msg, typingIndicator);
         scrollChat();
+    }
+
+    function addLeadForm() {
+        if (leadCollected) return;
+        leadCollected = true;
+        const formDiv = document.createElement('div');
+        formDiv.className = 'chat-msg bot';
+        formDiv.innerHTML = `
+            <div style="font-size:0.85rem;margin-bottom:8px;">השאירו שם ומספר טלפון ועו"ד אזולאי יחזור אליכם:</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+                <input id="leadName" type="text" placeholder="שם מלא" style="padding:6px 10px;border:1px solid rgba(201,168,76,0.4);border-radius:6px;background:rgba(255,255,255,0.08);color:inherit;font-size:0.85rem;direction:rtl;">
+                <input id="leadPhone" type="tel" placeholder="מספר טלפון" style="padding:6px 10px;border:1px solid rgba(201,168,76,0.4);border-radius:6px;background:rgba(255,255,255,0.08);color:inherit;font-size:0.85rem;direction:rtl;">
+                <button onclick="submitLead()" style="padding:7px 14px;background:var(--gold);color:var(--navy);border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">שליחה ✓</button>
+            </div>
+        `;
+        chatMessages.insertBefore(formDiv, typingIndicator);
+        scrollChat();
+    }
+
+    function submitLead() {
+        const name = document.getElementById('leadName')?.value?.trim();
+        const phone = document.getElementById('leadPhone')?.value?.trim();
+        if (!name || !phone) { alert('נא למלא שם וטלפון'); return; }
+        const waText = `שלום עו"ד אזולאי, שמי ${name}.\nהשארתי פרטים דרך הצ'אט באתר.\nטלפון: ${phone}`;
+        window.open('https://wa.me/972546969157?text=' + encodeURIComponent(waText), '_blank');
+        addBotMessage('תודה! ' + name + ' 🙏\nעו"ד אזולאי יחזור אליך בהקדם.', []);
     }
 
     function addUserMessage(text) {
@@ -1998,68 +2051,52 @@
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    const actionBtns = [
-        { label: '📞 חייגו עכשיו', href: 'tel:054-6969157', cls: 'msg-btn-gold' },
-        { label: '💬 WhatsApp', href: 'https://wa.me/972546969157', target: '_blank', cls: 'msg-btn-green' },
-        { label: '📋 השאירו פרטים', href: '#contact', cls: 'msg-btn-outline', onclick: (e) => { e.preventDefault(); closeChat(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); } }
-    ];
-
-    const responses = {
-        family: {
-            keywords: ['גירושין', 'גרושין', 'מזונות', 'משמורת', 'ילדים', 'ילד', 'נישואין', 'ירושה', 'צוואה', 'אפוטרופ', 'משפחה', 'גירושים', 'גט'],
-            text: 'אני מבינה שנושאי משפחה יכולים להיות רגישים מאוד. 💙\n\nמשרד אזולאי ושות\' מתמחה בדיני משפחה — גירושין, מזונות, משמורת ילדים, הסכמי ממון, צוואות וירושה. אם ניתן, המשרד מציע גם גישור שחוסך זמן וכסף.\n\nעו"ד אזולאי מתמחה בדיוק בזה. רוצה להשאיר פרטים או לתאם שיחה?'
-        },
-        contracts: {
-            keywords: ['חוזה', 'חוזים', 'הסכם', 'שכירות', 'מכר', 'הפרה', 'הפרת', 'שותפות', 'ניסוח'],
-            text: 'חוזה טוב הוא הבסיס לכל עסקה מוצלחת. 📝\n\nהמשרד מנסח, בודק ומייעץ בכל סוג של הסכם — מחוזה שכירות ועד עסקאות מורכבות. ניסוח מדויק מונע בעיות בהמשך.\n\nרוצה להתייעץ עם עו"ד אזולאי?'
-        },
-        execution: {
-            keywords: ['חוב', 'חובות', 'עיקול', 'עיקולים', 'הוצאה לפועל', 'הוצלפ', 'גבייה', 'גביה', 'שטר'],
-            text: 'נושא ההוצאה לפועל יכול להיות מורכב. ⚡\n\nבין אם מדובר בגביית חוב או בהתגוננות מפני עיקולים — המשרד יודע לנווט את ההליך ולהגיע לתוצאות.\n\nעו"ד אזולאי מטפל בתיקי הוצאה לפועל באופן שוטף. רוצה לקבוע פגישה?'
-        },
-        insolvency: {
-            keywords: ['חדלות פרעון', 'פשיטת רגל', 'הפטר', 'פרעון', 'חדלות'],
-            text: 'אני מבינה שמצב של חובות יכול להיות מלחיץ מאוד. 🔄\n\nהליך חדלות פרעון יכול לתת לך התחלה חדשה — מחיקת חובות ושיקום כלכלי. המשרד מלווה את ההליך מההתחלה ועד ההפטר.\n\nרוצה לשמוע עוד מעו"ד אזולאי?'
-        },
-        labor: {
-            keywords: ['פיטורין', 'פיטורים', 'פיצויים', 'פיצויי', 'שימוע', 'מעסיק', 'עבודה', 'הפליה', 'הטרדה', 'עובד', 'עובדים'],
-            text: 'זכויות עובדים הן דבר חשוב מאוד. 💼\n\nפוטרת ללא שימוע? לא קיבלת פיצויים? הופלית? המשרד נלחם על הזכויות שלך מול כל מעסיק.\n\nרוצה להתייעץ עם עו"ד אזולאי?'
-        },
-        price: {
-            keywords: ['מחיר', 'עלות', 'כמה עולה', 'תעריף', 'תמחור', 'עולה'],
-            text: 'המחיר תלוי בסוג השירות ובמורכבות המקרה. 💰\n\nפגישת ייעוץ ראשונית היא הדרך הטובה ביותר לקבל הצעה מדויקת ומותאמת. \n\nרוצה לתאם?'
-        },
-        hours: {
-            keywords: ['שעות', 'פתוח', 'סגור', 'פעילות', 'מתי'],
-            text: 'המשרד פתוח: 🕐\nא\'-ה\' 09:00-17:00\nו\' 09:00-13:00\n\nנשמח לראותכם!'
-        },
-        location: {
-            keywords: ['איפה', 'כתובת', 'מיקום', 'הגעה', 'חנייה', 'דימונה'],
-            text: 'המשרד נמצא בשד\' יגאל אלון 209/31, דימונה. 📍\n\nקל להגיע ויש חנייה בשפע. מוזמנים להגיע!'
-        }
-    };
-
-    function getBotResponse(input) {
-        const text = input.toLowerCase();
-        for (const [key, data] of Object.entries(responses)) {
-            for (const kw of data.keywords) {
-                if (text.includes(kw)) return data.text;
-            }
-        }
-        return 'תודה על הפנייה! 🙏\n\nכדי שאוכל לעזור בצורה הטובה ביותר, אפשר לדבר ישירות עם עו"ד אזולאי.\n\nרוצה שנחבר אותך?';
-    }
-
-    function sendMessage() {
+    async function sendMessage() {
         const text = chatInput.value.trim();
-        if (!text) return;
+        if (!text || isSending) return;
+        isSending = true;
+        chatInput.disabled = true;
+
         addUserMessage(text);
         chatInput.value = '';
+        chatHistory.push({ role: 'user', content: text });
         showTyping();
-        setTimeout(() => {
+
+        try {
+            const res = await fetch(EDGE_FUNCTION_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages: chatHistory,
+                    visitor_id: 'v_' + Math.random().toString(36).slice(2, 9)
+                })
+            });
+
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const data = await res.json();
+
             hideTyping();
-            const response = getBotResponse(text);
-            addBotMessage(response, actionBtns);
-        }, 800 + Math.random() * 700);
+            chatHistory.push({ role: 'assistant', content: data.reply });
+            addBotMessage(data.reply, data.quick_actions || []);
+
+            if (data.collect_lead) {
+                setTimeout(addLeadForm, 600);
+            }
+        } catch (err) {
+            console.error('Chat error:', err);
+            hideTyping();
+            addBotMessage(
+                'מצטערת, אירעה תקלה רגעית. ניתן ליצור קשר ישירות עם המשרד:',
+                [
+                    { label: '📞 חייגו עכשיו', action: 'tel:054-6969157' },
+                    { label: '💬 WhatsApp', action: 'https://wa.me/972546969157' }
+                ]
+            );
+        } finally {
+            isSending = false;
+            chatInput.disabled = false;
+            chatInput.focus();
+        }
     }
 
     // ===== LEGAL MODALS =====
