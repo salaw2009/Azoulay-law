@@ -1013,79 +1013,6 @@
     }
     .float-wa:hover { transform: scale(1.1); }
 
-    /* ========== ACCESSIBILITY BUTTON ========== */
-    .access-btn {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 48px;
-        height: 48px;
-        background: var(--navy);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-        color: var(--white);
-        border: 2px solid var(--gold);
-        cursor: pointer;
-        z-index: 950;
-        transition: var(--transition);
-    }
-    .access-btn:hover { background: var(--blue-mid); }
-
-    .access-panel {
-        position: fixed;
-        bottom: 80px;
-        right: 24px;
-        width: 260px;
-        background: var(--white);
-        border-radius: 16px;
-        box-shadow: var(--shadow-lg);
-        padding: 24px;
-        z-index: 960;
-        display: none;
-        border: 1px solid rgba(10,22,40,0.08);
-    }
-    .access-panel.active { display: block; animation: modalIn 0.3s ease; }
-    .access-panel h4 {
-        font-family: 'Rubik', sans-serif;
-        margin-bottom: 16px;
-        color: var(--navy);
-        font-size: 1rem;
-    }
-    .access-option {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 0;
-        border: none;
-        border-bottom: 1px solid #f0f0f0;
-        background: none;
-        width: 100%;
-        font-family: 'Heebo', sans-serif;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: var(--transition);
-        text-align: right;
-        color: var(--navy);
-    }
-    .access-option:hover { color: var(--gold); }
-    .access-reset {
-        margin-top: 12px;
-        padding: 8px;
-        width: 100%;
-        background: var(--cream);
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        cursor: pointer;
-        font-family: 'Heebo', sans-serif;
-        font-weight: 600;
-        font-size: 0.85rem;
-        transition: var(--transition);
-    }
-    .access-reset:hover { background: #eee; }
-
     /* ========== CHATBOT ========== */
     .chat-bubble {
         position: fixed;
@@ -1321,42 +1248,6 @@
         margin-bottom: 8px;
     }
 
-    /* High Contrast Mode */
-    body.high-contrast {
-        background: #000 !important;
-        color: #fff !important;
-    }
-    body.high-contrast * {
-        border-color: #fff !important;
-    }
-    body.high-contrast .header,
-    body.high-contrast .hero,
-    body.high-contrast .testimonials,
-    body.high-contrast .footer { background: #000 !important; }
-    body.high-contrast section { background: #111 !important; }
-    body.high-contrast .practice-card,
-    body.high-contrast .why-card,
-    body.high-contrast .contact-form,
-    body.high-contrast .modal-box,
-    body.high-contrast .legal-box { background: #222 !important; color: #fff !important; }
-    body.high-contrast .practice-card h3,
-    body.high-contrast .why-card h3,
-    body.high-contrast .section-title,
-    body.high-contrast .about-text h3,
-    body.high-contrast .faq-question { color: #fff !important; }
-
-    /* Highlight Links */
-    body.highlight-links a { outline: 2px solid var(--gold) !important; outline-offset: 2px; }
-
-    /* Readable Font */
-    body.readable-font, body.readable-font * { font-family: Arial, Helvetica, sans-serif !important; }
-
-    /* No Animations */
-    body.no-animations *, body.no-animations *::before, body.no-animations *::after {
-        animation: none !important;
-        transition: none !important;
-    }
-
     /* Enhanced :focus-visible styles */
     :focus-visible {
         outline: 3px solid var(--gold) !important;
@@ -1395,107 +1286,12 @@
 
     /* Print */
     @media print {
-        .header, .chat-bubble, .chat-window, .float-wa, .access-btn, .access-panel { display: none !important; }
+        .header, .chat-bubble, .chat-window, .float-wa { display: none !important; }
         .hero { min-height: auto; padding: 40px 24px; }
         body { background: white; }
         section { padding: 30px 24px; break-inside: avoid; }
     }
 
-    /* Accessibility widget */
-    .accessibility-widget {
-      position: fixed;
-      left: 20px;
-      bottom: 24px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .accessibility-toggle {
-      border: none;
-      background: var(--navy);
-      color: var(--gold);
-      border-radius: 999px;
-      padding: 10px 12px;
-      font-weight: 800;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .accessibility-toggle svg {
-      width: 20px;
-      height: 20px;
-      display: block;
-    }
-
-    .accessibility-panel {
-      display: none;
-      width: min(290px, calc(100vw - 40px));
-      border: 1px solid rgba(201,168,76,0.25);
-      border-radius: var(--radius);
-      background: rgba(10,22,40,0.97);
-      box-shadow: var(--shadow-lg);
-      padding: 14px;
-      color: var(--cream);
-    }
-
-    .accessibility-panel.open { display: block; }
-
-    .accessibility-panel h2 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: var(--gold);
-    }
-
-    .accessibility-actions {
-      display: grid;
-      gap: 8px;
-    }
-
-    .accessibility-actions button {
-      width: 100%;
-      text-align: right;
-      background: rgba(201,168,76,0.1);
-      color: var(--cream);
-      border: 1px solid rgba(201,168,76,0.2);
-      border-radius: 10px;
-      padding: 10px 12px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-
-    .accessibility-actions button:hover {
-      background: rgba(201,168,76,0.25);
-      color: var(--gold-light);
-    }
-
-    body.accessibility-high-contrast {
-      filter: contrast(1.5);
-    }
-
-    body.accessibility-underline-links a {
-      text-decoration: underline !important;
-      text-underline-offset: 4px;
-    }
-
-    body.accessibility-readable-font,
-    body.accessibility-readable-font * {
-      font-family: Arial, 'Noto Sans Hebrew', sans-serif !important;
-    }
-
-    @media (max-width: 768px) {
-      .accessibility-widget {
-        bottom: 88px;
-        left: 12px;
-      }
-    }
 </style>
 
 </head>
@@ -1885,18 +1681,6 @@
 <!-- ===== FLOATING BUTTONS ===== -->
 <a href="https://wa.me/972546969157" target="_blank" class="float-wa" aria-label="WhatsApp"><span aria-hidden="true">💬</span></a>
 
-<!-- ===== ACCESSIBILITY ===== -->
-<button class="access-btn" id="accessBtn" aria-label="נגישות" aria-expanded="false" aria-controls="accessPanel"><span aria-hidden="true">♿</span></button>
-<div class="access-panel" id="accessPanel" role="region" aria-label="הגדרות נגישות">
-    <h4><span aria-hidden="true">♿</span> הגדרות נגישות</h4>
-    <button class="access-option" onclick="changeFontSize(1)"><span aria-hidden="true">🔍</span> הגדלת טקסט (A+)</button>
-    <button class="access-option" onclick="changeFontSize(-1)"><span aria-hidden="true">🔎</span> הקטנת טקסט (A-)</button>
-    <button class="access-option" onclick="toggleHighContrast()"><span aria-hidden="true">🌗</span> ניגודיות גבוהה</button>
-    <button class="access-option" onclick="toggleHighlightLinks()"><span aria-hidden="true">🔗</span> הדגשת קישורים</button>
-    <button class="access-option" onclick="toggleReadableFont()"><span aria-hidden="true">🔤</span> פונט קריא</button>
-    <button class="access-option" onclick="toggleAnimations()"><span aria-hidden="true">⏸️</span> עצירת אנימציות</button>
-    <button class="access-reset" onclick="resetAccessibility()"><span aria-hidden="true">↩️</span> איפוס הגדרות</button>
-</div>
 
 <!-- ===== CHATBOT ===== -->
 <button class="chat-bubble" id="chatBubble" onclick="openChat()" aria-label="פתח צ'אט עם רותי"><span aria-hidden="true">💬</span></button>
@@ -1935,25 +1719,6 @@
     </div>
 </div>
 
-<!-- Accessibility Widget -->
-<div class="accessibility-widget" aria-label="כלי נגישות">
-  <button class="accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel" aria-label="תפריט נגישות">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M12 2a2 2 0 110 4 2 2 0 010-4zm7 5h-4.5v2h2.75l-1.5 9h-2v-5h-2v5h-2l-1.5-9H9.5V7H5a1 1 0 100 2h3l1.5 9h5L16 9h3a1 1 0 100-2z" fill="currentColor"/>
-    </svg>
-  </button>
-  <section class="accessibility-panel" id="accessibility-panel" aria-label="תפריט נגישות">
-    <h2>התאמות נגישות</h2>
-    <div class="accessibility-actions">
-      <button type="button" data-action="font-plus">הגדלת טקסט</button>
-      <button type="button" data-action="font-minus">הקטנת טקסט</button>
-      <button type="button" data-action="high-contrast">ניגודיות גבוהה</button>
-      <button type="button" data-action="underline-links">קו תחתי לקישורים</button>
-      <button type="button" data-action="readable-font">פונט קריא</button>
-      <button type="button" data-action="reset">איפוס</button>
-    </div>
-  </section>
-</div>
 
 <script>
     // ===== HEADER SCROLL =====
@@ -2137,35 +1902,6 @@
         setTimeout(() => document.getElementById('formSuccess').classList.remove('active'), 5000);
     }
 
-    // ===== ACCESSIBILITY =====
-    const accessBtn = document.getElementById('accessBtn');
-    const accessPanel = document.getElementById('accessPanel');
-    let fontSize = 16;
-
-    accessBtn.addEventListener('click', () => {
-        const isOpen = accessPanel.classList.toggle('active');
-        accessBtn.setAttribute('aria-expanded', isOpen);
-    });
-    document.addEventListener('click', (e) => {
-        if (!accessPanel.contains(e.target) && e.target !== accessBtn) {
-            accessPanel.classList.remove('active');
-            accessBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    function changeFontSize(delta) {
-        fontSize = Math.max(12, Math.min(24, fontSize + delta));
-        document.documentElement.style.fontSize = fontSize + 'px';
-    }
-    function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
-    function toggleHighlightLinks() { document.body.classList.toggle('highlight-links'); }
-    function toggleReadableFont() { document.body.classList.toggle('readable-font'); }
-    function toggleAnimations() { document.body.classList.toggle('no-animations'); }
-    function resetAccessibility() {
-        fontSize = 16;
-        document.documentElement.style.fontSize = '16px';
-        document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font', 'no-animations');
-    }
 
     // ===== CHATBOT =====
     const chatBubble = document.getElementById('chatBubble');
@@ -2380,80 +2116,447 @@
         }
     });
 
-    // ===== ACCESSIBILITY WIDGET =====
-    const accessibilityToggle = document.querySelector('.accessibility-toggle');
-    const accessibilityPanel = document.getElementById('accessibility-panel');
-    const accessibilityButtons = document.querySelectorAll('[data-action]');
-    let currentScale = 1;
+</script>
 
-    function openAccessibilityPanel() {
-      accessibilityPanel.classList.add('open');
-      accessibilityToggle.setAttribute('aria-expanded', 'true');
-      const firstBtn = accessibilityPanel.querySelector('button');
-      if (firstBtn) firstBtn.focus();
+<!-- ==================== LIOR-AI ACCESSIBILITY WIDGET START ==================== -->
+<style>
+/* Accessibility Widget - lior-ai.com Standard */
+.liorai-a11y-trigger{position:fixed;bottom:24px;left:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4aa,#00b894);border:none;cursor:pointer;z-index:99998;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,170,0.4);transition:transform .3s,box-shadow .3s}
+.liorai-a11y-trigger:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,212,170,0.6)}
+.liorai-a11y-trigger:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.liorai-a11y-trigger svg{width:28px;height:28px;fill:#fff}
+.liorai-a11y-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99999;justify-content:center;align-items:center;padding:16px}
+.liorai-a11y-overlay.open{display:flex}
+.liorai-a11y-panel{background:#1a1a2e;color:#e0e0e0;border-radius:20px;width:100%;max-width:420px;max-height:90vh;overflow-y:auto;padding:28px 24px 20px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.5);font-family:'Segoe UI','Heebo','Assistant',sans-serif;direction:rtl}
+.liorai-a11y-panel::-webkit-scrollbar{width:6px}
+.liorai-a11y-panel::-webkit-scrollbar-track{background:transparent}
+.liorai-a11y-panel::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+.liorai-a11y-close{position:absolute;top:16px;left:16px;background:none;border:none;color:#888;font-size:24px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s}
+.liorai-a11y-close:hover{background:rgba(255,255,255,0.1);color:#fff}
+.liorai-a11y-header{text-align:center;margin-bottom:20px}
+.liorai-a11y-header h2{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+.liorai-a11y-header h2 svg{width:22px;height:22px;fill:#00d4aa}
+.liorai-a11y-header p{font-size:0.78rem;color:#888;line-height:1.5}
+.liorai-a11y-section{margin-bottom:18px}
+.liorai-a11y-section-title{font-size:0.82rem;color:#888;margin-bottom:10px;font-weight:500}
+.liorai-a11y-font-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.liorai-a11y-font-btn{width:44px;height:44px;border-radius:12px;border:1px solid #333;background:#252540;color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.liorai-a11y-font-btn:hover{background:#333;border-color:#00d4aa}
+.liorai-a11y-font-display{flex:1;text-align:center;background:#252540;border:1px solid #333;border-radius:12px;padding:10px;font-size:0.95rem;color:#fff;font-weight:500}
+.liorai-a11y-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.liorai-a11y-btn{background:#252540;border:1px solid #333;border-radius:12px;padding:12px 10px;color:#e0e0e0;font-size:0.85rem;cursor:pointer;text-align:center;transition:background .2s,border-color .2s,color .2s;font-family:inherit}
+.liorai-a11y-btn:hover{background:#333;border-color:#555}
+.liorai-a11y-btn.active{background:rgba(0,212,170,0.15);border-color:#00d4aa;color:#00d4aa}
+.liorai-a11y-btn-full{grid-column:1/-1}
+.liorai-a11y-reset{display:block;width:100%;background:#252540;border:1px solid #444;border-radius:12px;padding:14px;color:#e0e0e0;font-size:0.9rem;cursor:pointer;text-align:center;margin-top:8px;transition:background .2s;font-family:inherit}
+.liorai-a11y-reset:hover{background:#333}
+.liorai-a11y-links{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid #333}
+.liorai-a11y-links a{color:#00d4aa;text-decoration:none;font-size:0.82rem;transition:opacity .2s}
+.liorai-a11y-links a:hover{opacity:0.8;text-decoration:underline}
+.liorai-a11y-credit{text-align:center;margin-top:12px;font-size:0.72rem;color:#555}
+.liorai-a11y-credit a{color:#00d4aa;text-decoration:none}
+
+/* Accessibility state classes */
+body.liorai-high-contrast{filter:contrast(1.5)!important}
+body.liorai-inverted{filter:invert(1) hue-rotate(180deg)!important}
+body.liorai-inverted img,body.liorai-inverted video,body.liorai-inverted svg{filter:invert(1) hue-rotate(180deg)!important}
+body.liorai-grayscale{filter:grayscale(1)!important}
+body.liorai-yellow-on-black{background:#000!important;color:#ff0!important}
+body.liorai-yellow-on-black *{background-color:#000!important;color:#ff0!important;border-color:#ff0!important}
+body.liorai-yellow-on-black img,body.liorai-yellow-on-black video{filter:none!important;background:transparent!important}
+body.liorai-yellow-on-black .liorai-a11y-panel,body.liorai-yellow-on-black .liorai-a11y-panel *{background-color:#1a1a2e!important;color:#e0e0e0!important;border-color:#333!important}
+body.liorai-yellow-on-black .liorai-a11y-btn.active{color:#00d4aa!important;border-color:#00d4aa!important}
+body.liorai-highlight-links a{outline:2px solid #00d4aa!important;outline-offset:2px!important;text-decoration:underline!important}
+body.liorai-highlight-links .liorai-a11y-panel a{outline:none!important}
+body.liorai-big-cursor,body.liorai-big-cursor *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4,auto!important}
+body.liorai-stop-animations *,body.liorai-stop-animations *::before,body.liorai-stop-animations *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+body.liorai-dyslexia-font,body.liorai-dyslexia-font *{font-family:'OpenDyslexic','Comic Sans MS','Arial',sans-serif!important;letter-spacing:0.05em!important;word-spacing:0.15em!important;line-height:1.8!important}
+.liorai-reading-guide{display:none;position:fixed;left:0;right:0;height:12px;background:rgba(0,212,170,0.25);border-top:2px solid #00d4aa;border-bottom:2px solid #00d4aa;pointer-events:none;z-index:99997;transition:top 0.05s linear}
+.liorai-reading-guide.active{display:block}
+
+/* Page overlay styles for statement/privacy/terms */
+.liorai-page-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:100000;justify-content:center;align-items:flex-start;padding:20px;overflow-y:auto}
+.liorai-page-overlay.open{display:flex}
+.liorai-page-box{background:#fff;color:#1a1a2e;border-radius:16px;width:100%;max-width:800px;padding:40px 32px;margin:20px auto;position:relative;font-family:'Segoe UI','Heebo','Assistant',sans-serif;direction:rtl;line-height:1.7}
+.liorai-page-box h1{font-size:1.6rem;margin-bottom:8px;color:#1a1a2e}
+.liorai-page-box h2{font-size:1.2rem;margin-top:24px;margin-bottom:8px;color:#1a1a2e;border-bottom:2px solid #00d4aa;padding-bottom:4px;display:inline-block}
+.liorai-page-box h3{font-size:1rem;margin-top:16px;margin-bottom:6px;color:#333}
+.liorai-page-box p,.liorai-page-box li{font-size:0.92rem;color:#444;margin-bottom:6px}
+.liorai-page-box ul{padding-right:20px;margin-bottom:12px}
+.liorai-page-box table{width:100%;border-collapse:collapse;margin:12px 0}
+.liorai-page-box th,.liorai-page-box td{border:1px solid #ddd;padding:8px 12px;text-align:right;font-size:0.88rem}
+.liorai-page-box th{background:#f5f5f5;font-weight:600}
+.liorai-page-close{position:sticky;top:0;float:left;background:#f0f0f0;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .2s}
+.liorai-page-close:hover{background:#ddd}
+</style>
+
+<!-- Accessibility Trigger Button -->
+<button class="liorai-a11y-trigger" id="lioraiA11yTrigger" aria-label="פתח תפריט נגישות" title="נגישות">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm-1 6h2c2.21 0 4.5.5 6 1.5l-.9 1.8C16.8 10.5 14.8 10 13 10h-2c-1.8 0-3.8.5-5.1 1.3L5 9.5C6.5 8.5 8.79 8 11 8zm1 4c.55 0 1 .45 1 1v2.5l2.5 4-.86.5L13 16l-2.64 4-.86-.5 2.5-4V13c0-.55.45-1 1-1z"/></svg>
+</button>
+
+<!-- Reading Guide -->
+<div class="liorai-reading-guide" id="lioraiReadingGuide"></div>
+
+<!-- Accessibility Panel Overlay -->
+<div class="liorai-a11y-overlay" id="lioraiA11yOverlay" role="dialog" aria-modal="true" aria-label="אפשרויות נגישות">
+  <div class="liorai-a11y-panel">
+    <button class="liorai-a11y-close" id="lioraiA11yClose" aria-label="סגור תפריט נגישות">&times;</button>
+    <div class="liorai-a11y-header">
+      <h2><svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm-1 6h2c2.21 0 4.5.5 6 1.5l-.9 1.8C16.8 10.5 14.8 10 13 10h-2c-1.8 0-3.8.5-5.1 1.3L5 9.5C6.5 8.5 8.79 8 11 8zm1 4c.55 0 1 .45 1 1v2.5l2.5 4-.86.5L13 16l-2.64 4-.86-.5 2.5-4V13c0-.55.45-1 1-1z"/></svg> נגישות</h2>
+      <p>הגדרות נשמרות אוטומטית</p>
+      <p>תקן WCAG 2.1 AA · IS 5568</p>
+    </div>
+
+    <!-- Text Size -->
+    <div class="liorai-a11y-section">
+      <div class="liorai-a11y-section-title">גודל טקסט</div>
+      <div class="liorai-a11y-font-row">
+        <button class="liorai-a11y-font-btn" data-a11y="font-up" aria-label="הגדל טקסט">+</button>
+        <div class="liorai-a11y-font-display" id="lioraiFontDisplay">רגיל</div>
+        <button class="liorai-a11y-font-btn" data-a11y="font-down" aria-label="הקטן טקסט">−</button>
+      </div>
+    </div>
+
+    <!-- Contrast -->
+    <div class="liorai-a11y-section">
+      <div class="liorai-a11y-section-title">ניגודיות</div>
+      <div class="liorai-a11y-grid">
+        <button class="liorai-a11y-btn" data-a11y="high-contrast">ניגודיות גבוהה</button>
+        <button class="liorai-a11y-btn" data-a11y="inverted">צבעים הפוכים</button>
+        <button class="liorai-a11y-btn" data-a11y="grayscale">גוני אפור</button>
+        <button class="liorai-a11y-btn" data-a11y="yellow-on-black">צהוב על שחור</button>
+      </div>
+    </div>
+
+    <!-- Display & Comfort -->
+    <div class="liorai-a11y-section">
+      <div class="liorai-a11y-section-title">תצוגה ונוחות</div>
+      <div class="liorai-a11y-grid">
+        <button class="liorai-a11y-btn" data-a11y="highlight-links">הדגש קישורים</button>
+        <button class="liorai-a11y-btn" data-a11y="big-cursor">סמן מוגדל</button>
+        <button class="liorai-a11y-btn" data-a11y="stop-animations">עצור אנימציות</button>
+        <button class="liorai-a11y-btn" data-a11y="dyslexia-font">גופן דיסלקציה</button>
+        <button class="liorai-a11y-btn liorai-a11y-btn-full" data-a11y="reading-guide">מדריך קריאה</button>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <button class="liorai-a11y-reset" data-a11y="reset">♻ אפס את כל הגדרות הנגישות</button>
+
+    <!-- Links -->
+    <div class="liorai-a11y-links">
+      <a href="#" id="lioraiA11yStatementLink">הצהרת נגישות מלאה ←</a>
+    </div>
+
+    <!-- Credit -->
+    <div class="liorai-a11y-credit">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener">LIOR_AI</a></div>
+  </div>
+</div>
+
+<!-- Accessibility Statement Page -->
+<div class="liorai-page-overlay" id="lioraiStatementPage">
+  <div class="liorai-page-box">
+    <button class="liorai-page-close" onclick="document.getElementById('lioraiStatementPage').classList.remove('open')" aria-label="סגור">&times;</button>
+    <h1>♿ הצהרת נגישות</h1>
+    <p><strong>עודכן לאחרונה:</strong> מרץ 2026 | <strong>תקן:</strong> IS 5568 · WCAG 2.1 Level AA</p>
+    <p>בסיס משפטי: חוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח-1998</p>
+
+    <h2>1. מחויבות לנגישות</h2>
+    <p>אתר זה מחויב לנגישות דיגיטלית בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ולתקנות הנגישות. האתר שואף לעמוד בתקן IS 5568 (המבוסס על WCAG 2.1, רמה AA) ומשפר את הנגישות באופן מתמשך.</p>
+
+    <h2>2. תכונות וידג׳ט הנגישות</h2>
+    <p>באמצעות לחצן הנגישות ♿ ניתן:</p>
+    <ul>
+      <li>שינוי גודל טקסט (80%-200%)</li>
+      <li>מצב ניגודיות גבוהה</li>
+      <li>צבעים הפוכים</li>
+      <li>פלטת צהוב על שחור</li>
+      <li>מצב גוני אפור</li>
+      <li>הדגשת קישורים</li>
+      <li>סמן מוגדל</li>
+      <li>עצירת אנימציות</li>
+      <li>גופן ידידותי לדיסלקציה</li>
+      <li>מדריך קריאה</li>
+      <li>איפוס כל ההגדרות</li>
+      <li>שמירה אוטומטית של הגדרות</li>
+    </ul>
+
+    <h2>3. אמצעי נגישות טכניים</h2>
+    <table>
+      <tr><th>תכונה</th><th>סטטוס</th></tr>
+      <tr><td>תגי שפה ב-HTML</td><td>✅ מיושם</td></tr>
+      <tr><td>קישור דלג לתוכן</td><td>✅ מיושם</td></tr>
+      <tr><td>היררכיית כותרות</td><td>✅ מיושם</td></tr>
+      <tr><td>תגי ARIA</td><td>✅ מיושם</td></tr>
+      <tr><td>טקסט חלופי לתמונות</td><td>✅ מיושם</td></tr>
+      <tr><td>ניווט מקלדת</td><td>✅ מיושם</td></tr>
+      <tr><td>מחווני פוקוס נראים</td><td>✅ מיושם</td></tr>
+      <tr><td>יחסי ניגודיות צבע</td><td>✅ מיושם</td></tr>
+      <tr><td>תגי Landmark</td><td>✅ מיושם</td></tr>
+      <tr><td>טפסים נגישים</td><td>✅ מיושם</td></tr>
+      <tr><td>עיצוב רספונסיבי</td><td>✅ מיושם</td></tr>
+      <tr><td>תמיכת prefers-contrast</td><td>⚠️ חלקי</td></tr>
+      <tr><td>תמיכת reduced-motion</td><td>✅ מיושם</td></tr>
+      <tr><td>כתוביות אודיו/וידאו</td><td>— לא רלוונטי</td></tr>
+      <tr><td>כותרות iframe</td><td>✅ מיושם</td></tr>
+    </table>
+
+    <h2>4. בדיקות שבוצעו</h2>
+    <ul>
+      <li>ניווט מקלדת מלא (Chrome, Firefox, Safari)</li>
+      <li>ניתוח ניגודיות צבעים</li>
+      <li>בדיקת קורא מסך (NVDA, VoiceOver)</li>
+      <li>בדיקת זום 200%</li>
+      <li>בדיקה רספונסיבית (320px–2560px)</li>
+      <li>וולידציה אוטומטית (WAVE, axe DevTools)</li>
+      <li>תאריך בדיקה אחרון: מרץ 2026</li>
+    </ul>
+
+    <h2>5. דיווח על בעיות נגישות</h2>
+    <p>נתקלתם בבעיית נגישות? ניתן לפנות אלינו באמצעות פרטי הקשר באתר. אם לא קיבלתם מענה תוך 14 ימי עסקים, ניתן לפנות לנציב שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים.</p>
+
+    <h2>6. בסיס משפטי</h2>
+    <ul>
+      <li>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח-1998</li>
+      <li>תקנות הנגישות (התאמות נגישות לשירות), התשע״ג-2013</li>
+      <li>תקן ישראלי IS 5568:2023</li>
+      <li>הנחיות WCAG 2.1 רמה AA (W3C)</li>
+    </ul>
+
+    <p style="margin-top:20px;color:#888;font-size:0.82rem;">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener" style="color:#00d4aa">LIOR_AI</a></p>
+  </div>
+</div>
+
+<!-- Privacy Policy Page -->
+<div class="liorai-page-overlay" id="lioraiPrivacyPage">
+  <div class="liorai-page-box">
+    <button class="liorai-page-close" onclick="document.getElementById('lioraiPrivacyPage').classList.remove('open')" aria-label="סגור">&times;</button>
+    <h1>🔒 מדיניות פרטיות</h1>
+    <p><strong>תאריך תוקף:</strong> מרץ 2026 | בהתאם לחוק הגנת הפרטיות, התשמ״א-1981</p>
+
+    <h2>1. מטרת המדיניות</h2>
+    <p>מדיניות זו מפרטת כיצד אנו אוספים, משתמשים, מאחסנים ומגנים על מידע אישי המסופק במהלך השימוש באתר ובשירותיו.</p>
+
+    <h2>2. סוגי מידע נאסף</h2>
+    <h3>מידע ישיר:</h3>
+    <ul>
+      <li>פרטי זיהוי (שם, שם עסק)</li>
+      <li>פרטי קשר (טלפון, אימייל)</li>
+      <li>תוכן פניות (הודעות צ׳אט, טפסי יצירת קשר)</li>
+    </ul>
+    <h3>מידע נאסף אוטומטית:</h3>
+    <ul>
+      <li>נתונים טכניים (כתובת IP, סוג דפדפן, מערכת הפעלה)</li>
+      <li>נתוני שימוש (דפים שנצפו, משך ביקור)</li>
+      <li>העדפות LocalStorage (הגדרות נגישות)</li>
+    </ul>
+    <p><strong>לא נאסף:</strong> כרטיסי אשראי, סיסמאות, מידע ביומטרי, מידע רפואי.</p>
+
+    <h2>3. מטרות עיבוד</h2>
+    <ul>
+      <li>הצעות שירות מותאמות אישית</li>
+      <li>מענה לפניות</li>
+      <li>שיפור השירות</li>
+      <li>עמידה בדרישות חוק</li>
+    </ul>
+
+    <h2>4. שיתוף מידע</h2>
+    <p>המידע לא יועבר, יימכר או יושכר לצדדים שלישיים למטרות שיווק. ספקי שירות חיצוניים:</p>
+    <ul>
+      <li>GitHub Pages (אירוח אתר)</li>
+      <li>Google Fonts (טיפוגרפיה)</li>
+    </ul>
+
+    <h2>5. תקופות שמירת מידע</h2>
+    <ul>
+      <li>פרטי קשר: 3 שנים</li>
+      <li>הגדרות נגישות: ללא הגבלה (בדפדפן בלבד)</li>
+      <li>נתוני שימוש טכניים: 90 ימים</li>
+    </ul>
+
+    <h2>6. עוגיות ומעקב</h2>
+    <p>האתר משתמש ב-LocalStorage בלבד (לא בעוגיות) לשמירת העדפות נגישות. אין מעקב שיווקי כברירת מחדל.</p>
+
+    <h2>7. אבטחת מידע</h2>
+    <ul>
+      <li>הצפנת HTTPS/TLS</li>
+      <li>בקרות גישה</li>
+      <li>עדכוני אבטחה שוטפים</li>
+    </ul>
+
+    <h2>8. זכויות המשתמש</h2>
+    <ul>
+      <li>גישה למידע שנשמר</li>
+      <li>תיקון מידע שגוי</li>
+      <li>בקשת מחיקה</li>
+      <li>ביטול הסכמה לפנייה ישירה</li>
+      <li>ניידות מידע</li>
+    </ul>
+    <p>זמן מענה: עד 30 ימי עסקים. תלונות ניתן להפנות לרשות להגנת הפרטיות (ILPA).</p>
+
+    <h2>9. קטינים</h2>
+    <p>האתר אינו מיועד לקטינים מתחת לגיל 18; אין איסוף מידע מכוון מילדים.</p>
+
+    <p style="margin-top:20px;color:#888;font-size:0.82rem;">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener" style="color:#00d4aa">LIOR_AI</a></p>
+  </div>
+</div>
+
+<!-- Terms Page -->
+<div class="liorai-page-overlay" id="lioraiTermsPage">
+  <div class="liorai-page-box">
+    <button class="liorai-page-close" onclick="document.getElementById('lioraiTermsPage').classList.remove('open')" aria-label="סגור">&times;</button>
+    <h1>📋 תקנון האתר</h1>
+    <p><strong>עודכן:</strong> מרץ 2026</p>
+
+    <h2>1. מטרת האתר</h2>
+    <p>האתר מציג שירותים מקצועיים ומשמש כאמצעי ליצירת קשר ולקבלת מידע.</p>
+
+    <h2>2. שימוש מותר</h2>
+    <p>על המשתמשים להימנע מפעילויות בלתי חוקיות, מזיקות או מטעות. אסור לשבש פעילות האתר, לבצע סריקות זדוניות, לגשת ללא הרשאה או לשכפל תוכן ללא הסכמה בכתב.</p>
+
+    <h2>3. קניין רוחני</h2>
+    <p>כל הזכויות בתכנים, עיצוב, טקסטים, קוד, תמונות, לוגואים ומבנה האתר שמורות לבעל האתר ולבעלי הזכויות הרלוונטיים. שימוש מסחרי מחייב אישור מפורש.</p>
+
+    <h2>4. הגבלת אחריות</h2>
+    <p>המידע מוצג "כמות שהוא" למטרות מידע כללי ושיווק. אין ערובה לתוצאות עסקיות ספציפיות.</p>
+
+    <h2>5. פרטיות</h2>
+    <p>המשתמש מאשר עיבוד מידע באמצעות הגשת טפסי יצירת קשר, בהתאם לחוקי הגנת הפרטיות בישראל ולמדיניות הפרטיות של האתר.</p>
+
+    <h2>6. נגישות</h2>
+    <p>האתר מפעיל תכונות נגישות בהתאם לתקן ישראלי 5568 ו-WCAG 2.1 AA.</p>
+
+    <h2>7. קישורים חיצוניים</h2>
+    <p>בעל האתר אינו נושא באחריות לתוכן של צדדים שלישיים או אתרים חיצוניים.</p>
+
+    <h2>8. עדכונים ושינויים</h2>
+    <p>התנאים עשויים להתעדכן; המשך שימוש באתר מהווה הסכמה לשינויים. הדין הישראלי חל באופן בלעדי.</p>
+
+    <h2>9. יצירת קשר</h2>
+    <p>לשאלות בנוגע לתקנון, ניתן ליצור קשר באמצעות פרטי הקשר המופיעים באתר.</p>
+
+    <p style="margin-top:20px;color:#888;font-size:0.82rem;">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener" style="color:#00d4aa">LIOR_AI</a></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const STORAGE_KEY='liorai-a11y-settings';
+  const states={fontSize:100,highContrast:false,inverted:false,grayscale:false,yellowOnBlack:false,highlightLinks:false,bigCursor:false,stopAnimations:false,dyslexiaFont:false,readingGuide:false};
+  const classMap={'highContrast':'liorai-high-contrast','inverted':'liorai-inverted','grayscale':'liorai-grayscale','yellowOnBlack':'liorai-yellow-on-black','highlightLinks':'liorai-highlight-links','bigCursor':'liorai-big-cursor','stopAnimations':'liorai-stop-animations','dyslexiaFont':'liorai-dyslexia-font'};
+  const actionMap={'high-contrast':'highContrast','inverted':'inverted','grayscale':'grayscale','yellow-on-black':'yellowOnBlack','highlight-links':'highlightLinks','big-cursor':'bigCursor','stop-animations':'stopAnimations','dyslexia-font':'dyslexiaFont','reading-guide':'readingGuide'};
+
+  // Load saved settings
+  try{const s=localStorage.getItem(STORAGE_KEY);if(s){const saved=JSON.parse(s);Object.assign(states,saved);}}catch(e){}
+
+  function applyAll(){
+    // Font size
+    document.documentElement.style.fontSize=states.fontSize+'%';
+    const fd=document.getElementById('lioraiFontDisplay');
+    if(fd)fd.textContent=states.fontSize===100?'רגיל':states.fontSize+'%';
+
+    // Toggle classes
+    for(const[key,cls]of Object.entries(classMap)){
+      document.body.classList.toggle(cls,!!states[key]);
     }
 
-    function closeAccessibilityPanel() {
-      accessibilityPanel.classList.remove('open');
-      accessibilityToggle.setAttribute('aria-expanded', 'false');
-      accessibilityToggle.focus();
-    }
+    // Reading guide
+    const rg=document.getElementById('lioraiReadingGuide');
+    if(rg)rg.classList.toggle('active',!!states.readingGuide);
 
-    accessibilityToggle.addEventListener('click', () => {
-      const isOpen = accessibilityPanel.classList.contains('open');
-      if (isOpen) closeAccessibilityPanel();
-      else openAccessibilityPanel();
+    // Update button states
+    document.querySelectorAll('.liorai-a11y-btn[data-a11y]').forEach(btn=>{
+      const action=btn.getAttribute('data-a11y');
+      const stateKey=actionMap[action];
+      if(stateKey)btn.classList.toggle('active',!!states[stateKey]);
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && accessibilityPanel.classList.contains('open')) {
-        closeAccessibilityPanel();
+    // Mutually exclusive contrast modes
+    save();
+  }
+
+  function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(states));}catch(e){}}
+
+  function resetAll(){
+    states.fontSize=100;
+    for(const k of Object.keys(classMap))states[k]=false;
+    states.readingGuide=false;
+    applyAll();
+  }
+
+  function toggleContrast(key){
+    const contrastKeys=['highContrast','inverted','grayscale','yellowOnBlack'];
+    if(!states[key]){contrastKeys.forEach(k=>{if(k!==key)states[k]=false;});}
+    states[key]=!states[key];
+    applyAll();
+  }
+
+  // Apply on load
+  document.addEventListener('DOMContentLoaded',function(){
+    applyAll();
+
+    const trigger=document.getElementById('lioraiA11yTrigger');
+    const overlay=document.getElementById('lioraiA11yOverlay');
+    const closeBtn=document.getElementById('lioraiA11yClose');
+    const readingGuide=document.getElementById('lioraiReadingGuide');
+
+    if(trigger)trigger.addEventListener('click',function(){overlay.classList.add('open');});
+    if(closeBtn)closeBtn.addEventListener('click',function(){overlay.classList.remove('open');});
+    if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('open');});
+
+    // ESC key
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){
+        overlay.classList.remove('open');
+        document.getElementById('lioraiStatementPage').classList.remove('open');
+        document.getElementById('lioraiPrivacyPage').classList.remove('open');
+        document.getElementById('lioraiTermsPage').classList.remove('open');
       }
     });
 
-    accessibilityPanel.addEventListener('keydown', (e) => {
-      if (e.key !== 'Tab') return;
-      const focusable = accessibilityPanel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      if (focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey) {
-        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-      } else {
-        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (accessibilityPanel.classList.contains('open') &&
-          !accessibilityPanel.contains(e.target) &&
-          !accessibilityToggle.contains(e.target)) {
-        closeAccessibilityPanel();
-      }
-    });
-
-    const setFontScale = () => {
-      document.documentElement.style.fontSize = `${(currentScale * 100).toFixed(0)}%`;
-    };
-
-    const resetAccessibility = () => {
-      document.body.classList.remove('accessibility-high-contrast', 'accessibility-underline-links', 'accessibility-readable-font');
-      currentScale = 1;
-      setFontScale();
-    };
-
-    accessibilityButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const action = button.dataset.action;
-        if (action === 'font-plus') { currentScale = Math.min(1.3, currentScale + 0.1); setFontScale(); return; }
-        if (action === 'font-minus') { currentScale = Math.max(0.9, currentScale - 0.1); setFontScale(); return; }
-        if (action === 'high-contrast') { document.body.classList.toggle('accessibility-high-contrast'); return; }
-        if (action === 'underline-links') { document.body.classList.toggle('accessibility-underline-links'); return; }
-        if (action === 'readable-font') { document.body.classList.toggle('accessibility-readable-font'); return; }
-        if (action === 'reset') { resetAccessibility(); }
+    // Action buttons
+    document.querySelectorAll('[data-a11y]').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        const action=this.getAttribute('data-a11y');
+        if(action==='font-up'){states.fontSize=Math.min(200,states.fontSize+10);applyAll();}
+        else if(action==='font-down'){states.fontSize=Math.max(80,states.fontSize-10);applyAll();}
+        else if(action==='reset'){resetAll();}
+        else if(action==='reading-guide'){states.readingGuide=!states.readingGuide;applyAll();}
+        else{
+          const stateKey=actionMap[action];
+          if(stateKey){
+            const contrastKeys=['highContrast','inverted','grayscale','yellowOnBlack'];
+            if(contrastKeys.includes(stateKey)){toggleContrast(stateKey);}
+            else{states[stateKey]=!states[stateKey];applyAll();}
+          }
+        }
       });
     });
+
+    // Reading guide mouse tracking
+    document.addEventListener('mousemove',function(e){
+      if(states.readingGuide&&readingGuide){readingGuide.style.top=(e.clientY-6)+'px';}
+    });
+
+    // Statement link
+    const stLink=document.getElementById('lioraiA11yStatementLink');
+    if(stLink)stLink.addEventListener('click',function(e){
+      e.preventDefault();
+      overlay.classList.remove('open');
+      document.getElementById('lioraiStatementPage').classList.add('open');
+    });
+
+    // Close page overlays on outside click
+    ['lioraiStatementPage','lioraiPrivacyPage','lioraiTermsPage'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el)el.addEventListener('click',function(e){if(e.target===el)el.classList.remove('open');});
+    });
+  });
+})();
 </script>
+<!-- ==================== LIOR-AI ACCESSIBILITY WIDGET END ==================== -->
 
 </body>
 </html>
