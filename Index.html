@@ -560,7 +560,7 @@
         margin-bottom: 14px;
         display: block;
     }
-    .practice-card h4 {
+    .practice-card h3 {
         font-family: 'Rubik', sans-serif;
         font-size: 1.05rem;
         font-weight: 600;
@@ -691,7 +691,7 @@
         margin-bottom: 12px;
         display: block;
     }
-    .why-card h4 {
+    .why-card h3 {
         font-family: 'Rubik', sans-serif;
         font-size: 0.95rem;
         font-weight: 600;
@@ -1059,10 +1059,16 @@
         align-items: center;
         justify-content: space-between;
         padding: 10px 0;
+        border: none;
         border-bottom: 1px solid #f0f0f0;
+        background: none;
+        width: 100%;
+        font-family: 'Heebo', sans-serif;
         font-size: 0.85rem;
         cursor: pointer;
         transition: var(--transition);
+        text-align: right;
+        color: var(--navy);
     }
     .access-option:hover { color: var(--gold); }
     .access-reset {
@@ -1089,6 +1095,7 @@
         height: 60px;
         background: linear-gradient(135deg, var(--gold), #d4b55a);
         border-radius: 50%;
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1332,8 +1339,8 @@
     body.high-contrast .contact-form,
     body.high-contrast .modal-box,
     body.high-contrast .legal-box { background: #222 !important; color: #fff !important; }
-    body.high-contrast .practice-card h4,
-    body.high-contrast .why-card h4,
+    body.high-contrast .practice-card h3,
+    body.high-contrast .why-card h3,
     body.high-contrast .section-title,
     body.high-contrast .about-text h3,
     body.high-contrast .faq-question { color: #fff !important; }
@@ -1393,6 +1400,102 @@
         body { background: white; }
         section { padding: 30px 24px; break-inside: avoid; }
     }
+
+    /* Accessibility widget */
+    .accessibility-widget {
+      position: fixed;
+      left: 20px;
+      bottom: 24px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .accessibility-toggle {
+      border: none;
+      background: var(--navy);
+      color: var(--gold);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .accessibility-toggle svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .accessibility-panel {
+      display: none;
+      width: min(290px, calc(100vw - 40px));
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius);
+      background: rgba(10,22,40,0.97);
+      box-shadow: var(--shadow-lg);
+      padding: 14px;
+      color: var(--cream);
+    }
+
+    .accessibility-panel.open { display: block; }
+
+    .accessibility-panel h2 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+
+    .accessibility-actions {
+      display: grid;
+      gap: 8px;
+    }
+
+    .accessibility-actions button {
+      width: 100%;
+      text-align: right;
+      background: rgba(201,168,76,0.1);
+      color: var(--cream);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    .accessibility-actions button:hover {
+      background: rgba(201,168,76,0.25);
+      color: var(--gold-light);
+    }
+
+    body.accessibility-high-contrast {
+      filter: contrast(1.5);
+    }
+
+    body.accessibility-underline-links a {
+      text-decoration: underline !important;
+      text-underline-offset: 4px;
+    }
+
+    body.accessibility-readable-font,
+    body.accessibility-readable-font * {
+      font-family: Arial, 'Noto Sans Hebrew', sans-serif !important;
+    }
+
+    @media (max-width: 768px) {
+      .accessibility-widget {
+        bottom: 88px;
+        left: 12px;
+      }
+    }
 </style>
 
 </head>
@@ -1410,7 +1513,7 @@
                 <span class="logo-sub">עורכי דין וגישור</span>
             </div>
         </a>
-        <nav class="nav">
+        <nav class="nav" aria-label="ניווט ראשי">
             <a href="#about">אודות</a>
             <a href="#practice">תחומי עיסוק</a>
             <a href="#why-us">למה אנחנו</a>
@@ -1424,14 +1527,14 @@
     </div>
 </header>
 
-<div class="mobile-nav" id="mobileNav">
+<nav class="mobile-nav" id="mobileNav" aria-label="תפריט נייד">
     <a href="#about">אודות</a>
     <a href="#practice">תחומי עיסוק</a>
     <a href="#why-us">למה אנחנו</a>
     <a href="#testimonials">המלצות</a>
     <a href="#faq">שאלות נפוצות</a>
     <a href="#contact">צור קשר</a>
-</div>
+</nav>
 
 <main id="main-content">
 
@@ -1470,7 +1573,7 @@
 <section class="about" id="about">
     <div class="container">
         <h2 class="section-title fade-in">אודות המשרד</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <div class="about-grid">
             <div class="about-text fade-in">
                 <h3>עו"ד שמעון אזולאי — ניסיון, מקצועיות, ליווי אישי</h3>
@@ -1494,37 +1597,37 @@
 <section class="practice" id="practice">
     <div class="container">
         <h2 class="section-title fade-in">תחומי התמחות</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">בחרו נושא כדי ללמוד עוד</p>
         <div class="practice-cards">
             <div class="practice-card main-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(0);}">
                 <span class="practice-badge">התמחות עיקרית <span aria-hidden="true">⭐</span></span>
                 <span class="practice-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
-                <h4>דיני משפחה</h4>
+                <h3>דיני משפחה</h3>
                 <p>גירושין, מזונות, משמורת, צוואות</p>
                 <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
             <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(1);}">
                 <span class="practice-icon" aria-hidden="true">📝</span>
-                <h4>חוזים</h4>
+                <h3>חוזים</h3>
                 <p>ניסוח, בדיקה וייעוץ משפטי</p>
                 <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
             <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(2);}">
                 <span class="practice-icon" aria-hidden="true">⚡</span>
-                <h4>הוצאה לפועל</h4>
+                <h3>הוצאה לפועל</h3>
                 <p>גביית חובות, עיקולים, הסדרים</p>
                 <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
             <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(3);}">
                 <span class="practice-icon" aria-hidden="true">🔄</span>
-                <h4>חדלות פרעון</h4>
+                <h3>חדלות פרעון</h3>
                 <p>שיקום כלכלי והתחלה חדשה</p>
                 <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
             <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(4);}">
                 <span class="practice-icon" aria-hidden="true">💼</span>
-                <h4>דיני עבודה</h4>
+                <h3>דיני עבודה</h3>
                 <p>פיצויים, זכויות, הפליה</p>
                 <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
@@ -1551,37 +1654,37 @@
 <section class="why-us" id="why-us">
     <div class="container">
         <h2 class="section-title fade-in">למה לבחור בנו?</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">הסיבות שלקוחותינו חוזרים שוב ושוב</p>
         <div class="why-grid">
             <div class="why-card fade-in">
                 <span class="why-icon" aria-hidden="true">🏆</span>
-                <h4>ניסיון של שנים</h4>
+                <h3>ניסיון של שנים</h3>
                 <p>ידע מעשי שנצבר ממאות תיקים בתחומים מגוונים</p>
             </div>
             <div class="why-card fade-in">
                 <span class="why-icon" aria-hidden="true">🤝</span>
-                <h4>ליווי אישי</h4>
+                <h3>ליווי אישי</h3>
                 <p>לא מספר תיק, אתה אדם. אנחנו מקשיבים ומלווים</p>
             </div>
             <div class="why-card fade-in">
                 <span class="why-icon" aria-hidden="true">💰</span>
-                <h4>מחירים הוגנים</h4>
+                <h3>מחירים הוגנים</h3>
                 <p>שקיפות מלאה, בלי הפתעות בחשבונית</p>
             </div>
             <div class="why-card fade-in">
                 <span class="why-icon" aria-hidden="true">📱</span>
-                <h4>זמינות גבוהה</h4>
+                <h3>זמינות גבוהה</h3>
                 <p>גם בוואטסאפ, גם בטלפון — תמיד כאן בשבילך</p>
             </div>
             <div class="why-card fade-in">
                 <span class="why-icon" aria-hidden="true">⚖️</span>
-                <h4>גישור</h4>
+                <h3>גישור</h3>
                 <p>חיסכון משמעותי בזמן ובעלויות עם פתרון מוסכם</p>
             </div>
             <div class="why-card fade-in">
                 <span class="why-icon" aria-hidden="true">🤖</span>
-                <h4>טכנולוגיה</h4>
+                <h3>טכנולוגיה</h3>
                 <p>סוכנת AI שזמינה 24/7 למענה ראשוני</p>
             </div>
         </div>
@@ -1592,7 +1695,7 @@
 <section class="testimonials" id="testimonials">
     <div class="container">
         <h2 class="section-title fade-in">מה לקוחותינו אומרים</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">הסיפורים שלהם מדברים בעד עצמם</p>
         <div class="testimonial-slider" id="testimonialSlider">
             <div class="testimonial-track" id="testimonialTrack">
@@ -1634,7 +1737,7 @@
 <section class="faq" id="faq">
     <div class="container">
         <h2 class="section-title fade-in">שאלות נפוצות</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">תשובות לשאלות שלקוחותינו שואלים הכי הרבה</p>
         <div class="faq-list">
             <div class="faq-item fade-in">
@@ -1669,7 +1772,7 @@
 <section class="contact" id="contact">
     <div class="container">
         <h2 class="section-title fade-in">צור קשר</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">נשמח לשמוע מכם ולעזור בכל שאלה</p>
         <div class="contact-grid">
             <div class="contact-form fade-in">
@@ -1832,6 +1935,26 @@
     </div>
 </div>
 
+<!-- Accessibility Widget -->
+<div class="accessibility-widget" aria-label="כלי נגישות">
+  <button class="accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel" aria-label="תפריט נגישות">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2a2 2 0 110 4 2 2 0 010-4zm7 5h-4.5v2h2.75l-1.5 9h-2v-5h-2v5h-2l-1.5-9H9.5V7H5a1 1 0 100 2h3l1.5 9h5L16 9h3a1 1 0 100-2z" fill="currentColor"/>
+    </svg>
+  </button>
+  <section class="accessibility-panel" id="accessibility-panel" aria-label="תפריט נגישות">
+    <h2>התאמות נגישות</h2>
+    <div class="accessibility-actions">
+      <button type="button" data-action="font-plus">הגדלת טקסט</button>
+      <button type="button" data-action="font-minus">הקטנת טקסט</button>
+      <button type="button" data-action="high-contrast">ניגודיות גבוהה</button>
+      <button type="button" data-action="underline-links">קו תחתי לקישורים</button>
+      <button type="button" data-action="readable-font">פונט קריא</button>
+      <button type="button" data-action="reset">איפוס</button>
+    </div>
+  </section>
+</div>
+
 <script>
     // ===== HEADER SCROLL =====
     const header = document.getElementById('header');
@@ -1970,6 +2093,7 @@
     items.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'המלצה ' + (i + 1) + ' מתוך ' + items.length);
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
     });
@@ -2068,7 +2192,20 @@
     function closeChat() {
         chatWindow.classList.remove('active');
         chatBubble.classList.remove('hidden');
+        chatBubble.focus();
     }
+
+    // Focus trap for chat window
+    chatWindow.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        if (!chatWindow.classList.contains('active')) return;
+        const focusable = chatWindow.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
 
     function showTyping() { typingIndicator.classList.add('active'); scrollChat(); }
     function hideTyping() { typingIndicator.classList.remove('active'); }
@@ -2201,19 +2338,37 @@
         }
     };
 
+    let legalModalTrigger = null;
     function openLegalModal(type) {
+        legalModalTrigger = document.activeElement;
         const d = legalData[type];
         document.getElementById('legalTitle').textContent = d.title;
         document.getElementById('legalContent').innerHTML = d.content;
-        document.getElementById('legalModal').classList.add('active');
+        const modal = document.getElementById('legalModal');
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
     }
     function closeLegalModal() {
         document.getElementById('legalModal').classList.remove('active');
         document.body.style.overflow = '';
+        if (legalModalTrigger) { legalModalTrigger.focus(); legalModalTrigger = null; }
     }
     document.getElementById('legalModal').addEventListener('click', (e) => {
         if (e.target === e.currentTarget) closeLegalModal();
+    });
+    // Focus trap for legal modal
+    document.getElementById('legalModal').addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const modal = document.getElementById('legalModal');
+        if (!modal.classList.contains('active')) return;
+        const focusable = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
     // Close modals on Escape
@@ -2223,6 +2378,80 @@
             closeLegalModal();
             closeChat();
         }
+    });
+
+    // ===== ACCESSIBILITY WIDGET =====
+    const accessibilityToggle = document.querySelector('.accessibility-toggle');
+    const accessibilityPanel = document.getElementById('accessibility-panel');
+    const accessibilityButtons = document.querySelectorAll('[data-action]');
+    let currentScale = 1;
+
+    function openAccessibilityPanel() {
+      accessibilityPanel.classList.add('open');
+      accessibilityToggle.setAttribute('aria-expanded', 'true');
+      const firstBtn = accessibilityPanel.querySelector('button');
+      if (firstBtn) firstBtn.focus();
+    }
+
+    function closeAccessibilityPanel() {
+      accessibilityPanel.classList.remove('open');
+      accessibilityToggle.setAttribute('aria-expanded', 'false');
+      accessibilityToggle.focus();
+    }
+
+    accessibilityToggle.addEventListener('click', () => {
+      const isOpen = accessibilityPanel.classList.contains('open');
+      if (isOpen) closeAccessibilityPanel();
+      else openAccessibilityPanel();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && accessibilityPanel.classList.contains('open')) {
+        closeAccessibilityPanel();
+      }
+    });
+
+    accessibilityPanel.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = accessibilityPanel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (accessibilityPanel.classList.contains('open') &&
+          !accessibilityPanel.contains(e.target) &&
+          !accessibilityToggle.contains(e.target)) {
+        closeAccessibilityPanel();
+      }
+    });
+
+    const setFontScale = () => {
+      document.documentElement.style.fontSize = `${(currentScale * 100).toFixed(0)}%`;
+    };
+
+    const resetAccessibility = () => {
+      document.body.classList.remove('accessibility-high-contrast', 'accessibility-underline-links', 'accessibility-readable-font');
+      currentScale = 1;
+      setFontScale();
+    };
+
+    accessibilityButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const action = button.dataset.action;
+        if (action === 'font-plus') { currentScale = Math.min(1.3, currentScale + 0.1); setFontScale(); return; }
+        if (action === 'font-minus') { currentScale = Math.max(0.9, currentScale - 0.1); setFontScale(); return; }
+        if (action === 'high-contrast') { document.body.classList.toggle('accessibility-high-contrast'); return; }
+        if (action === 'underline-links') { document.body.classList.toggle('accessibility-underline-links'); return; }
+        if (action === 'readable-font') { document.body.classList.toggle('accessibility-readable-font'); return; }
+        if (action === 'reset') { resetAccessibility(); }
+      });
     });
 </script>
 
