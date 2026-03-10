@@ -74,6 +74,38 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    /* Skip Link */
+    .skip-link {
+        position: absolute;
+        top: -100px;
+        right: 0;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 12px 24px;
+        z-index: 10000;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 0 0 8px 8px;
+        transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+        top: 0;
+    }
+
+    /* Screen reader only utility */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap;
+        border: 0;
+    }
+
     html {
         scroll-behavior: smooth;
         font-size: 16px;
@@ -1318,6 +1350,42 @@
         transition: none !important;
     }
 
+    /* Enhanced :focus-visible styles */
+    :focus-visible {
+        outline: 3px solid var(--gold) !important;
+        outline-offset: 3px !important;
+    }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 3px solid var(--gold) !important;
+        outline-offset: 3px !important;
+    }
+    .header a:focus-visible,
+    .header button:focus-visible {
+        outline-color: var(--gold) !important;
+    }
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        html {
+            scroll-behavior: auto;
+        }
+        .fade-in {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+
     /* Print */
     @media print {
         .header, .chat-bubble, .chat-window, .float-wa, .access-btn, .access-panel { display: none !important; }
@@ -1330,11 +1398,13 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
 <!-- ===== HEADER ===== -->
 <header class="header" id="header">
     <div class="header-inner">
         <a href="#hero" class="logo">
-            <div class="logo-icon">⚖️</div>
+            <div class="logo-icon" aria-hidden="true">⚖️</div>
             <div class="logo-text">
                 <span class="logo-name">אזולאי ושות'</span>
                 <span class="logo-sub">עורכי דין וגישור</span>
@@ -1348,7 +1418,7 @@
             <a href="#faq">שאלות נפוצות</a>
             <a href="#contact" class="header-cta">צור קשר</a>
         </nav>
-        <button class="hamburger" id="hamburger" aria-label="תפריט">
+        <button class="hamburger" id="hamburger" aria-label="תפריט" aria-expanded="false" aria-controls="mobileNav">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -1363,19 +1433,21 @@
     <a href="#contact">צור קשר</a>
 </div>
 
+<main id="main-content">
+
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
-    <div class="hero-geo hero-geo-1"></div>
-    <div class="hero-geo hero-geo-2"></div>
-    <div class="hero-geo hero-geo-3"></div>
-    <div class="hero-geo hero-geo-4"></div>
+    <div class="hero-geo hero-geo-1" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-2" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-3" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-4" aria-hidden="true"></div>
     <div class="hero-content">
-        <div class="hero-badge">⚖️ משרד עורכי דין מוביל בנגב</div>
+        <div class="hero-badge"><span aria-hidden="true">⚖️</span> משרד עורכי דין מוביל בנגב</div>
         <h1>משפחה, עסקים, זכויות —<br><span>אנחנו לצדך</span></h1>
         <p class="hero-sub">משרד אזולאי ושות' מלווה אותך בכל הליך משפטי, בגישה אישית ומקצועית</p>
         <div class="hero-btns">
-            <a href="#contact" class="btn-gold">📅 לתיאום פגישה</a>
-            <button class="btn-outline" onclick="openChat()">🤖 שוחחו עם רותי</button>
+            <a href="#contact" class="btn-gold"><span aria-hidden="true">📅</span> לתיאום פגישה</a>
+            <button class="btn-outline" onclick="openChat()"><span aria-hidden="true">🤖</span> שוחחו עם רותי</button>
         </div>
         <div class="hero-stats">
             <div class="stat">
@@ -1397,19 +1469,21 @@
 <!-- ===== ABOUT ===== -->
 <section class="about" id="about">
     <div class="container">
+        <h2 class="section-title fade-in">אודות המשרד</h2>
+        <div class="gold-line"></div>
         <div class="about-grid">
             <div class="about-text fade-in">
                 <h3>עו"ד שמעון אזולאי — ניסיון, מקצועיות, ליווי אישי</h3>
                 <p>עו"ד שמעון אזולאי מנהל את משרד אזולאי ושות' בדימונה, ומתמחה בליווי משפטי מקיף בתחומי דיני משפחה, חוזים, הוצאה לפועל, חדלות פרעון ודיני עבודה. המשרד מציע גם שירותי גישור כאלטרנטיבה יעילה להליכים משפטיים ארוכים. הגישה שלנו — ליווי אישי, מקצועיות ללא פשרות, ומחירים הוגנים.</p>
                 <div class="about-values">
-                    <div class="value-item"><div class="value-icon">🏆</div> מקצועיות</div>
-                    <div class="value-item"><div class="value-icon">🤝</div> אמינות</div>
-                    <div class="value-item"><div class="value-icon">📱</div> נגישות</div>
-                    <div class="value-item"><div class="value-icon">💎</div> ליווי אישי</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">🏆</div> מקצועיות</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">🤝</div> אמינות</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">📱</div> נגישות</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">💎</div> ליווי אישי</div>
                 </div>
             </div>
             <div class="about-image fade-in">
-                <span class="cam-icon">📷</span>
+                <span class="cam-icon" aria-hidden="true">📷</span>
                 <span>תמונת עו"ד אזולאי</span>
             </div>
         </div>
@@ -1423,52 +1497,52 @@
         <div class="gold-line"></div>
         <p class="section-subtitle fade-in">בחרו נושא כדי ללמוד עוד</p>
         <div class="practice-cards">
-            <div class="practice-card main-card fade-in" onclick="openPracticeModal(0)">
-                <span class="practice-badge">התמחות עיקרית ⭐</span>
-                <span class="practice-icon">👨‍👩‍👧‍👦</span>
+            <div class="practice-card main-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(0);}">
+                <span class="practice-badge">התמחות עיקרית <span aria-hidden="true">⭐</span></span>
+                <span class="practice-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
                 <h4>דיני משפחה</h4>
                 <p>גירושין, מזונות, משמורת, צוואות</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(1)">
-                <span class="practice-icon">📝</span>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(1);}">
+                <span class="practice-icon" aria-hidden="true">📝</span>
                 <h4>חוזים</h4>
                 <p>ניסוח, בדיקה וייעוץ משפטי</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(2)">
-                <span class="practice-icon">⚡</span>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(2);}">
+                <span class="practice-icon" aria-hidden="true">⚡</span>
                 <h4>הוצאה לפועל</h4>
                 <p>גביית חובות, עיקולים, הסדרים</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(3)">
-                <span class="practice-icon">🔄</span>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(3);}">
+                <span class="practice-icon" aria-hidden="true">🔄</span>
                 <h4>חדלות פרעון</h4>
                 <p>שיקום כלכלי והתחלה חדשה</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(4)">
-                <span class="practice-icon">💼</span>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(4);}">
+                <span class="practice-icon" aria-hidden="true">💼</span>
                 <h4>דיני עבודה</h4>
                 <p>פיצויים, זכויות, הפליה</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Practice Modal -->
-<div class="modal-overlay" id="practiceModal">
+<div class="modal-overlay" id="practiceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
-        <button class="modal-close" onclick="closePracticeModal()">✕</button>
-        <span class="modal-icon" id="modalIcon"></span>
+        <button class="modal-close" onclick="closePracticeModal()" aria-label="סגור חלון">✕</button>
+        <span class="modal-icon" id="modalIcon" aria-hidden="true"></span>
         <h3 id="modalTitle"></h3>
         <div class="modal-tags" id="modalTags"></div>
         <p id="modalText"></p>
         <div class="modal-cta">
-            <a href="#contact" class="btn-gold" onclick="closePracticeModal()" style="font-size:0.85rem;padding:10px 20px;">📋 השאירו פרטים</a>
-            <a href="tel:054-6969157" class="btn-outline" style="font-size:0.85rem;padding:10px 20px;color:var(--navy);border-color:var(--navy);">📞 חייגו עכשיו</a>
+            <a href="#contact" class="btn-gold" onclick="closePracticeModal()" style="font-size:0.85rem;padding:10px 20px;"><span aria-hidden="true">📋</span> השאירו פרטים</a>
+            <a href="tel:054-6969157" class="btn-outline" style="font-size:0.85rem;padding:10px 20px;color:var(--navy);border-color:var(--navy);"><span aria-hidden="true">📞</span> חייגו עכשיו</a>
         </div>
     </div>
 </div>
@@ -1481,32 +1555,32 @@
         <p class="section-subtitle fade-in">הסיבות שלקוחותינו חוזרים שוב ושוב</p>
         <div class="why-grid">
             <div class="why-card fade-in">
-                <span class="why-icon">🏆</span>
+                <span class="why-icon" aria-hidden="true">🏆</span>
                 <h4>ניסיון של שנים</h4>
                 <p>ידע מעשי שנצבר ממאות תיקים בתחומים מגוונים</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">🤝</span>
+                <span class="why-icon" aria-hidden="true">🤝</span>
                 <h4>ליווי אישי</h4>
                 <p>לא מספר תיק, אתה אדם. אנחנו מקשיבים ומלווים</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">💰</span>
+                <span class="why-icon" aria-hidden="true">💰</span>
                 <h4>מחירים הוגנים</h4>
                 <p>שקיפות מלאה, בלי הפתעות בחשבונית</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">📱</span>
+                <span class="why-icon" aria-hidden="true">📱</span>
                 <h4>זמינות גבוהה</h4>
                 <p>גם בוואטסאפ, גם בטלפון — תמיד כאן בשבילך</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">⚖️</span>
+                <span class="why-icon" aria-hidden="true">⚖️</span>
                 <h4>גישור</h4>
                 <p>חיסכון משמעותי בזמן ובעלויות עם פתרון מוסכם</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">🤖</span>
+                <span class="why-icon" aria-hidden="true">🤖</span>
                 <h4>טכנולוגיה</h4>
                 <p>סוכנת AI שזמינה 24/7 למענה ראשוני</p>
             </div>
@@ -1524,28 +1598,28 @@
             <div class="testimonial-track" id="testimonialTrack">
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"שמעון ליווה אותי בהליך גירושין מורכב. מקצועי, רגיש, ותמיד זמין."</blockquote>
                         <cite>— ד., דימונה</cite>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"הגעתי עם חוב של 200 אלף ש"ח. היום אני חופשי מחובות בזכות ההליך שהוא הוביל."</blockquote>
                         <cite>— מ., באר שבע</cite>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"חוזה השכירות שהוא ניסח חסך לי כאב ראש של שנים."</blockquote>
                         <cite>— א., ערד</cite>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"פיצויי הפיטורים שקיבלתי בזכותו היו כפולים ממה שהמעסיק הציע."</blockquote>
                         <cite>— ר., ירוחם</cite>
                     </div>
@@ -1564,27 +1638,27 @@
         <p class="section-subtitle fade-in">תשובות לשאלות שלקוחותינו שואלים הכי הרבה</p>
         <div class="faq-list">
             <div class="faq-item fade-in">
-                <button class="faq-question">כמה עולה ייעוץ ראשוני? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">כמה עולה ייעוץ ראשוני? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>פגישת ייעוץ ראשונית מתומחרת בהתאם לנושא. צרו קשר לקבלת פרטים.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">איך מתחילים הליך גירושין? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">איך מתחילים הליך גירושין? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>יש לפנות לבית המשפט לענייני משפחה או לבית הדין הרבני. בפגישת ייעוץ נסביר את ההליך המתאים למקרה שלכם.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">מה זה חדלות פרעון? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">מה זה חדלות פרעון? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>הליך שמאפשר לאנשים עם חובות שלא יכולים לשלם לקבל "התחלה חדשה". ההליך כולל תכנית פירעון ובסופו הפטר מחובות.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">האם אפשר לפתור סכסוך בלי לגשת לבית משפט? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">האם אפשר לפתור סכסוך בלי לגשת לבית משפט? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>בהחלט. גישור הוא הליך שבו שני הצדדים מגיעים להסכמות בעזרת מגשר מקצועי. זה חוסך זמן, כסף ועוגמת נפש.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">כמה זמן לוקח תיק בהוצאה לפועל? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">כמה זמן לוקח תיק בהוצאה לפועל? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>תלוי בסוג התיק ובשיתוף הפעולה של הצד השני. תיקים פשוטים יכולים להיפתר בתוך חודשים, מורכבים עשויים לקחת יותר.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">האם המשרד מטפל גם באזורים מחוץ לדימונה? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">האם המשרד מטפל גם באזורים מחוץ לדימונה? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>כן. אנחנו מייצגים לקוחות מכל הנגב ומרחבי הארץ.</p></div>
             </div>
         </div>
@@ -1629,28 +1703,28 @@
                         <textarea id="message" placeholder="ספרו לנו בקצרה על הנושא..."></textarea>
                     </div>
                     <button type="submit" class="form-submit">שלח פנייה</button>
-                    <div class="form-success" id="formSuccess">✅ הפנייה נשלחה בהצלחה! ניצור קשר בהקדם.</div>
+                    <div class="form-success" id="formSuccess" role="status" aria-live="polite"><span aria-hidden="true">✅</span> הפנייה נשלחה בהצלחה! ניצור קשר בהקדם.</div>
                 </form>
             </div>
             <div class="contact-info fade-in">
                 <h3>פרטי התקשרות</h3>
                 <div class="info-item">
-                    <div class="info-icon">📍</div>
+                    <div class="info-icon" aria-hidden="true">📍</div>
                     <span>שד' יגאל אלון 209/31, דימונה</span>
                 </div>
                 <div class="info-item">
-                    <div class="info-icon">📞</div>
+                    <div class="info-icon" aria-hidden="true">📞</div>
                     <a href="tel:054-6969157">054-6969157</a>
                 </div>
                 <div class="info-item">
-                    <div class="info-icon">📧</div>
+                    <div class="info-icon" aria-hidden="true">📧</div>
                     <a href="mailto:office.lawsa@gmail.com">office.lawsa@gmail.com</a>
                 </div>
                 <div class="info-item">
-                    <div class="info-icon">🕐</div>
+                    <div class="info-icon" aria-hidden="true">🕐</div>
                     <span>א'-ה' 09:00-17:00 | ו' 09:00-13:00</span>
                 </div>
-                <a href="https://wa.me/972546969157" target="_blank" class="wa-btn">💬 שלחו הודעת WhatsApp</a>
+                <a href="https://wa.me/972546969157" target="_blank" class="wa-btn"><span aria-hidden="true">💬</span> שלחו הודעת WhatsApp</a>
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.5!2d35.0333!3d31.0667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDA0JzAwLjAiTiAzNcKwMDInMDAuMCJF!5e0!3m2!1siw!2sil!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="מפת המשרד בדימונה"></iframe>
                 </div>
@@ -1658,6 +1732,8 @@
         </div>
     </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -1685,10 +1761,10 @@
         <div>
             <h4>צור קשר</h4>
             <div class="footer-links">
-                <a href="tel:054-6969157">📞 054-6969157</a>
-                <a href="mailto:office.lawsa@gmail.com">📧 office.lawsa@gmail.com</a>
-                <a href="https://wa.me/972546969157" target="_blank">💬 WhatsApp</a>
-                <span style="font-size:0.85rem;">📍 שד' יגאל אלון 209/31, דימונה</span>
+                <a href="tel:054-6969157"><span aria-hidden="true">📞</span> 054-6969157</a>
+                <a href="mailto:office.lawsa@gmail.com"><span aria-hidden="true">📧</span> office.lawsa@gmail.com</a>
+                <a href="https://wa.me/972546969157" target="_blank"><span aria-hidden="true">💬</span> WhatsApp</a>
+                <span style="font-size:0.85rem;"><span aria-hidden="true">📍</span> שד' יגאל אלון 209/31, דימונה</span>
             </div>
         </div>
     </div>
@@ -1699,57 +1775,58 @@
             <a href="javascript:void(0)" onclick="openLegalModal('privacy')">מדיניות פרטיות</a>
             <a href="javascript:void(0)" onclick="openLegalModal('terms')">תנאי שימוש</a>
         </div>
-        <p class="footer-credit">נבנה באהבה ❤️ על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
+        <p class="footer-credit">נבנה באהבה <span aria-hidden="true">❤️</span> על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
     </div>
 </footer>
 
 <!-- ===== FLOATING BUTTONS ===== -->
-<a href="https://wa.me/972546969157" target="_blank" class="float-wa" aria-label="WhatsApp">💬</a>
+<a href="https://wa.me/972546969157" target="_blank" class="float-wa" aria-label="WhatsApp"><span aria-hidden="true">💬</span></a>
 
 <!-- ===== ACCESSIBILITY ===== -->
-<button class="access-btn" id="accessBtn" aria-label="נגישות">♿</button>
-<div class="access-panel" id="accessPanel">
-    <h4>♿ הגדרות נגישות</h4>
-    <div class="access-option" onclick="changeFontSize(1)">🔍 הגדלת טקסט (A+)</div>
-    <div class="access-option" onclick="changeFontSize(-1)">🔎 הקטנת טקסט (A-)</div>
-    <div class="access-option" onclick="toggleHighContrast()">🌗 ניגודיות גבוהה</div>
-    <div class="access-option" onclick="toggleHighlightLinks()">🔗 הדגשת קישורים</div>
-    <div class="access-option" onclick="toggleReadableFont()">🔤 פונט קריא</div>
-    <div class="access-option" onclick="toggleAnimations()">⏸️ עצירת אנימציות</div>
-    <button class="access-reset" onclick="resetAccessibility()">↩️ איפוס הגדרות</button>
+<button class="access-btn" id="accessBtn" aria-label="נגישות" aria-expanded="false" aria-controls="accessPanel"><span aria-hidden="true">♿</span></button>
+<div class="access-panel" id="accessPanel" role="region" aria-label="הגדרות נגישות">
+    <h4><span aria-hidden="true">♿</span> הגדרות נגישות</h4>
+    <button class="access-option" onclick="changeFontSize(1)"><span aria-hidden="true">🔍</span> הגדלת טקסט (A+)</button>
+    <button class="access-option" onclick="changeFontSize(-1)"><span aria-hidden="true">🔎</span> הקטנת טקסט (A-)</button>
+    <button class="access-option" onclick="toggleHighContrast()"><span aria-hidden="true">🌗</span> ניגודיות גבוהה</button>
+    <button class="access-option" onclick="toggleHighlightLinks()"><span aria-hidden="true">🔗</span> הדגשת קישורים</button>
+    <button class="access-option" onclick="toggleReadableFont()"><span aria-hidden="true">🔤</span> פונט קריא</button>
+    <button class="access-option" onclick="toggleAnimations()"><span aria-hidden="true">⏸️</span> עצירת אנימציות</button>
+    <button class="access-reset" onclick="resetAccessibility()"><span aria-hidden="true">↩️</span> איפוס הגדרות</button>
 </div>
 
 <!-- ===== CHATBOT ===== -->
-<div class="chat-bubble" id="chatBubble" onclick="openChat()">💬</div>
-<div class="chat-window" id="chatWindow">
+<button class="chat-bubble" id="chatBubble" onclick="openChat()" aria-label="פתח צ'אט עם רותי"><span aria-hidden="true">💬</span></button>
+<div class="chat-window" id="chatWindow" role="dialog" aria-modal="false" aria-label="צ'אט עם רותי — העוזרת הדיגיטלית">
     <div class="chat-header">
         <div class="chat-header-info">
-            <div class="chat-avatar">🤖</div>
+            <div class="chat-avatar" aria-hidden="true">🤖</div>
             <div class="chat-header-text">
                 <h5>רותי — העוזרת האישית</h5>
-                <span>● מחוברת</span>
+                <span aria-hidden="true">●</span> <span>מחוברת</span>
             </div>
         </div>
-        <button class="chat-close" onclick="closeChat()">✕</button>
+        <button class="chat-close" onclick="closeChat()" aria-label="סגור צ'אט">✕</button>
     </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="typing-indicator" id="typingIndicator">
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="הודעות צ'אט">
+        <div class="typing-indicator" id="typingIndicator" role="status" aria-label="רותי מקלידה">
+            <div class="typing-dot" aria-hidden="true"></div>
+            <div class="typing-dot" aria-hidden="true"></div>
+            <div class="typing-dot" aria-hidden="true"></div>
         </div>
     </div>
     <div class="chat-input-area">
+        <label for="chatInput" class="sr-only">כתבו הודעה לרותי</label>
         <input class="chat-input" id="chatInput" type="text" placeholder="כתבו הודעה..." onkeypress="if(event.key==='Enter')sendMessage()">
-        <button class="chat-send" onclick="sendMessage()">➤</button>
+        <button class="chat-send" onclick="sendMessage()" aria-label="שלח הודעה"><span aria-hidden="true">➤</span></button>
     </div>
-    <div class="chat-credit">רוצה סוכנת AI כזו באתר שלך? 👉 <a href="https://lior-ai.com" target="_blank">lior_Ai</a></div>
+    <div class="chat-credit"><span aria-hidden="true">👉</span> רוצה סוכנת AI כזו באתר שלך? <a href="https://lior-ai.com" target="_blank">lior_Ai</a></div>
 </div>
 
 <!-- ===== LEGAL MODALS ===== -->
-<div class="legal-modal" id="legalModal">
+<div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
     <div class="legal-box">
-        <button class="modal-close" onclick="closeLegalModal()">✕</button>
+        <button class="modal-close" onclick="closeLegalModal()" aria-label="סגור חלון">✕</button>
         <h3 id="legalTitle"></h3>
         <div id="legalContent"></div>
     </div>
@@ -1766,13 +1843,15 @@
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+        const isOpen = hamburger.classList.toggle('active');
         mobileNav.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
     });
     mobileNav.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
             hamburger.classList.remove('active');
             mobileNav.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -1847,21 +1926,39 @@
         }
     ];
 
+    let practiceModalTrigger = null;
     function openPracticeModal(idx) {
+        practiceModalTrigger = document.activeElement;
         const d = practiceData[idx];
         document.getElementById('modalIcon').textContent = d.icon;
         document.getElementById('modalTitle').textContent = d.title;
         document.getElementById('modalTags').innerHTML = d.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
         document.getElementById('modalText').textContent = d.text;
-        document.getElementById('practiceModal').classList.add('active');
+        const modal = document.getElementById('practiceModal');
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
     }
     function closePracticeModal() {
         document.getElementById('practiceModal').classList.remove('active');
         document.body.style.overflow = '';
+        if (practiceModalTrigger) { practiceModalTrigger.focus(); practiceModalTrigger = null; }
     }
     document.getElementById('practiceModal').addEventListener('click', (e) => {
         if (e.target === e.currentTarget) closePracticeModal();
+    });
+    // Focus trap for practice modal
+    document.getElementById('practiceModal').addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const modal = document.getElementById('practiceModal');
+        if (!modal.classList.contains('active')) return;
+        const focusable = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
     // ===== TESTIMONIAL SLIDER =====
@@ -1890,8 +1987,14 @@
         btn.addEventListener('click', () => {
             const item = btn.parentElement;
             const wasOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            if (!wasOpen) item.classList.add('open');
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 
@@ -1915,9 +2018,15 @@
     const accessPanel = document.getElementById('accessPanel');
     let fontSize = 16;
 
-    accessBtn.addEventListener('click', () => accessPanel.classList.toggle('active'));
+    accessBtn.addEventListener('click', () => {
+        const isOpen = accessPanel.classList.toggle('active');
+        accessBtn.setAttribute('aria-expanded', isOpen);
+    });
     document.addEventListener('click', (e) => {
-        if (!accessPanel.contains(e.target) && e.target !== accessBtn) accessPanel.classList.remove('active');
+        if (!accessPanel.contains(e.target) && e.target !== accessBtn) {
+            accessPanel.classList.remove('active');
+            accessBtn.setAttribute('aria-expanded', 'false');
+        }
     });
 
     function changeFontSize(delta) {
