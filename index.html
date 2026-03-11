@@ -3,7 +3,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>אזולאי ושות' ~ עורכי דין וגישור | דימונה</title>
     <meta name="description" content="עו״ד שמעון אזולאי — משרד עורכי דין בדימונה. דיני משפחה, גירושין, חוזים, הוצאה לפועל, חדלות פרעון ודיני עבודה. ליווי אישי ומקצועי.">
     <meta name="keywords" content="עורך דין דימונה, עורך דין משפחה דימונה, עורך דין גירושין נגב, עורך דין הוצאה לפועל באר שבע, עורך דין חדלות פרעון דימונה, עורך דין חוזים נגב, עורך דין דיני עבודה דימונה, גישור גירושין דימונה, משרד עורכי דין דימונה">
@@ -13,7 +13,8 @@
     <meta property="og:image" content="og-image.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"></noscript>
 
 <script type="application/ld+json">
 {
@@ -72,6 +73,38 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Skip Link */
+    .skip-link {
+        position: absolute;
+        top: -100px;
+        right: 0;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 12px 24px;
+        z-index: 10000;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 0 0 8px 8px;
+        transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+        top: 0;
+    }
+
+    /* Screen reader only utility */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap;
+        border: 0;
+    }
 
     html {
         scroll-behavior: smooth;
@@ -527,7 +560,7 @@
         margin-bottom: 14px;
         display: block;
     }
-    .practice-card h4 {
+    .practice-card h3 {
         font-family: 'Rubik', sans-serif;
         font-size: 1.05rem;
         font-weight: 600;
@@ -658,7 +691,7 @@
         margin-bottom: 12px;
         display: block;
     }
-    .why-card h4 {
+    .why-card h3 {
         font-family: 'Rubik', sans-serif;
         font-size: 0.95rem;
         font-weight: 600;
@@ -980,73 +1013,6 @@
     }
     .float-wa:hover { transform: scale(1.1); }
 
-    /* ========== ACCESSIBILITY BUTTON ========== */
-    .access-btn {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 48px;
-        height: 48px;
-        background: var(--navy);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-        color: var(--white);
-        border: 2px solid var(--gold);
-        cursor: pointer;
-        z-index: 950;
-        transition: var(--transition);
-    }
-    .access-btn:hover { background: var(--blue-mid); }
-
-    .access-panel {
-        position: fixed;
-        bottom: 80px;
-        right: 24px;
-        width: 260px;
-        background: var(--white);
-        border-radius: 16px;
-        box-shadow: var(--shadow-lg);
-        padding: 24px;
-        z-index: 960;
-        display: none;
-        border: 1px solid rgba(10,22,40,0.08);
-    }
-    .access-panel.active { display: block; animation: modalIn 0.3s ease; }
-    .access-panel h4 {
-        font-family: 'Rubik', sans-serif;
-        margin-bottom: 16px;
-        color: var(--navy);
-        font-size: 1rem;
-    }
-    .access-option {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 0;
-        border-bottom: 1px solid #f0f0f0;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: var(--transition);
-    }
-    .access-option:hover { color: var(--gold); }
-    .access-reset {
-        margin-top: 12px;
-        padding: 8px;
-        width: 100%;
-        background: var(--cream);
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        cursor: pointer;
-        font-family: 'Heebo', sans-serif;
-        font-weight: 600;
-        font-size: 0.85rem;
-        transition: var(--transition);
-    }
-    .access-reset:hover { background: #eee; }
-
     /* ========== CHATBOT ========== */
     .chat-bubble {
         position: fixed;
@@ -1056,6 +1022,7 @@
         height: 60px;
         background: linear-gradient(135deg, var(--gold), #d4b55a);
         border-radius: 50%;
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1281,65 +1248,68 @@
         margin-bottom: 8px;
     }
 
-    /* High Contrast Mode */
-    body.high-contrast {
-        background: #000 !important;
-        color: #fff !important;
+    /* Enhanced :focus-visible styles */
+    :focus-visible {
+        outline: 3px solid var(--gold) !important;
+        outline-offset: 3px !important;
     }
-    body.high-contrast * {
-        border-color: #fff !important;
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 3px solid var(--gold) !important;
+        outline-offset: 3px !important;
     }
-    body.high-contrast .header,
-    body.high-contrast .hero,
-    body.high-contrast .testimonials,
-    body.high-contrast .footer { background: #000 !important; }
-    body.high-contrast section { background: #111 !important; }
-    body.high-contrast .practice-card,
-    body.high-contrast .why-card,
-    body.high-contrast .contact-form,
-    body.high-contrast .modal-box,
-    body.high-contrast .legal-box { background: #222 !important; color: #fff !important; }
-    body.high-contrast .practice-card h4,
-    body.high-contrast .why-card h4,
-    body.high-contrast .section-title,
-    body.high-contrast .about-text h3,
-    body.high-contrast .faq-question { color: #fff !important; }
+    .header a:focus-visible,
+    .header button:focus-visible {
+        outline-color: var(--gold) !important;
+    }
 
-    /* Highlight Links */
-    body.highlight-links a { outline: 2px solid var(--gold) !important; outline-offset: 2px; }
-
-    /* Readable Font */
-    body.readable-font, body.readable-font * { font-family: Arial, Helvetica, sans-serif !important; }
-
-    /* No Animations */
-    body.no-animations *, body.no-animations *::before, body.no-animations *::after {
-        animation: none !important;
-        transition: none !important;
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        html {
+            scroll-behavior: auto;
+        }
+        .fade-in {
+            opacity: 1 !important;
+            transform: none !important;
+        }
     }
 
     /* Print */
     @media print {
-        .header, .chat-bubble, .chat-window, .float-wa, .access-btn, .access-panel { display: none !important; }
+        .header, .chat-bubble, .chat-window, .float-wa { display: none !important; }
         .hero { min-height: auto; padding: 40px 24px; }
         body { background: white; }
         section { padding: 30px 24px; break-inside: avoid; }
     }
+
 </style>
 
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
 <!-- ===== HEADER ===== -->
 <header class="header" id="header">
     <div class="header-inner">
         <a href="#hero" class="logo">
-            <div class="logo-icon">⚖</div>
+            <div class="logo-icon" aria-hidden="true">⚖️</div>
             <div class="logo-text">
                 <span class="logo-name">אזולאי ושות'</span>
                 <span class="logo-sub">עורכי דין וגישור</span>
             </div>
         </a>
-        <nav class="nav">
+        <nav class="nav" aria-label="ניווט ראשי">
             <a href="#about">אודות</a>
             <a href="#practice">תחומי עיסוק</a>
             <a href="#why-us">למה אנחנו</a>
@@ -1347,34 +1317,36 @@
             <a href="#faq">שאלות נפוצות</a>
             <a href="#contact" class="header-cta">צור קשר</a>
         </nav>
-        <button class="hamburger" id="hamburger" aria-label="תפריט">
+        <button class="hamburger" id="hamburger" aria-label="תפריט" aria-expanded="false" aria-controls="mobileNav">
             <span></span><span></span><span></span>
         </button>
     </div>
 </header>
 
-<div class="mobile-nav" id="mobileNav">
+<nav class="mobile-nav" id="mobileNav" aria-label="תפריט נייד">
     <a href="#about">אודות</a>
     <a href="#practice">תחומי עיסוק</a>
     <a href="#why-us">למה אנחנו</a>
     <a href="#testimonials">המלצות</a>
     <a href="#faq">שאלות נפוצות</a>
     <a href="#contact">צור קשר</a>
-</div>
+</nav>
+
+<main id="main-content">
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
-    <div class="hero-geo hero-geo-1"></div>
-    <div class="hero-geo hero-geo-2"></div>
-    <div class="hero-geo hero-geo-3"></div>
-    <div class="hero-geo hero-geo-4"></div>
+    <div class="hero-geo hero-geo-1" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-2" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-3" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-4" aria-hidden="true"></div>
     <div class="hero-content">
-        <div class="hero-badge">⚖️ משרד עורכי דין מוביל בנגב</div>
+        <div class="hero-badge"><span aria-hidden="true">⚖️</span> משרד עורכי דין מוביל בנגב</div>
         <h1>משפחה, עסקים, זכויות —<br><span>אנחנו לצדך</span></h1>
         <p class="hero-sub">משרד אזולאי ושות' מלווה אותך בכל הליך משפטי, בגישה אישית ומקצועית</p>
         <div class="hero-btns">
-            <a href="#contact" class="btn-gold">📅 לתיאום פגישה</a>
-            <button class="btn-outline" onclick="openChat()">🤖 שוחחו עם רותי</button>
+            <a href="#contact" class="btn-gold"><span aria-hidden="true">📅</span> לתיאום פגישה</a>
+            <button class="btn-outline" onclick="openChat()"><span aria-hidden="true">🤖</span> שוחחו עם רותי</button>
         </div>
         <div class="hero-stats">
             <div class="stat">
@@ -1396,19 +1368,21 @@
 <!-- ===== ABOUT ===== -->
 <section class="about" id="about">
     <div class="container">
+        <h2 class="section-title fade-in">אודות המשרד</h2>
+        <div class="gold-line" aria-hidden="true"></div>
         <div class="about-grid">
             <div class="about-text fade-in">
                 <h3>עו"ד שמעון אזולאי — ניסיון, מקצועיות, ליווי אישי</h3>
                 <p>עו"ד שמעון אזולאי מנהל את משרד אזולאי ושות' בדימונה, ומתמחה בליווי משפטי מקיף בתחומי דיני משפחה, חוזים, הוצאה לפועל, חדלות פרעון ודיני עבודה. המשרד מציע גם שירותי גישור כאלטרנטיבה יעילה להליכים משפטיים ארוכים. הגישה שלנו — ליווי אישי, מקצועיות ללא פשרות, ומחירים הוגנים.</p>
                 <div class="about-values">
-                    <div class="value-item"><div class="value-icon">🏆</div> מקצועיות</div>
-                    <div class="value-item"><div class="value-icon">🤝</div> אמינות</div>
-                    <div class="value-item"><div class="value-icon">📱</div> נגישות</div>
-                    <div class="value-item"><div class="value-icon">💎</div> ליווי אישי</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">🏆</div> מקצועיות</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">🤝</div> אמינות</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">📱</div> נגישות</div>
+                    <div class="value-item"><div class="value-icon" aria-hidden="true">💎</div> ליווי אישי</div>
                 </div>
             </div>
             <div class="about-image fade-in">
-                <span class="cam-icon">📷</span>
+                <span class="cam-icon" aria-hidden="true">📷</span>
                 <span>תמונת עו"ד אזולאי</span>
             </div>
         </div>
@@ -1419,55 +1393,55 @@
 <section class="practice" id="practice">
     <div class="container">
         <h2 class="section-title fade-in">תחומי התמחות</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">בחרו נושא כדי ללמוד עוד</p>
         <div class="practice-cards">
-            <div class="practice-card main-card fade-in" onclick="openPracticeModal(0)">
-                <span class="practice-badge">התמחות עיקרית ⭐</span>
-                <span class="practice-icon">👨‍👩‍👧‍👦</span>
-                <h4>דיני משפחה</h4>
+            <div class="practice-card main-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(0);}">
+                <span class="practice-badge">התמחות עיקרית <span aria-hidden="true">⭐</span></span>
+                <span class="practice-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
+                <h3>דיני משפחה</h3>
                 <p>גירושין, מזונות, משמורת, צוואות</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(1)">
-                <span class="practice-icon">📝</span>
-                <h4>חוזים</h4>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(1);}">
+                <span class="practice-icon" aria-hidden="true">📝</span>
+                <h3>חוזים</h3>
                 <p>ניסוח, בדיקה וייעוץ משפטי</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(2)">
-                <span class="practice-icon">⚡</span>
-                <h4>הוצאה לפועל</h4>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(2);}">
+                <span class="practice-icon" aria-hidden="true">⚡</span>
+                <h3>הוצאה לפועל</h3>
                 <p>גביית חובות, עיקולים, הסדרים</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(3)">
-                <span class="practice-icon">🔄</span>
-                <h4>חדלות פרעון</h4>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(3);}">
+                <span class="practice-icon" aria-hidden="true">🔄</span>
+                <h3>חדלות פרעון</h3>
                 <p>שיקום כלכלי והתחלה חדשה</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
-            <div class="practice-card fade-in" onclick="openPracticeModal(4)">
-                <span class="practice-icon">💼</span>
-                <h4>דיני עבודה</h4>
+            <div class="practice-card fade-in" role="button" tabindex="0" onclick="openPracticeModal(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPracticeModal(4);}">
+                <span class="practice-icon" aria-hidden="true">💼</span>
+                <h3>דיני עבודה</h3>
                 <p>פיצויים, זכויות, הפליה</p>
-                <span class="arrow">פרטים נוספים ←</span>
+                <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Practice Modal -->
-<div class="modal-overlay" id="practiceModal">
+<div class="modal-overlay" id="practiceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
-        <button class="modal-close" onclick="closePracticeModal()">✕</button>
-        <span class="modal-icon" id="modalIcon"></span>
+        <button class="modal-close" onclick="closePracticeModal()" aria-label="סגור חלון">✕</button>
+        <span class="modal-icon" id="modalIcon" aria-hidden="true"></span>
         <h3 id="modalTitle"></h3>
         <div class="modal-tags" id="modalTags"></div>
         <p id="modalText"></p>
         <div class="modal-cta">
-            <a href="#contact" class="btn-gold" onclick="closePracticeModal()" style="font-size:0.85rem;padding:10px 20px;">📋 השאירו פרטים</a>
-            <a href="tel:054-6969157" class="btn-outline" style="font-size:0.85rem;padding:10px 20px;color:var(--navy);border-color:var(--navy);">📞 חייגו עכשיו</a>
+            <a href="#contact" class="btn-gold" onclick="closePracticeModal()" style="font-size:0.85rem;padding:10px 20px;"><span aria-hidden="true">📋</span> השאירו פרטים</a>
+            <a href="tel:054-6969157" class="btn-outline" style="font-size:0.85rem;padding:10px 20px;color:var(--navy);border-color:var(--navy);"><span aria-hidden="true">📞</span> חייגו עכשיו</a>
         </div>
     </div>
 </div>
@@ -1476,37 +1450,37 @@
 <section class="why-us" id="why-us">
     <div class="container">
         <h2 class="section-title fade-in">למה לבחור בנו?</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">הסיבות שלקוחותינו חוזרים שוב ושוב</p>
         <div class="why-grid">
             <div class="why-card fade-in">
-                <span class="why-icon">🏆</span>
-                <h4>ניסיון של שנים</h4>
+                <span class="why-icon" aria-hidden="true">🏆</span>
+                <h3>ניסיון של שנים</h3>
                 <p>ידע מעשי שנצבר ממאות תיקים בתחומים מגוונים</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">🤝</span>
-                <h4>ליווי אישי</h4>
+                <span class="why-icon" aria-hidden="true">🤝</span>
+                <h3>ליווי אישי</h3>
                 <p>לא מספר תיק, אתה אדם. אנחנו מקשיבים ומלווים</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">💰</span>
-                <h4>מחירים הוגנים</h4>
+                <span class="why-icon" aria-hidden="true">💰</span>
+                <h3>מחירים הוגנים</h3>
                 <p>שקיפות מלאה, בלי הפתעות בחשבונית</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">📱</span>
-                <h4>זמינות גבוהה</h4>
+                <span class="why-icon" aria-hidden="true">📱</span>
+                <h3>זמינות גבוהה</h3>
                 <p>גם בוואטסאפ, גם בטלפון — תמיד כאן בשבילך</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">⚖️</span>
-                <h4>גישור</h4>
+                <span class="why-icon" aria-hidden="true">⚖️</span>
+                <h3>גישור</h3>
                 <p>חיסכון משמעותי בזמן ובעלויות עם פתרון מוסכם</p>
             </div>
             <div class="why-card fade-in">
-                <span class="why-icon">🤖</span>
-                <h4>טכנולוגיה</h4>
+                <span class="why-icon" aria-hidden="true">🤖</span>
+                <h3>טכנולוגיה</h3>
                 <p>סוכנת AI שזמינה 24/7 למענה ראשוני</p>
             </div>
         </div>
@@ -1517,34 +1491,34 @@
 <section class="testimonials" id="testimonials">
     <div class="container">
         <h2 class="section-title fade-in">מה לקוחותינו אומרים</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">הסיפורים שלהם מדברים בעד עצמם</p>
         <div class="testimonial-slider" id="testimonialSlider">
             <div class="testimonial-track" id="testimonialTrack">
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"שמעון ליווה אותי בהליך גירושין מורכב. מקצועי, רגיש, ותמיד זמין."</blockquote>
                         <cite>— ד., דימונה</cite>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"הגעתי עם חוב של 200 אלף ש"ח. היום אני חופשי מחובות בזכות ההליך שהוא הוביל."</blockquote>
                         <cite>— מ., באר שבע</cite>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"חוזה השכירות שהוא ניסח חסך לי כאב ראש של שנים."</blockquote>
                         <cite>— א., ערד</cite>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="testimonial-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div><span class="sr-only">דירוג: 5 מתוך 5 כוכבים</span>
                         <blockquote>"פיצויי הפיטורים שקיבלתי בזכותו היו כפולים ממה שהמעסיק הציע."</blockquote>
                         <cite>— ר., ירוחם</cite>
                     </div>
@@ -1559,31 +1533,31 @@
 <section class="faq" id="faq">
     <div class="container">
         <h2 class="section-title fade-in">שאלות נפוצות</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">תשובות לשאלות שלקוחותינו שואלים הכי הרבה</p>
         <div class="faq-list">
             <div class="faq-item fade-in">
-                <button class="faq-question">כמה עולה ייעוץ ראשוני? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">כמה עולה ייעוץ ראשוני? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>פגישת ייעוץ ראשונית מתומחרת בהתאם לנושא. צרו קשר לקבלת פרטים.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">איך מתחילים הליך גירושין? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">איך מתחילים הליך גירושין? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>יש לפנות לבית המשפט לענייני משפחה או לבית הדין הרבני. בפגישת ייעוץ נסביר את ההליך המתאים למקרה שלכם.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">מה זה חדלות פרעון? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">מה זה חדלות פרעון? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>הליך שמאפשר לאנשים עם חובות שלא יכולים לשלם לקבל "התחלה חדשה". ההליך כולל תכנית פירעון ובסופו הפטר מחובות.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">האם אפשר לפתור סכסוך בלי לגשת לבית משפט? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">האם אפשר לפתור סכסוך בלי לגשת לבית משפט? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>בהחלט. גישור הוא הליך שבו שני הצדדים מגיעים להסכמות בעזרת מגשר מקצועי. זה חוסך זמן, כסף ועוגמת נפש.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">כמה זמן לוקח תיק בהוצאה לפועל? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">כמה זמן לוקח תיק בהוצאה לפועל? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>תלוי בסוג התיק ובשיתוף הפעולה של הצד השני. תיקים פשוטים יכולים להיפתר בתוך חודשים, מורכבים עשויים לקחת יותר.</p></div>
             </div>
             <div class="faq-item fade-in">
-                <button class="faq-question">האם המשרד מטפל גם באזורים מחוץ לדימונה? <span class="faq-icon">+</span></button>
+                <button class="faq-question" aria-expanded="false">האם המשרד מטפל גם באזורים מחוץ לדימונה? <span class="faq-icon" aria-hidden="true">+</span></button>
                 <div class="faq-answer"><p>כן. אנחנו מייצגים לקוחות מכל הנגב ומרחבי הארץ.</p></div>
             </div>
         </div>
@@ -1594,7 +1568,7 @@
 <section class="contact" id="contact">
     <div class="container">
         <h2 class="section-title fade-in">צור קשר</h2>
-        <div class="gold-line"></div>
+        <div class="gold-line" aria-hidden="true"></div>
         <p class="section-subtitle fade-in">נשמח לשמוע מכם ולעזור בכל שאלה</p>
         <div class="contact-grid">
             <div class="contact-form fade-in">
@@ -1628,28 +1602,28 @@
                         <textarea id="message" placeholder="ספרו לנו בקצרה על הנושא..."></textarea>
                     </div>
                     <button type="submit" class="form-submit">שלח פנייה</button>
-                    <div class="form-success" id="formSuccess">✅ הפנייה נשלחה בהצלחה! ניצור קשר בהקדם.</div>
+                    <div class="form-success" id="formSuccess" role="status" aria-live="polite"><span aria-hidden="true">✅</span> הפנייה נשלחה בהצלחה! ניצור קשר בהקדם.</div>
                 </form>
             </div>
             <div class="contact-info fade-in">
                 <h3>פרטי התקשרות</h3>
                 <div class="info-item">
-                    <div class="info-icon">📍</div>
+                    <div class="info-icon" aria-hidden="true">📍</div>
                     <span>שד' יגאל אלון 209/31, דימונה</span>
                 </div>
                 <div class="info-item">
-                    <div class="info-icon">📞</div>
+                    <div class="info-icon" aria-hidden="true">📞</div>
                     <a href="tel:054-6969157">054-6969157</a>
                 </div>
                 <div class="info-item">
-                    <div class="info-icon">📧</div>
+                    <div class="info-icon" aria-hidden="true">📧</div>
                     <a href="mailto:office.lawsa@gmail.com">office.lawsa@gmail.com</a>
                 </div>
                 <div class="info-item">
-                    <div class="info-icon">🕐</div>
+                    <div class="info-icon" aria-hidden="true">🕐</div>
                     <span>א'-ה' 09:00-17:00 | ו' 09:00-13:00</span>
                 </div>
-                <a href="https://wa.me/972546969157" target="_blank" class="wa-btn">💬 שלחו הודעת WhatsApp</a>
+                <a href="https://wa.me/972546969157" target="_blank" class="wa-btn"><span aria-hidden="true">💬</span> שלחו הודעת WhatsApp</a>
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.5!2d35.0333!3d31.0667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDA0JzAwLjAiTiAzNcKwMDInMDAuMCJF!5e0!3m2!1siw!2sil!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="מפת המשרד בדימונה"></iframe>
                 </div>
@@ -1657,6 +1631,8 @@
         </div>
     </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -1684,75 +1660,65 @@
         <div>
             <h4>צור קשר</h4>
             <div class="footer-links">
-                <a href="tel:054-6969157">📞 054-6969157</a>
-                <a href="mailto:office.lawsa@gmail.com">📧 office.lawsa@gmail.com</a>
-                <a href="https://wa.me/972546969157" target="_blank">💬 WhatsApp</a>
-                <span style="font-size:0.85rem;">📍 שד' יגאל אלון 209/31, דימונה</span>
+                <a href="tel:054-6969157"><span aria-hidden="true">📞</span> 054-6969157</a>
+                <a href="mailto:office.lawsa@gmail.com"><span aria-hidden="true">📧</span> office.lawsa@gmail.com</a>
+                <a href="https://wa.me/972546969157" target="_blank"><span aria-hidden="true">💬</span> WhatsApp</a>
+                <span style="font-size:0.85rem;"><span aria-hidden="true">📍</span> שד' יגאל אלון 209/31, דימונה</span>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <p>© 2026 אזולאי ושות' — עורכי דין וגישור. כל הזכויות שמורות.</p>
         <div class="footer-legal">
-            <a onclick="openLegalModal('accessibility')">הצהרת נגישות</a>
-            <a onclick="openLegalModal('privacy')">מדיניות פרטיות</a>
-            <a onclick="openLegalModal('terms')">תנאי שימוש</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('accessibility')">הצהרת נגישות</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('privacy')">מדיניות פרטיות</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('terms')">תנאי שימוש</a>
         </div>
-        <p class="footer-credit">נבנה באהבה ❤️ על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
+        <p class="footer-credit">נבנה באהבה <span aria-hidden="true">❤️</span> על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
     </div>
 </footer>
 
 <!-- ===== FLOATING BUTTONS ===== -->
-<a href="https://wa.me/972546969157" target="_blank" class="float-wa" aria-label="WhatsApp">💬</a>
+<a href="https://wa.me/972546969157" target="_blank" class="float-wa" aria-label="WhatsApp"><span aria-hidden="true">💬</span></a>
 
-<!-- ===== ACCESSIBILITY ===== -->
-<button class="access-btn" id="accessBtn" aria-label="נגישות">♿</button>
-<div class="access-panel" id="accessPanel">
-    <h4>♿ הגדרות נגישות</h4>
-    <div class="access-option" onclick="changeFontSize(1)">🔍 הגדלת טקסט (A+)</div>
-    <div class="access-option" onclick="changeFontSize(-1)">🔎 הקטנת טקסט (A-)</div>
-    <div class="access-option" onclick="toggleHighContrast()">🌗 ניגודיות גבוהה</div>
-    <div class="access-option" onclick="toggleHighlightLinks()">🔗 הדגשת קישורים</div>
-    <div class="access-option" onclick="toggleReadableFont()">🔤 פונט קריא</div>
-    <div class="access-option" onclick="toggleAnimations()">⏸️ עצירת אנימציות</div>
-    <button class="access-reset" onclick="resetAccessibility()">↩️ איפוס הגדרות</button>
-</div>
 
 <!-- ===== CHATBOT ===== -->
-<div class="chat-bubble" id="chatBubble" onclick="openChat()">💬</div>
-<div class="chat-window" id="chatWindow">
+<button class="chat-bubble" id="chatBubble" onclick="openChat()" aria-label="פתח צ'אט עם רותי"><span aria-hidden="true">💬</span></button>
+<div class="chat-window" id="chatWindow" role="dialog" aria-modal="false" aria-label="צ'אט עם רותי — העוזרת הדיגיטלית">
     <div class="chat-header">
         <div class="chat-header-info">
-            <div class="chat-avatar">🤖</div>
+            <div class="chat-avatar" aria-hidden="true">🤖</div>
             <div class="chat-header-text">
                 <h5>רותי — העוזרת האישית</h5>
-                <span>● מחוברת</span>
+                <span aria-hidden="true">●</span> <span>מחוברת</span>
             </div>
         </div>
-        <button class="chat-close" onclick="closeChat()">✕</button>
+        <button class="chat-close" onclick="closeChat()" aria-label="סגור צ'אט">✕</button>
     </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="typing-indicator" id="typingIndicator">
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="הודעות צ'אט">
+        <div class="typing-indicator" id="typingIndicator" role="status" aria-label="רותי מקלידה">
+            <div class="typing-dot" aria-hidden="true"></div>
+            <div class="typing-dot" aria-hidden="true"></div>
+            <div class="typing-dot" aria-hidden="true"></div>
         </div>
     </div>
     <div class="chat-input-area">
+        <label for="chatInput" class="sr-only">כתבו הודעה לרותי</label>
         <input class="chat-input" id="chatInput" type="text" placeholder="כתבו הודעה..." onkeypress="if(event.key==='Enter')sendMessage()">
-        <button class="chat-send" onclick="sendMessage()">➤</button>
+        <button class="chat-send" onclick="sendMessage()" aria-label="שלח הודעה"><span aria-hidden="true">➤</span></button>
     </div>
-    <div class="chat-credit">רוצה סוכנת AI כזו באתר שלך? 👉 <a href="https://lior-ai.com" target="_blank">lior_Ai</a></div>
+    <div class="chat-credit"><span aria-hidden="true">👉</span> רוצה סוכנת AI כזו באתר שלך? <a href="https://lior-ai.com" target="_blank">lior_Ai</a></div>
 </div>
 
 <!-- ===== LEGAL MODALS ===== -->
-<div class="legal-modal" id="legalModal">
+<div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
     <div class="legal-box">
-        <button class="modal-close" onclick="closeLegalModal()">✕</button>
+        <button class="modal-close" onclick="closeLegalModal()" aria-label="סגור חלון">✕</button>
         <h3 id="legalTitle"></h3>
         <div id="legalContent"></div>
     </div>
 </div>
+
 
 <script>
     // ===== HEADER SCROLL =====
@@ -1765,13 +1731,15 @@
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+        const isOpen = hamburger.classList.toggle('active');
         mobileNav.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
     });
     mobileNav.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
             hamburger.classList.remove('active');
             mobileNav.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -1846,21 +1814,39 @@
         }
     ];
 
+    let practiceModalTrigger = null;
     function openPracticeModal(idx) {
+        practiceModalTrigger = document.activeElement;
         const d = practiceData[idx];
         document.getElementById('modalIcon').textContent = d.icon;
         document.getElementById('modalTitle').textContent = d.title;
         document.getElementById('modalTags').innerHTML = d.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
         document.getElementById('modalText').textContent = d.text;
-        document.getElementById('practiceModal').classList.add('active');
+        const modal = document.getElementById('practiceModal');
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
     }
     function closePracticeModal() {
         document.getElementById('practiceModal').classList.remove('active');
         document.body.style.overflow = '';
+        if (practiceModalTrigger) { practiceModalTrigger.focus(); practiceModalTrigger = null; }
     }
     document.getElementById('practiceModal').addEventListener('click', (e) => {
         if (e.target === e.currentTarget) closePracticeModal();
+    });
+    // Focus trap for practice modal
+    document.getElementById('practiceModal').addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const modal = document.getElementById('practiceModal');
+        if (!modal.classList.contains('active')) return;
+        const focusable = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
     // ===== TESTIMONIAL SLIDER =====
@@ -1872,6 +1858,7 @@
     items.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'המלצה ' + (i + 1) + ' מתוך ' + items.length);
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
     });
@@ -1889,42 +1876,32 @@
         btn.addEventListener('click', () => {
             const item = btn.parentElement;
             const wasOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            if (!wasOpen) item.classList.add('open');
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 
     // ===== CONTACT FORM =====
     function handleFormSubmit(e) {
         e.preventDefault();
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const subjectEl = document.getElementById('subject');
+        const subjectText = subjectEl.options[subjectEl.selectedIndex].text;
+        const message = document.getElementById('message').value;
+        const waText = `שלום, שמי ${name}.\nטלפון: ${phone}\nנושא: ${subjectText}${message ? '\n' + message : ''}`;
+        window.open('https://wa.me/972546969157?text=' + encodeURIComponent(waText), '_blank');
         document.getElementById('formSuccess').classList.add('active');
         e.target.reset();
         setTimeout(() => document.getElementById('formSuccess').classList.remove('active'), 5000);
     }
 
-    // ===== ACCESSIBILITY =====
-    const accessBtn = document.getElementById('accessBtn');
-    const accessPanel = document.getElementById('accessPanel');
-    let fontSize = 16;
-
-    accessBtn.addEventListener('click', () => accessPanel.classList.toggle('active'));
-    document.addEventListener('click', (e) => {
-        if (!accessPanel.contains(e.target) && e.target !== accessBtn) accessPanel.classList.remove('active');
-    });
-
-    function changeFontSize(delta) {
-        fontSize = Math.max(12, Math.min(24, fontSize + delta));
-        document.documentElement.style.fontSize = fontSize + 'px';
-    }
-    function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
-    function toggleHighlightLinks() { document.body.classList.toggle('highlight-links'); }
-    function toggleReadableFont() { document.body.classList.toggle('readable-font'); }
-    function toggleAnimations() { document.body.classList.toggle('no-animations'); }
-    function resetAccessibility() {
-        fontSize = 16;
-        document.documentElement.style.fontSize = '16px';
-        document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font', 'no-animations');
-    }
 
     // ===== CHATBOT =====
     const chatBubble = document.getElementById('chatBubble');
@@ -1951,7 +1928,20 @@
     function closeChat() {
         chatWindow.classList.remove('active');
         chatBubble.classList.remove('hidden');
+        chatBubble.focus();
     }
+
+    // Focus trap for chat window
+    chatWindow.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        if (!chatWindow.classList.contains('active')) return;
+        const focusable = chatWindow.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
 
     function showTyping() { typingIndicator.classList.add('active'); scrollChat(); }
     function hideTyping() { typingIndicator.classList.remove('active'); }
@@ -2084,19 +2074,37 @@
         }
     };
 
+    let legalModalTrigger = null;
     function openLegalModal(type) {
+        legalModalTrigger = document.activeElement;
         const d = legalData[type];
         document.getElementById('legalTitle').textContent = d.title;
         document.getElementById('legalContent').innerHTML = d.content;
-        document.getElementById('legalModal').classList.add('active');
+        const modal = document.getElementById('legalModal');
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
     }
     function closeLegalModal() {
         document.getElementById('legalModal').classList.remove('active');
         document.body.style.overflow = '';
+        if (legalModalTrigger) { legalModalTrigger.focus(); legalModalTrigger = null; }
     }
     document.getElementById('legalModal').addEventListener('click', (e) => {
         if (e.target === e.currentTarget) closeLegalModal();
+    });
+    // Focus trap for legal modal
+    document.getElementById('legalModal').addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const modal = document.getElementById('legalModal');
+        if (!modal.classList.contains('active')) return;
+        const focusable = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
     // Close modals on Escape
@@ -2107,7 +2115,448 @@
             closeChat();
         }
     });
+
 </script>
+
+<!-- ==================== LIOR-AI ACCESSIBILITY WIDGET START ==================== -->
+<style>
+/* Accessibility Widget - lior-ai.com Standard */
+.liorai-a11y-trigger{position:fixed;bottom:24px;left:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4aa,#00b894);border:none;cursor:pointer;z-index:99998;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,170,0.4);transition:transform .3s,box-shadow .3s}
+.liorai-a11y-trigger:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,212,170,0.6)}
+.liorai-a11y-trigger:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.liorai-a11y-trigger svg{width:28px;height:28px;fill:#fff}
+.liorai-a11y-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99999;justify-content:center;align-items:center;padding:16px}
+.liorai-a11y-overlay.open{display:flex}
+.liorai-a11y-panel{background:#1a1a2e;color:#e0e0e0;border-radius:20px;width:100%;max-width:420px;max-height:90vh;overflow-y:auto;padding:28px 24px 20px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.5);font-family:'Segoe UI','Heebo','Assistant',sans-serif;direction:rtl}
+.liorai-a11y-panel::-webkit-scrollbar{width:6px}
+.liorai-a11y-panel::-webkit-scrollbar-track{background:transparent}
+.liorai-a11y-panel::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+.liorai-a11y-close{position:absolute;top:16px;left:16px;background:none;border:none;color:#888;font-size:24px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s}
+.liorai-a11y-close:hover{background:rgba(255,255,255,0.1);color:#fff}
+.liorai-a11y-header{text-align:center;margin-bottom:20px}
+.liorai-a11y-header h2{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+.liorai-a11y-header h2 svg{width:22px;height:22px;fill:#00d4aa}
+.liorai-a11y-header p{font-size:0.78rem;color:#888;line-height:1.5}
+.liorai-a11y-section{margin-bottom:18px}
+.liorai-a11y-section-title{font-size:0.82rem;color:#888;margin-bottom:10px;font-weight:500}
+.liorai-a11y-font-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.liorai-a11y-font-btn{width:44px;height:44px;border-radius:12px;border:1px solid #333;background:#252540;color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.liorai-a11y-font-btn:hover{background:#333;border-color:#00d4aa}
+.liorai-a11y-font-display{flex:1;text-align:center;background:#252540;border:1px solid #333;border-radius:12px;padding:10px;font-size:0.95rem;color:#fff;font-weight:500}
+.liorai-a11y-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.liorai-a11y-btn{background:#252540;border:1px solid #333;border-radius:12px;padding:12px 10px;color:#e0e0e0;font-size:0.85rem;cursor:pointer;text-align:center;transition:background .2s,border-color .2s,color .2s;font-family:inherit}
+.liorai-a11y-btn:hover{background:#333;border-color:#555}
+.liorai-a11y-btn.active{background:rgba(0,212,170,0.15);border-color:#00d4aa;color:#00d4aa}
+.liorai-a11y-btn-full{grid-column:1/-1}
+.liorai-a11y-reset{display:block;width:100%;background:#252540;border:1px solid #444;border-radius:12px;padding:14px;color:#e0e0e0;font-size:0.9rem;cursor:pointer;text-align:center;margin-top:8px;transition:background .2s;font-family:inherit}
+.liorai-a11y-reset:hover{background:#333}
+.liorai-a11y-links{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid #333}
+.liorai-a11y-links a{color:#00d4aa;text-decoration:none;font-size:0.82rem;transition:opacity .2s}
+.liorai-a11y-links a:hover{opacity:0.8;text-decoration:underline}
+.liorai-a11y-credit{text-align:center;margin-top:12px;font-size:0.72rem;color:#555}
+.liorai-a11y-credit a{color:#00d4aa;text-decoration:none}
+
+/* Accessibility state classes */
+body.liorai-high-contrast{filter:contrast(1.5)!important}
+body.liorai-inverted{filter:invert(1) hue-rotate(180deg)!important}
+body.liorai-inverted img,body.liorai-inverted video,body.liorai-inverted svg{filter:invert(1) hue-rotate(180deg)!important}
+body.liorai-grayscale{filter:grayscale(1)!important}
+body.liorai-yellow-on-black{background:#000!important;color:#ff0!important}
+body.liorai-yellow-on-black *{background-color:#000!important;color:#ff0!important;border-color:#ff0!important}
+body.liorai-yellow-on-black img,body.liorai-yellow-on-black video{filter:none!important;background:transparent!important}
+body.liorai-yellow-on-black .liorai-a11y-panel,body.liorai-yellow-on-black .liorai-a11y-panel *{background-color:#1a1a2e!important;color:#e0e0e0!important;border-color:#333!important}
+body.liorai-yellow-on-black .liorai-a11y-btn.active{color:#00d4aa!important;border-color:#00d4aa!important}
+body.liorai-highlight-links a{outline:2px solid #00d4aa!important;outline-offset:2px!important;text-decoration:underline!important}
+body.liorai-highlight-links .liorai-a11y-panel a{outline:none!important}
+body.liorai-big-cursor,body.liorai-big-cursor *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4,auto!important}
+body.liorai-stop-animations *,body.liorai-stop-animations *::before,body.liorai-stop-animations *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+body.liorai-dyslexia-font,body.liorai-dyslexia-font *{font-family:'OpenDyslexic','Comic Sans MS','Arial',sans-serif!important;letter-spacing:0.05em!important;word-spacing:0.15em!important;line-height:1.8!important}
+.liorai-reading-guide{display:none;position:fixed;left:0;right:0;height:12px;background:rgba(0,212,170,0.25);border-top:2px solid #00d4aa;border-bottom:2px solid #00d4aa;pointer-events:none;z-index:99997;transition:top 0.05s linear}
+.liorai-reading-guide.active{display:block}
+
+/* Page overlay styles for statement/privacy/terms */
+.liorai-page-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:100000;justify-content:center;align-items:flex-start;padding:20px;overflow-y:auto}
+.liorai-page-overlay.open{display:flex}
+.liorai-page-box{background:#fff;color:#1a1a2e;border-radius:16px;width:100%;max-width:800px;padding:40px 32px;margin:20px auto;position:relative;font-family:'Segoe UI','Heebo','Assistant',sans-serif;direction:rtl;line-height:1.7}
+.liorai-page-box h1{font-size:1.6rem;margin-bottom:8px;color:#1a1a2e}
+.liorai-page-box h2{font-size:1.2rem;margin-top:24px;margin-bottom:8px;color:#1a1a2e;border-bottom:2px solid #00d4aa;padding-bottom:4px;display:inline-block}
+.liorai-page-box h3{font-size:1rem;margin-top:16px;margin-bottom:6px;color:#333}
+.liorai-page-box p,.liorai-page-box li{font-size:0.92rem;color:#444;margin-bottom:6px}
+.liorai-page-box ul{padding-right:20px;margin-bottom:12px}
+.liorai-page-box table{width:100%;border-collapse:collapse;margin:12px 0}
+.liorai-page-box th,.liorai-page-box td{border:1px solid #ddd;padding:8px 12px;text-align:right;font-size:0.88rem}
+.liorai-page-box th{background:#f5f5f5;font-weight:600}
+.liorai-page-close{position:sticky;top:0;float:left;background:#f0f0f0;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .2s}
+.liorai-page-close:hover{background:#ddd}
+</style>
+
+<!-- Accessibility Trigger Button -->
+<button class="liorai-a11y-trigger" id="lioraiA11yTrigger" aria-label="פתח תפריט נגישות" title="נגישות">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm-1 6h2c2.21 0 4.5.5 6 1.5l-.9 1.8C16.8 10.5 14.8 10 13 10h-2c-1.8 0-3.8.5-5.1 1.3L5 9.5C6.5 8.5 8.79 8 11 8zm1 4c.55 0 1 .45 1 1v2.5l2.5 4-.86.5L13 16l-2.64 4-.86-.5 2.5-4V13c0-.55.45-1 1-1z"/></svg>
+</button>
+
+<!-- Reading Guide -->
+<div class="liorai-reading-guide" id="lioraiReadingGuide"></div>
+
+<!-- Accessibility Panel Overlay -->
+<div class="liorai-a11y-overlay" id="lioraiA11yOverlay" role="dialog" aria-modal="true" aria-label="אפשרויות נגישות">
+  <div class="liorai-a11y-panel">
+    <button class="liorai-a11y-close" id="lioraiA11yClose" aria-label="סגור תפריט נגישות">&times;</button>
+    <div class="liorai-a11y-header">
+      <h2><svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm-1 6h2c2.21 0 4.5.5 6 1.5l-.9 1.8C16.8 10.5 14.8 10 13 10h-2c-1.8 0-3.8.5-5.1 1.3L5 9.5C6.5 8.5 8.79 8 11 8zm1 4c.55 0 1 .45 1 1v2.5l2.5 4-.86.5L13 16l-2.64 4-.86-.5 2.5-4V13c0-.55.45-1 1-1z"/></svg> נגישות</h2>
+      <p>הגדרות נשמרות אוטומטית</p>
+      <p>תקן WCAG 2.1 AA · IS 5568</p>
+    </div>
+
+    <!-- Text Size -->
+    <div class="liorai-a11y-section">
+      <div class="liorai-a11y-section-title">גודל טקסט</div>
+      <div class="liorai-a11y-font-row">
+        <button class="liorai-a11y-font-btn" data-a11y="font-up" aria-label="הגדל טקסט">+</button>
+        <div class="liorai-a11y-font-display" id="lioraiFontDisplay">רגיל</div>
+        <button class="liorai-a11y-font-btn" data-a11y="font-down" aria-label="הקטן טקסט">−</button>
+      </div>
+    </div>
+
+    <!-- Contrast -->
+    <div class="liorai-a11y-section">
+      <div class="liorai-a11y-section-title">ניגודיות</div>
+      <div class="liorai-a11y-grid">
+        <button class="liorai-a11y-btn" data-a11y="high-contrast">ניגודיות גבוהה</button>
+        <button class="liorai-a11y-btn" data-a11y="inverted">צבעים הפוכים</button>
+        <button class="liorai-a11y-btn" data-a11y="grayscale">גוני אפור</button>
+        <button class="liorai-a11y-btn" data-a11y="yellow-on-black">צהוב על שחור</button>
+      </div>
+    </div>
+
+    <!-- Display & Comfort -->
+    <div class="liorai-a11y-section">
+      <div class="liorai-a11y-section-title">תצוגה ונוחות</div>
+      <div class="liorai-a11y-grid">
+        <button class="liorai-a11y-btn" data-a11y="highlight-links">הדגש קישורים</button>
+        <button class="liorai-a11y-btn" data-a11y="big-cursor">סמן מוגדל</button>
+        <button class="liorai-a11y-btn" data-a11y="stop-animations">עצור אנימציות</button>
+        <button class="liorai-a11y-btn" data-a11y="dyslexia-font">גופן דיסלקציה</button>
+        <button class="liorai-a11y-btn liorai-a11y-btn-full" data-a11y="reading-guide">מדריך קריאה</button>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <button class="liorai-a11y-reset" data-a11y="reset">♻ אפס את כל הגדרות הנגישות</button>
+
+    <!-- Links -->
+    <div class="liorai-a11y-links">
+      <a href="#" id="lioraiA11yStatementLink">הצהרת נגישות מלאה ←</a>
+    </div>
+
+    <!-- Credit -->
+    <div class="liorai-a11y-credit">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener">LIOR_AI</a></div>
+  </div>
+</div>
+
+<!-- Accessibility Statement Page -->
+<div class="liorai-page-overlay" id="lioraiStatementPage">
+  <div class="liorai-page-box">
+    <button class="liorai-page-close" onclick="document.getElementById('lioraiStatementPage').classList.remove('open')" aria-label="סגור">&times;</button>
+    <h1>♿ הצהרת נגישות</h1>
+    <p><strong>עודכן לאחרונה:</strong> מרץ 2026 | <strong>תקן:</strong> IS 5568 · WCAG 2.1 Level AA</p>
+    <p>בסיס משפטי: חוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח-1998</p>
+
+    <h2>1. מחויבות לנגישות</h2>
+    <p>אתר זה מחויב לנגישות דיגיטלית בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ולתקנות הנגישות. האתר שואף לעמוד בתקן IS 5568 (המבוסס על WCAG 2.1, רמה AA) ומשפר את הנגישות באופן מתמשך.</p>
+
+    <h2>2. תכונות וידג׳ט הנגישות</h2>
+    <p>באמצעות לחצן הנגישות ♿ ניתן:</p>
+    <ul>
+      <li>שינוי גודל טקסט (80%-200%)</li>
+      <li>מצב ניגודיות גבוהה</li>
+      <li>צבעים הפוכים</li>
+      <li>פלטת צהוב על שחור</li>
+      <li>מצב גוני אפור</li>
+      <li>הדגשת קישורים</li>
+      <li>סמן מוגדל</li>
+      <li>עצירת אנימציות</li>
+      <li>גופן ידידותי לדיסלקציה</li>
+      <li>מדריך קריאה</li>
+      <li>איפוס כל ההגדרות</li>
+      <li>שמירה אוטומטית של הגדרות</li>
+    </ul>
+
+    <h2>3. אמצעי נגישות טכניים</h2>
+    <table>
+      <tr><th>תכונה</th><th>סטטוס</th></tr>
+      <tr><td>תגי שפה ב-HTML</td><td>✅ מיושם</td></tr>
+      <tr><td>קישור דלג לתוכן</td><td>✅ מיושם</td></tr>
+      <tr><td>היררכיית כותרות</td><td>✅ מיושם</td></tr>
+      <tr><td>תגי ARIA</td><td>✅ מיושם</td></tr>
+      <tr><td>טקסט חלופי לתמונות</td><td>✅ מיושם</td></tr>
+      <tr><td>ניווט מקלדת</td><td>✅ מיושם</td></tr>
+      <tr><td>מחווני פוקוס נראים</td><td>✅ מיושם</td></tr>
+      <tr><td>יחסי ניגודיות צבע</td><td>✅ מיושם</td></tr>
+      <tr><td>תגי Landmark</td><td>✅ מיושם</td></tr>
+      <tr><td>טפסים נגישים</td><td>✅ מיושם</td></tr>
+      <tr><td>עיצוב רספונסיבי</td><td>✅ מיושם</td></tr>
+      <tr><td>תמיכת prefers-contrast</td><td>⚠️ חלקי</td></tr>
+      <tr><td>תמיכת reduced-motion</td><td>✅ מיושם</td></tr>
+      <tr><td>כתוביות אודיו/וידאו</td><td>— לא רלוונטי</td></tr>
+      <tr><td>כותרות iframe</td><td>✅ מיושם</td></tr>
+    </table>
+
+    <h2>4. בדיקות שבוצעו</h2>
+    <ul>
+      <li>ניווט מקלדת מלא (Chrome, Firefox, Safari)</li>
+      <li>ניתוח ניגודיות צבעים</li>
+      <li>בדיקת קורא מסך (NVDA, VoiceOver)</li>
+      <li>בדיקת זום 200%</li>
+      <li>בדיקה רספונסיבית (320px–2560px)</li>
+      <li>וולידציה אוטומטית (WAVE, axe DevTools)</li>
+      <li>תאריך בדיקה אחרון: מרץ 2026</li>
+    </ul>
+
+    <h2>5. דיווח על בעיות נגישות</h2>
+    <p>נתקלתם בבעיית נגישות? ניתן לפנות אלינו באמצעות פרטי הקשר באתר. אם לא קיבלתם מענה תוך 14 ימי עסקים, ניתן לפנות לנציב שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים.</p>
+
+    <h2>6. בסיס משפטי</h2>
+    <ul>
+      <li>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח-1998</li>
+      <li>תקנות הנגישות (התאמות נגישות לשירות), התשע״ג-2013</li>
+      <li>תקן ישראלי IS 5568:2023</li>
+      <li>הנחיות WCAG 2.1 רמה AA (W3C)</li>
+    </ul>
+
+    <p style="margin-top:20px;color:#888;font-size:0.82rem;">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener" style="color:#00d4aa">LIOR_AI</a></p>
+  </div>
+</div>
+
+<!-- Privacy Policy Page -->
+<div class="liorai-page-overlay" id="lioraiPrivacyPage">
+  <div class="liorai-page-box">
+    <button class="liorai-page-close" onclick="document.getElementById('lioraiPrivacyPage').classList.remove('open')" aria-label="סגור">&times;</button>
+    <h1>🔒 מדיניות פרטיות</h1>
+    <p><strong>תאריך תוקף:</strong> מרץ 2026 | בהתאם לחוק הגנת הפרטיות, התשמ״א-1981</p>
+
+    <h2>1. מטרת המדיניות</h2>
+    <p>מדיניות זו מפרטת כיצד אנו אוספים, משתמשים, מאחסנים ומגנים על מידע אישי המסופק במהלך השימוש באתר ובשירותיו.</p>
+
+    <h2>2. סוגי מידע נאסף</h2>
+    <h3>מידע ישיר:</h3>
+    <ul>
+      <li>פרטי זיהוי (שם, שם עסק)</li>
+      <li>פרטי קשר (טלפון, אימייל)</li>
+      <li>תוכן פניות (הודעות צ׳אט, טפסי יצירת קשר)</li>
+    </ul>
+    <h3>מידע נאסף אוטומטית:</h3>
+    <ul>
+      <li>נתונים טכניים (כתובת IP, סוג דפדפן, מערכת הפעלה)</li>
+      <li>נתוני שימוש (דפים שנצפו, משך ביקור)</li>
+      <li>העדפות LocalStorage (הגדרות נגישות)</li>
+    </ul>
+    <p><strong>לא נאסף:</strong> כרטיסי אשראי, סיסמאות, מידע ביומטרי, מידע רפואי.</p>
+
+    <h2>3. מטרות עיבוד</h2>
+    <ul>
+      <li>הצעות שירות מותאמות אישית</li>
+      <li>מענה לפניות</li>
+      <li>שיפור השירות</li>
+      <li>עמידה בדרישות חוק</li>
+    </ul>
+
+    <h2>4. שיתוף מידע</h2>
+    <p>המידע לא יועבר, יימכר או יושכר לצדדים שלישיים למטרות שיווק. ספקי שירות חיצוניים:</p>
+    <ul>
+      <li>GitHub Pages (אירוח אתר)</li>
+      <li>Google Fonts (טיפוגרפיה)</li>
+    </ul>
+
+    <h2>5. תקופות שמירת מידע</h2>
+    <ul>
+      <li>פרטי קשר: 3 שנים</li>
+      <li>הגדרות נגישות: ללא הגבלה (בדפדפן בלבד)</li>
+      <li>נתוני שימוש טכניים: 90 ימים</li>
+    </ul>
+
+    <h2>6. עוגיות ומעקב</h2>
+    <p>האתר משתמש ב-LocalStorage בלבד (לא בעוגיות) לשמירת העדפות נגישות. אין מעקב שיווקי כברירת מחדל.</p>
+
+    <h2>7. אבטחת מידע</h2>
+    <ul>
+      <li>הצפנת HTTPS/TLS</li>
+      <li>בקרות גישה</li>
+      <li>עדכוני אבטחה שוטפים</li>
+    </ul>
+
+    <h2>8. זכויות המשתמש</h2>
+    <ul>
+      <li>גישה למידע שנשמר</li>
+      <li>תיקון מידע שגוי</li>
+      <li>בקשת מחיקה</li>
+      <li>ביטול הסכמה לפנייה ישירה</li>
+      <li>ניידות מידע</li>
+    </ul>
+    <p>זמן מענה: עד 30 ימי עסקים. תלונות ניתן להפנות לרשות להגנת הפרטיות (ILPA).</p>
+
+    <h2>9. קטינים</h2>
+    <p>האתר אינו מיועד לקטינים מתחת לגיל 18; אין איסוף מידע מכוון מילדים.</p>
+
+    <p style="margin-top:20px;color:#888;font-size:0.82rem;">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener" style="color:#00d4aa">LIOR_AI</a></p>
+  </div>
+</div>
+
+<!-- Terms Page -->
+<div class="liorai-page-overlay" id="lioraiTermsPage">
+  <div class="liorai-page-box">
+    <button class="liorai-page-close" onclick="document.getElementById('lioraiTermsPage').classList.remove('open')" aria-label="סגור">&times;</button>
+    <h1>📋 תקנון האתר</h1>
+    <p><strong>עודכן:</strong> מרץ 2026</p>
+
+    <h2>1. מטרת האתר</h2>
+    <p>האתר מציג שירותים מקצועיים ומשמש כאמצעי ליצירת קשר ולקבלת מידע.</p>
+
+    <h2>2. שימוש מותר</h2>
+    <p>על המשתמשים להימנע מפעילויות בלתי חוקיות, מזיקות או מטעות. אסור לשבש פעילות האתר, לבצע סריקות זדוניות, לגשת ללא הרשאה או לשכפל תוכן ללא הסכמה בכתב.</p>
+
+    <h2>3. קניין רוחני</h2>
+    <p>כל הזכויות בתכנים, עיצוב, טקסטים, קוד, תמונות, לוגואים ומבנה האתר שמורות לבעל האתר ולבעלי הזכויות הרלוונטיים. שימוש מסחרי מחייב אישור מפורש.</p>
+
+    <h2>4. הגבלת אחריות</h2>
+    <p>המידע מוצג "כמות שהוא" למטרות מידע כללי ושיווק. אין ערובה לתוצאות עסקיות ספציפיות.</p>
+
+    <h2>5. פרטיות</h2>
+    <p>המשתמש מאשר עיבוד מידע באמצעות הגשת טפסי יצירת קשר, בהתאם לחוקי הגנת הפרטיות בישראל ולמדיניות הפרטיות של האתר.</p>
+
+    <h2>6. נגישות</h2>
+    <p>האתר מפעיל תכונות נגישות בהתאם לתקן ישראלי 5568 ו-WCAG 2.1 AA.</p>
+
+    <h2>7. קישורים חיצוניים</h2>
+    <p>בעל האתר אינו נושא באחריות לתוכן של צדדים שלישיים או אתרים חיצוניים.</p>
+
+    <h2>8. עדכונים ושינויים</h2>
+    <p>התנאים עשויים להתעדכן; המשך שימוש באתר מהווה הסכמה לשינויים. הדין הישראלי חל באופן בלעדי.</p>
+
+    <h2>9. יצירת קשר</h2>
+    <p>לשאלות בנוגע לתקנון, ניתן ליצור קשר באמצעות פרטי הקשר המופיעים באתר.</p>
+
+    <p style="margin-top:20px;color:#888;font-size:0.82rem;">נבנה ע״י <a href="https://www.lior-ai.com" target="_blank" rel="noopener" style="color:#00d4aa">LIOR_AI</a></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const STORAGE_KEY='liorai-a11y-settings';
+  const states={fontSize:100,highContrast:false,inverted:false,grayscale:false,yellowOnBlack:false,highlightLinks:false,bigCursor:false,stopAnimations:false,dyslexiaFont:false,readingGuide:false};
+  const classMap={'highContrast':'liorai-high-contrast','inverted':'liorai-inverted','grayscale':'liorai-grayscale','yellowOnBlack':'liorai-yellow-on-black','highlightLinks':'liorai-highlight-links','bigCursor':'liorai-big-cursor','stopAnimations':'liorai-stop-animations','dyslexiaFont':'liorai-dyslexia-font'};
+  const actionMap={'high-contrast':'highContrast','inverted':'inverted','grayscale':'grayscale','yellow-on-black':'yellowOnBlack','highlight-links':'highlightLinks','big-cursor':'bigCursor','stop-animations':'stopAnimations','dyslexia-font':'dyslexiaFont','reading-guide':'readingGuide'};
+
+  // Load saved settings
+  try{const s=localStorage.getItem(STORAGE_KEY);if(s){const saved=JSON.parse(s);Object.assign(states,saved);}}catch(e){}
+
+  function applyAll(){
+    // Font size
+    document.documentElement.style.fontSize=states.fontSize+'%';
+    const fd=document.getElementById('lioraiFontDisplay');
+    if(fd)fd.textContent=states.fontSize===100?'רגיל':states.fontSize+'%';
+
+    // Toggle classes
+    for(const[key,cls]of Object.entries(classMap)){
+      document.body.classList.toggle(cls,!!states[key]);
+    }
+
+    // Reading guide
+    const rg=document.getElementById('lioraiReadingGuide');
+    if(rg)rg.classList.toggle('active',!!states.readingGuide);
+
+    // Update button states
+    document.querySelectorAll('.liorai-a11y-btn[data-a11y]').forEach(btn=>{
+      const action=btn.getAttribute('data-a11y');
+      const stateKey=actionMap[action];
+      if(stateKey)btn.classList.toggle('active',!!states[stateKey]);
+    });
+
+    // Mutually exclusive contrast modes
+    save();
+  }
+
+  function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(states));}catch(e){}}
+
+  function resetAll(){
+    states.fontSize=100;
+    for(const k of Object.keys(classMap))states[k]=false;
+    states.readingGuide=false;
+    applyAll();
+  }
+
+  function toggleContrast(key){
+    const contrastKeys=['highContrast','inverted','grayscale','yellowOnBlack'];
+    if(!states[key]){contrastKeys.forEach(k=>{if(k!==key)states[k]=false;});}
+    states[key]=!states[key];
+    applyAll();
+  }
+
+  // Apply on load
+  document.addEventListener('DOMContentLoaded',function(){
+    applyAll();
+
+    const trigger=document.getElementById('lioraiA11yTrigger');
+    const overlay=document.getElementById('lioraiA11yOverlay');
+    const closeBtn=document.getElementById('lioraiA11yClose');
+    const readingGuide=document.getElementById('lioraiReadingGuide');
+
+    if(trigger)trigger.addEventListener('click',function(){overlay.classList.add('open');});
+    if(closeBtn)closeBtn.addEventListener('click',function(){overlay.classList.remove('open');});
+    if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('open');});
+
+    // ESC key
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){
+        overlay.classList.remove('open');
+        document.getElementById('lioraiStatementPage').classList.remove('open');
+        document.getElementById('lioraiPrivacyPage').classList.remove('open');
+        document.getElementById('lioraiTermsPage').classList.remove('open');
+      }
+    });
+
+    // Action buttons
+    document.querySelectorAll('[data-a11y]').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        const action=this.getAttribute('data-a11y');
+        if(action==='font-up'){states.fontSize=Math.min(200,states.fontSize+10);applyAll();}
+        else if(action==='font-down'){states.fontSize=Math.max(80,states.fontSize-10);applyAll();}
+        else if(action==='reset'){resetAll();}
+        else if(action==='reading-guide'){states.readingGuide=!states.readingGuide;applyAll();}
+        else{
+          const stateKey=actionMap[action];
+          if(stateKey){
+            const contrastKeys=['highContrast','inverted','grayscale','yellowOnBlack'];
+            if(contrastKeys.includes(stateKey)){toggleContrast(stateKey);}
+            else{states[stateKey]=!states[stateKey];applyAll();}
+          }
+        }
+      });
+    });
+
+    // Reading guide mouse tracking
+    document.addEventListener('mousemove',function(e){
+      if(states.readingGuide&&readingGuide){readingGuide.style.top=(e.clientY-6)+'px';}
+    });
+
+    // Statement link
+    const stLink=document.getElementById('lioraiA11yStatementLink');
+    if(stLink)stLink.addEventListener('click',function(e){
+      e.preventDefault();
+      overlay.classList.remove('open');
+      document.getElementById('lioraiStatementPage').classList.add('open');
+    });
+
+    // Close page overlays on outside click
+    ['lioraiStatementPage','lioraiPrivacyPage','lioraiTermsPage'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el)el.addEventListener('click',function(e){if(e.target===el)el.classList.remove('open');});
+    });
+  });
+})();
+</script>
+<!-- ==================== LIOR-AI ACCESSIBILITY WIDGET END ==================== -->
 
 </body>
 </html>
