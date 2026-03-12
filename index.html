@@ -996,7 +996,7 @@
     .float-wa {
         position: fixed;
         bottom: 100px;
-        left: 24px;
+        right: 24px;
         width: 56px;
         height: 56px;
         background: #25D366;
@@ -1017,7 +1017,7 @@
     .chat-bubble {
         position: fixed;
         bottom: 24px;
-        left: 24px;
+        right: 24px;
         width: 60px;
         height: 60px;
         background: linear-gradient(135deg, var(--gold), #d4b55a);
@@ -1044,7 +1044,7 @@
     .chat-window {
         position: fixed;
         bottom: 24px;
-        left: 24px;
+        right: 24px;
         width: 360px;
         max-width: calc(100vw - 48px);
         height: 500px;
@@ -1683,11 +1683,11 @@
 
 
 <!-- ===== CHATBOT ===== -->
-<button class="chat-bubble" id="chatBubble" onclick="openChat()" aria-label="פתח צ'אט עם רותי"><span aria-hidden="true">💬</span></button>
+<button class="chat-bubble" id="chatBubble" onclick="openChat()" aria-label="פתח צ'אט עם רותי"><img src="https://lior-ai.com/images/aibot-64.webp" alt="צ'אט" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" aria-hidden="true"></button>
 <div class="chat-window" id="chatWindow" role="dialog" aria-modal="false" aria-label="צ'אט עם רותי — העוזרת הדיגיטלית">
     <div class="chat-header">
         <div class="chat-header-info">
-            <div class="chat-avatar" aria-hidden="true">🤖</div>
+            <div class="chat-avatar" aria-hidden="true"><img src="https://lior-ai.com/images/aibot-64.webp" alt="רותי" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
             <div class="chat-header-text">
                 <h5>רותי — העוזרת האישית</h5>
                 <span aria-hidden="true">●</span> <span>מחוברת</span>
@@ -2121,7 +2121,7 @@
 <!-- ==================== LIOR-AI ACCESSIBILITY WIDGET START ==================== -->
 <style>
 /* Accessibility Widget - lior-ai.com Standard */
-.liorai-a11y-trigger{position:fixed;bottom:24px;left:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4aa,#00b894);border:none;cursor:pointer;z-index:99998;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,170,0.4);transition:transform .3s,box-shadow .3s}
+.liorai-a11y-trigger{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4aa,#00b894);border:none;cursor:pointer;z-index:99998;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,170,0.4);transition:transform .3s,box-shadow .3s}
 .liorai-a11y-trigger:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,212,170,0.6)}
 .liorai-a11y-trigger:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .liorai-a11y-trigger svg{width:28px;height:28px;fill:#fff}
