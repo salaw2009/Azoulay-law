@@ -1013,204 +1013,7 @@
     }
     .float-wa:hover { transform: scale(1.1); }
 
-    /* ========== CHATBOT ========== */
-    .chat-bubble {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, var(--gold), #d4b55a);
-        border-radius: 50%;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        color: var(--navy);
-        cursor: pointer;
-        z-index: 1100;
-        box-shadow: 0 4px 20px rgba(201,168,76,0.4);
-        transition: var(--transition);
-        animation: chatPulse 2s infinite;
-    }
-    .chat-bubble:hover { transform: scale(1.1); }
-    .chat-bubble.hidden { display: none; }
-    @keyframes chatPulse {
-        0%, 100% { box-shadow: 0 4px 20px rgba(201,168,76,0.4); }
-        50% { box-shadow: 0 4px 30px rgba(201,168,76,0.6), 0 0 0 12px rgba(201,168,76,0.1); }
-    }
-
-    .chat-window {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 360px;
-        max-width: calc(100vw - 48px);
-        height: 500px;
-        max-height: calc(100vh - 120px);
-        background: var(--white);
-        border-radius: 16px;
-        box-shadow: 0 12px 48px rgba(0,0,0,0.2);
-        z-index: 1200;
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-        animation: modalIn 0.3s ease;
-    }
-    .chat-window.active { display: flex; }
-
-    .chat-header {
-        background: var(--navy);
-        padding: 16px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: var(--white);
-    }
-    .chat-header-info { display: flex; align-items: center; gap: 10px; }
-    .chat-avatar {
-        width: 36px;
-        height: 36px;
-        background: var(--gold);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-    }
-    .chat-header-text h5 { font-size: 0.9rem; font-weight: 600; }
-    .chat-header-text span { font-size: 0.7rem; color: #4ade80; }
-    .chat-close {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: none;
-        background: rgba(255,255,255,0.1);
-        color: var(--white);
-        cursor: pointer;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        background: var(--cream);
-    }
-    .chat-msg {
-        max-width: 85%;
-        padding: 10px 14px;
-        border-radius: 12px;
-        font-size: 0.88rem;
-        line-height: 1.6;
-        white-space: pre-line;
-    }
-    .chat-msg.bot {
-        background: var(--navy);
-        color: var(--white);
-        align-self: flex-start;
-        border-bottom-right-radius: 4px;
-    }
-    .chat-msg.user {
-        background: var(--gold-light);
-        color: var(--navy);
-        align-self: flex-end;
-        border-bottom-left-radius: 4px;
-    }
-    .chat-msg .msg-btns {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 10px;
-    }
-    .chat-msg .msg-btn {
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        text-decoration: none;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        transition: var(--transition);
-        cursor: pointer;
-        border: none;
-        font-family: 'Heebo', sans-serif;
-    }
-    .msg-btn-gold { background: var(--gold); color: var(--navy); }
-    .msg-btn-green { background: #25D366; color: white; }
-    .msg-btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white); }
-
-    .typing-indicator {
-        align-self: flex-start;
-        background: var(--navy);
-        padding: 12px 18px;
-        border-radius: 12px;
-        display: none;
-    }
-    .typing-indicator.active { display: flex; gap: 4px; }
-    .typing-dot {
-        width: 6px;
-        height: 6px;
-        background: rgba(255,255,255,0.5);
-        border-radius: 50%;
-        animation: typingBounce 1.4s infinite;
-    }
-    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typingBounce {
-        0%, 60%, 100% { transform: translateY(0); }
-        30% { transform: translateY(-6px); }
-    }
-
-    .chat-input-area {
-        padding: 12px 16px;
-        display: flex;
-        gap: 8px;
-        background: var(--white);
-        border-top: 1px solid #eee;
-    }
-    .chat-input {
-        flex: 1;
-        padding: 10px 14px;
-        border: 1px solid #ddd;
-        border-radius: 20px;
-        font-family: 'Heebo', sans-serif;
-        font-size: 0.88rem;
-        outline: none;
-        transition: var(--transition);
-    }
-    .chat-input:focus { border-color: var(--gold); }
-    .chat-send {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: var(--gold);
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-    }
-    .chat-send:hover { background: var(--gold-hover); }
-    .chat-credit {
-        text-align: center;
-        padding: 6px;
-        font-size: 0.7rem;
-        color: #aaa;
-        background: var(--white);
-        border-top: 1px solid #f0f0f0;
-    }
-    .chat-credit a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    /* Chatbot CSS removed - using AI Agent Widget instead */
 
     /* Legal Modals */
     .legal-modal {
@@ -1682,33 +1485,409 @@
 <a href="https://wa.me/972546969157" target="_blank" class="float-wa" aria-label="WhatsApp"><span aria-hidden="true">💬</span></a>
 
 
-<!-- ===== CHATBOT ===== -->
-<button class="chat-bubble" id="chatBubble" onclick="openChat()" aria-label="פתח צ'אט עם רותי"><img src="https://lior-ai.com/images/aibot-64.webp" alt="צ'אט" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" aria-hidden="true"></button>
-<div class="chat-window" id="chatWindow" role="dialog" aria-modal="false" aria-label="צ'אט עם רותי — העוזרת הדיגיטלית">
-    <div class="chat-header">
-        <div class="chat-header-info">
-            <div class="chat-avatar" aria-hidden="true"><img src="https://lior-ai.com/images/aibot-64.webp" alt="רותי" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
-            <div class="chat-header-text">
-                <h5>רותי — העוזרת האישית</h5>
-                <span aria-hidden="true">●</span> <span>מחוברת</span>
-            </div>
-        </div>
-        <button class="chat-close" onclick="closeChat()" aria-label="סגור צ'אט">✕</button>
-    </div>
-    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="הודעות צ'אט">
-        <div class="typing-indicator" id="typingIndicator" role="status" aria-label="רותי מקלידה">
-            <div class="typing-dot" aria-hidden="true"></div>
-            <div class="typing-dot" aria-hidden="true"></div>
-            <div class="typing-dot" aria-hidden="true"></div>
-        </div>
-    </div>
-    <div class="chat-input-area">
-        <label for="chatInput" class="sr-only">כתבו הודעה לרותי</label>
-        <input class="chat-input" id="chatInput" type="text" placeholder="כתבו הודעה..." onkeypress="if(event.key==='Enter')sendMessage()">
-        <button class="chat-send" onclick="sendMessage()" aria-label="שלח הודעה"><span aria-hidden="true">➤</span></button>
-    </div>
-    <div class="chat-credit"><span aria-hidden="true">👉</span> רוצה סוכנת AI כזו באתר שלך? <a href="https://lior-ai.com" target="_blank">lior_Ai</a></div>
-</div>
+<!-- === AI Agent Widget - Azoulay Law (Lior-AI) === -->
+<script>
+(function () {
+  var CFG = {
+    title: "\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8 \u05de\u05e9\u05e4\u05d8\u05d9 \u05d7\u05db\u05dd",
+    sub: '\u05e8\u05d5\u05ea\u05d9 \u2014 \u05e0\u05e6\u05d9\u05d2\u05d4 \u05d7\u05db\u05de\u05d4 \u05e9\u05de\u05e1\u05e0\u05e0\u05ea \u05e4\u05e0\u05d9\u05d5\u05ea \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d9\u05d7\u05d4 \u05e2\u05dd \u05e2\u05d5"\u05d3',
+    whatsapp: "972546969157",
+    email: "office.lawsa@gmail.com",
+    anchor: "#contact",
+    brand: "\u05de\u05e9\u05e8\u05d3 \u05d0\u05d6\u05d5\u05dc\u05d0\u05d9 \u05d5\u05e9\u05d5\u05ea\u05f3",
+    launcherSide: "right",
+    launcherBottom: 18
+  };
+
+  var css = "\n  :root{\n    --x-bg:#050713;\n    --x-panel:#F4F6FA;\n    --x-card:#FFFFFF;\n    --x-text:#0B1220;\n    --x-muted:#667085;\n    --x-border:rgba(15,23,42,.10);\n    --x-shadow:0 18px 55px rgba(0,0,0,.35);\n    --x-shadow2:0 10px 26px rgba(0,0,0,.10);\n    --x-r:26px;\n    --x-r2:18px;\n    --x-grad:linear-gradient(92deg,#1AD6C9 0%, #5B3CF4 55%, #A855F7 100%);\n    --x-grad2:linear-gradient(135deg,rgba(26,214,201,.20),rgba(168,85,247,.18));\n    --x-grad3:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.92));\n  }\n  #xai-launcher{\n    position:fixed;\n    right:18px;\n    bottom:18px;\n    width:64px;height:64px;border-radius:999px;\n    border:none;cursor:pointer;z-index:99999;\n    background:var(--x-grad);\n    box-shadow:0 18px 40px rgba(0,0,0,.35);\n    display:grid;place-items:center;\n    transition:transform .18s ease, filter .18s ease;\n  }\n  #xai-launcher:hover{transform:translateY(-2px); filter:saturate(1.1)}\n  #xai-launcher::after{\n    content:\"\";\n    position:absolute;inset:3px;\n    border-radius:999px;\n    background:rgba(7,10,18,.92);\n    box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);\n  }\n  #xai-launcher svg{position:relative;z-index:1}\n  #xai-launcher img{position:relative;z-index:1;width:38px;height:38px;border-radius:50%;object-fit:cover;}\n  #xai-launcher .dot{\n    position:absolute;right:7px;top:7px;\n    width:10px;height:10px;border-radius:50%;\n    background:#22C55E;\n    box-shadow:0 0 0 3px rgba(34,197,94,.18);\n    z-index:2;\n  }\n  #xai-overlay{\n    position:fixed; inset:0; z-index:99998;\n    display:none;\n    background:rgba(0,0,0,.42);\n    backdrop-filter: blur(10px);\n  }\n  #xai-sheet{\n    position:absolute;\n    left:50%; top:50%;\n    transform:translate(-50%,-50%);\n    width:min(560px, calc(100vw - 26px));\n    height:min(78vh, 690px);\n    background:var(--x-panel);\n    border-radius:calc(var(--x-r) + 4px);\n    box-shadow:var(--x-shadow);\n    overflow:hidden;\n    direction:rtl;\n    font-family:Heebo, Arial, sans-serif;\n    display:flex; flex-direction:column;\n    animation:xai-pop .18s ease;\n  }\n  @keyframes xai-pop{from{transform:translate(-50%,-49%) scale(.985);opacity:.7}to{transform:translate(-50%,-50%) scale(1);opacity:1}}\n  #xai-header{\n    height:86px;\n    background:var(--x-grad);\n    position:relative;\n    display:flex;\n    align-items:flex-end;\n    justify-content:flex-start;\n    padding:14px 16px;\n    box-shadow:0 14px 30px rgba(0,0,0,.18);\n  }\n  #xai-header::after{\n    content:\"\";\n    position:absolute; inset:0;\n    background:radial-gradient(800px 120px at 20% 0%, rgba(255,255,255,.22), transparent 60%);\n    pointer-events:none;\n  }\n  #xai-title{\n    color:white; font-weight:900; font-size:28px; line-height:1.1; margin:0;\n    letter-spacing:.2px;\n  }\n  #xai-sub{\n    color:rgba(255,255,255,.86);\n    font-size:13px; margin-top:6px;\n    font-weight:600;\n  }\n  #xai-close{\n    position:absolute; left:16px; top:16px;\n    width:42px;height:42px;border-radius:14px;\n    border:1px solid rgba(255,255,255,.30);\n    background:rgba(0,0,0,.14);\n    color:white; font-size:22px;\n    cursor:pointer;\n    display:grid;place-items:center;\n    transition:transform .12s ease, background .12s ease;\n  }\n  #xai-close:hover{transform:scale(1.02); background:rgba(0,0,0,.20)}\n  #xai-badge{\n    position:absolute; right:16px; top:16px;\n    padding:8px 10px;\n    border-radius:999px;\n    background:rgba(255,255,255,.16);\n    border:1px solid rgba(255,255,255,.22);\n    color:white; font-size:12px; font-weight:800;\n    backdrop-filter: blur(8px);\n  }\n  #xai-body{\n    padding:16px;\n    overflow:auto;\n    flex:1;\n    background:\n      radial-gradient(900px 420px at 30% 0%, rgba(26,214,201,.14), transparent 60%),\n      radial-gradient(700px 360px at 90% 20%, rgba(168,85,247,.14), transparent 55%),\n      var(--x-panel);\n  }\n  .xai-card{\n    background:var(--x-card);\n    border:1px solid rgba(15,23,42,.08);\n    border-radius:18px;\n    padding:14px 14px;\n    margin:10px 0;\n    box-shadow:var(--x-shadow2);\n  }\n  .xai-card.ai{background:var(--x-grad3)}\n  .xai-step{\n    font-size:12px;\n    color:var(--x-muted);\n    font-weight:700;\n    margin-bottom:6px;\n  }\n  .xai-text{\n    font-size:15px;\n    color:var(--x-text);\n    line-height:1.5;\n    font-weight:600;\n  }\n  .xai-hint{\n    margin-top:10px;\n    font-size:13px;\n    color:var(--x-muted);\n    font-weight:600;\n  }\n  .xai-insight{\n    margin-top:10px;\n    padding:10px 12px;\n    border-radius:14px;\n    background:var(--x-grad2);\n    border:1px solid rgba(91,60,244,.14);\n    color:#111827;\n    font-size:13px;\n    font-weight:700;\n  }\n  .xai-choices{\n    display:flex;\n    flex-wrap:wrap;\n    gap:10px;\n    margin-top:12px;\n  }\n  .xai-chip{\n    border:none;\n    cursor:pointer;\n    padding:10px 12px;\n    border-radius:999px;\n    background:white;\n    border:1px solid rgba(15,23,42,.10);\n    box-shadow:0 8px 18px rgba(0,0,0,.06);\n    font-size:14px;\n    font-weight:800;\n    color:#0B1220;\n    transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;\n  }\n  .xai-chip:hover{\n    transform:translateY(-1px);\n    border-color:rgba(168,85,247,.40);\n    box-shadow:0 12px 22px rgba(0,0,0,.08);\n  }\n  .xai-typing{\n    display:flex; align-items:center; gap:10px;\n    color:var(--x-muted);\n    font-weight:800;\n    font-size:13px;\n  }\n  .xai-dots{\n    display:inline-flex; gap:4px;\n  }\n  .xai-dots i{\n    width:6px;height:6px;border-radius:50%;\n    background:#7C3AED;\n    opacity:.25;\n    animation:xai-dot 1.05s infinite;\n  }\n  .xai-dots i:nth-child(2){animation-delay:.15s}\n  .xai-dots i:nth-child(3){animation-delay:.30s}\n  @keyframes xai-dot{0%,100%{transform:translateY(0);opacity:.25}50%{transform:translateY(-3px);opacity:.8}}\n  .xai-input{\n    width:100%;\n    margin-top:12px;\n    border-radius:16px;\n    border:1px solid rgba(15,23,42,.12);\n    padding:12px 12px;\n    font-family:inherit;\n    font-size:14px;\n    line-height:1.4;\n    resize:none;\n    background:white;\n    box-shadow:0 10px 22px rgba(0,0,0,.06);\n  }\n  #xai-footer{\n    padding:12px;\n    border-top:1px solid rgba(15,23,42,.10);\n    background:white;\n    display:none;\n    gap:10px;\n    flex-wrap:wrap;\n    justify-content:flex-start;\n  }\n  .xai-btn{\n    cursor:pointer;\n    border-radius:14px;\n    padding:11px 14px;\n    border:1px solid rgba(15,23,42,.12);\n    background:#F7F8FC;\n    font-family:inherit;\n    font-weight:900;\n    font-size:14px;\n    color:#0B1220;\n    transition:transform .12s ease, filter .12s ease;\n  }\n  .xai-btn:hover{transform:translateY(-1px); filter:saturate(1.05)}\n  .xai-btn.primary{\n    border:none;\n    background:var(--x-grad);\n    color:white;\n    box-shadow:0 14px 28px rgba(91,60,244,.25);\n  }\n  .xai-mini{\n    font-size:12px;\n    color:var(--x-muted);\n    font-weight:700;\n    margin-top:8px;\n  }\n  @media (max-width: 520px){\n    #xai-sheet{height:min(86vh, 720px)}\n    #xai-title{font-size:24px}\n  }\n  ";
+
+  var style = document.createElement("style");
+  style.textContent = css;
+  document.head.appendChild(style);
+
+  var launcher = document.createElement("button");
+  launcher.id = "xai-launcher";
+  launcher.setAttribute("aria-label", "\u05e4\u05ea\u05d7 \u05e6\u05f3\u05d0\u05d8 \u05e2\u05dd \u05e8\u05d5\u05ea\u05d9, \u05e0\u05e6\u05d9\u05d2\u05d4 \u05d7\u05db\u05de\u05d4");
+  launcher.innerHTML = '<div class="dot"></div><img src="https://lior-ai.com/images/aibot-64.webp" alt="\u05e8\u05d5\u05ea\u05d9">';
+  document.body.appendChild(launcher);
+
+  var overlay = document.createElement("div");
+  overlay.id = "xai-overlay";
+  overlay.innerHTML = '<div id="xai-sheet" role="dialog" aria-modal="true" aria-labelledby="xai-title"><div id="xai-header"><button id="xai-close" aria-label="\u05e1\u05d2\u05d5\u05e8 \u05d7\u05dc\u05d5\u05df">\u00d7</button><div id="xai-badge">\u05e8\u05d5\u05ea\u05d9 \u00b7 \u05e0\u05e6\u05d9\u05d2\u05d4 \u05d7\u05db\u05de\u05d4</div><div><h2 id="xai-title">' + CFG.title + '</h2><div id="xai-sub">' + CFG.sub + '</div></div></div><div id="xai-body"></div><div id="xai-footer"></div></div>';
+  document.body.appendChild(overlay);
+
+  var body = overlay.querySelector("#xai-body");
+  var footer = overlay.querySelector("#xai-footer");
+  var closeBtn = overlay.querySelector("#xai-close");
+
+  function open() { overlay.style.display = "block"; document.body.style.overflow = "hidden"; reset(); run(); }
+  function close() { overlay.style.display = "none"; document.body.style.overflow = ""; }
+
+  launcher.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", function(e) { if (e.target === overlay) close(); });
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape" && overlay.style.display === "block") close(); });
+
+  var state = { need: null, urgency: null, source: null, goal: "", contact: "" };
+
+  var steps = [
+    {
+      key: "need",
+      step: "\u05e9\u05dc\u05d1 1/4",
+      text: "\u05db\u05d3\u05d9 \u05e9\u05e0\u05db\u05d5\u05d5\u05df \u05d0\u05d5\u05ea\u05da \u05dc\u05e2\u05d5\"\u05d3 \u05d4\u05e0\u05db\u05d5\u05df \u05d5\u05dc\u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05de\u05d3\u05d5\u05d9\u05e7 \u2014 \u05de\u05d4 \u05d4\u05db\u05d9 \u05e0\u05db\u05d5\u05df \u05dc\u05da \u05db\u05e8\u05d2\u05e2?",
+      choices: ["\u05d3\u05d9\u05e0\u05d9 \u05de\u05e9\u05e4\u05d7\u05d4", "\u05d7\u05d5\u05d6\u05d9\u05dd \u05d5\u05d4\u05e1\u05db\u05de\u05d9\u05dd", "\u05d4\u05d5\u05e6\u05d0\u05d4 \u05dc\u05e4\u05d5\u05e2\u05dc / \u05d7\u05d3\u05dc\u05d5\u05ea \u05e4\u05e8\u05e2\u05d5\u05df", "\u05d3\u05d9\u05e0\u05d9 \u05e2\u05d1\u05d5\u05d3\u05d4"],
+      insight: function(v) {
+        if (v.indexOf("\u05de\u05e9\u05e4\u05d7\u05d4") >= 0) return "\u05d3\u05d9\u05e0\u05d9 \u05de\u05e9\u05e4\u05d7\u05d4 \u05d3\u05d5\u05e8\u05e9\u05d9\u05dd \u05e8\u05d2\u05d9\u05e9\u05d5\u05ea \u05d5\u05dc\u05d9\u05d5\u05d5\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u2014 \u05e2\u05d5\"\u05d3 \u05d0\u05d6\u05d5\u05dc\u05d0\u05d9 \u05de\u05ea\u05de\u05d7\u05d4 \u05d1\u05d3\u05d9\u05d5\u05e7 \u05d1\u05d6\u05d4.";
+        if (v.indexOf("\u05d7\u05d5\u05d6\u05d9\u05dd") >= 0) return "\u05d7\u05d5\u05d6\u05d4 \u05d8\u05d5\u05d1 \u05de\u05d5\u05e0\u05e2 \u05d1\u05e2\u05d9\u05d5\u05ea \u05d1\u05d4\u05de\u05e9\u05da \u2014 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05d1\u05d3\u05d5\u05e7 \u05db\u05dc \u05e1\u05e2\u05d9\u05e3 \u05dc\u05e4\u05e0\u05d9 \u05d7\u05ea\u05d9\u05de\u05d4.";
+        if (v.indexOf("\u05d4\u05d5\u05e6\u05d0\u05d4") >= 0 || v.indexOf("\u05d7\u05d3\u05dc\u05d5\u05ea") >= 0) return "\u05d4\u05dc\u05d9\u05db\u05d9 \u05d4\u05d5\u05e6\u05d0\u05d4 \u05dc\u05e4\u05d5\u05e2\u05dc \u05d5\u05d7\u05d3\u05dc\u05d5\u05ea \u05e4\u05e8\u05e2\u05d5\u05df \u05d3\u05d5\u05e8\u05e9\u05d9\u05dd \u05dc\u05d9\u05d5\u05d5\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u2014 \u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05dc\u05d5\u05d5\u05d9\u05dd \u05de\u05d4\u05ea\u05d7\u05dc\u05d4 \u05e2\u05d3 \u05d4\u05e1\u05d5\u05e3.";
+        return "\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05d4\u05df \u05d3\u05d1\u05e8 \u05d7\u05e9\u05d5\u05d1 \u2014 \u05d4\u05de\u05e9\u05e8\u05d3 \u05e0\u05dc\u05d7\u05dd \u05e2\u05dc \u05d4\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e9\u05dc\u05da \u05de\u05d5\u05dc \u05db\u05dc \u05de\u05e2\u05e1\u05d9\u05e7.";
+      }
+    },
+    {
+      key: "urgency",
+      step: "\u05e9\u05dc\u05d1 2/4",
+      text: "\u05db\u05de\u05d4 \u05d4\u05de\u05e6\u05d1 \u05d3\u05d7\u05d5\u05e3 \u05d0\u05e6\u05dc\u05da?",
+      choices: ["\u05d3\u05d7\u05d5\u05e3 (\u05d9\u05de\u05d9\u05dd \u05e1\u05e4\u05d5\u05e8\u05d9\u05dd)", "\u05d7\u05e9\u05d5\u05d1 \u05d0\u05d1\u05dc \u05dc\u05d0 \u05de\u05d9\u05d3\u05d9", "\u05e8\u05e7 \u05d1\u05d5\u05d3\u05e7 \u05d0\u05d5\u05e4\u05e6\u05d9\u05d5\u05ea"],
+      insight: function(v) {
+        if (v.indexOf("\u05d3\u05d7\u05d5\u05e3") >= 0) return "\u05d1\u05d3\u05d7\u05d5\u05e3 \u2014 \u05db\u05d3\u05d0\u05d9 \u05de\u05d0\u05d5\u05d3 \u05dc\u05e9\u05d5\u05d7\u05d7 \u05db\u05de\u05d4 \u05e9\u05d9\u05d5\u05ea\u05e8 \u05de\u05d4\u05e8 \u05db\u05d3\u05d9 \u05e9\u05dc\u05d0 \u05ea\u05e4\u05e1\u05e4\u05e1 \u05de\u05d5\u05e2\u05d3 \u05d0\u05d5 \u05d6\u05db\u05d5\u05ea.";
+        if (v.indexOf("\u05d7\u05e9\u05d5\u05d1") >= 0) return "\u05db\u05e9\u05d6\u05d4 \u05d7\u05e9\u05d5\u05d1 \u05d0\u05d1\u05dc \u05dc\u05d0 \u05d1\u05d5\u05e2\u05e8, \u05d0\u05e4\u05e9\u05e8 \u05dc\u05ea\u05db\u05e0\u05df \u05e6\u05e2\u05d3-\u05d0\u05d7\u05e8-\u05e6\u05e2\u05d3 \u05d1\u05e6\u05d5\u05e8\u05d4 \u05e8\u05d2\u05d5\u05e2\u05d4.";
+        return "\u05db\u05e9\u05d0\u05ea\u05d4 \u05d1\u05d5\u05d3\u05e7 \u05d0\u05d5\u05e4\u05e6\u05d9\u05d5\u05ea \u2014 \u05e0\u05e2\u05d6\u05d5\u05e8 \u05dc\u05da \u05dc\u05d4\u05d1\u05d9\u05df \u05de\u05d4 \u05d4\u05de\u05e9\u05de\u05e2\u05d5\u05ea \u05dc\u05e4\u05e0\u05d9 \u05e9\u05de\u05ea\u05d7\u05d9\u05d9\u05d1\u05d9\u05dd.";
+      }
+    },
+    {
+      key: "source",
+      step: "\u05e9\u05dc\u05d1 3/4",
+      text: "\u05d0\u05d9\u05da \u05e0\u05d5\u05d7 \u05dc\u05da \u05e9\u05d9\u05d7\u05d6\u05e8\u05d5 \u05d0\u05dc\u05d9\u05da?",
+      choices: ["\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4", "\u05d8\u05dc\u05e4\u05d5\u05df", "\u05de\u05d9\u05d9\u05dc", "\u05dc\u05d0 \u05de\u05e9\u05e0\u05d4"],
+      insight: function(v) {
+        if (v === "\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4") return "\u05d1\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4 \u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05dc\u05da \u05d1\u05e7\u05e6\u05e8\u05d4 \u05d0\u05e4\u05e9\u05e8\u05d5\u05d9\u05d5\u05ea \u05d5\u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05d1\u05d6\u05de\u05df \u05e0\u05d5\u05d7.";
+        if (v === "\u05d8\u05dc\u05e4\u05d5\u05df") return "\u05e9\u05d9\u05d7\u05ea \u05d8\u05dc\u05e4\u05d5\u05df \u05e7\u05e6\u05e8\u05d4 \u05de\u05d0\u05e4\u05e9\u05e8\u05ea \u05dc\u05d4\u05d1\u05d9\u05df \u05de\u05d4\u05e8 \u05d0\u05ea \u05e2\u05d9\u05e7\u05e8 \u05d4\u05e1\u05d9\u05e4\u05d5\u05e8.";
+        if (v === "\u05de\u05d9\u05d9\u05dc") return "\u05d1\u05de\u05d9\u05d9\u05dc \u05d0\u05e4\u05e9\u05e8 \u05dc\u05e4\u05e8\u05d8 \u05d5\u05dc\u05d4\u05e2\u05d1\u05d9\u05e8 \u05de\u05e1\u05de\u05db\u05d9\u05dd \u05d1\u05e6\u05d5\u05e8\u05d4 \u05de\u05e1\u05d5\u05d3\u05e8\u05ea.";
+        return "\u05e0\u05d5\u05db\u05dc \u05dc\u05d7\u05d6\u05d5\u05e8 \u05d0\u05dc\u05d9\u05da \u05d1\u05d3\u05e8\u05da \u05e9\u05e0\u05d5\u05d7\u05d4 \u05dc\u05da \u05d5\u05dc\u05d4\u05ea\u05d0\u05d9\u05dd \u05d0\u05ea \u05d4\u05e9\u05d9\u05d7\u05d4 \u05d0\u05dc\u05d9\u05da.";
+      }
+    }
+  ];
+
+  function typing(ms) {
+    ms = ms || 740;
+    return new Promise(function(res) {
+      var card = document.createElement("div");
+      card.className = "xai-card ai";
+      card.innerHTML = '<div class="xai-typing"><span>\u05de\u05d7\u05e9\u05d1</span><span class="xai-dots"><i></i><i></i><i></i></span></div>';
+      body.appendChild(card);
+      body.scrollTop = body.scrollHeight;
+      setTimeout(function() { card.remove(); res(); }, ms + Math.random() * 260);
+    });
+  }
+
+  function cardHTML(opts) {
+    var card = document.createElement("div");
+    card.className = "xai-card ai";
+    card.innerHTML =
+      '<div class="xai-step">' + (opts.step || "") + '</div>' +
+      '<div class="xai-text">' + opts.text + '</div>' +
+      (opts.hint ? '<div class="xai-hint">' + opts.hint + '</div>' : "") +
+      (opts.insight ? '<div class="xai-insight">\ud83d\udca1 ' + opts.insight + '</div>' : "");
+
+    if (opts.choices) {
+      var wrap = document.createElement("div");
+      wrap.className = "xai-choices";
+      opts.choices.forEach(function(c) {
+        var b = document.createElement("button");
+        b.className = "xai-chip";
+        b.textContent = c;
+        b.onclick = function() { onChoice(c); };
+        wrap.appendChild(b);
+      });
+      card.appendChild(wrap);
+    }
+
+    if (opts.input) {
+      var ta = document.createElement("textarea");
+      ta.className = "xai-input";
+      ta.rows = 2;
+      ta.placeholder = "\u05dc\u05d3\u05d5\u05d2\u05de\u05d0: \u05d9\u05e9 \u05dc\u05d9 \u05d3\u05d9\u05d5\u05df \u05e7\u05e8\u05d5\u05d1 / \u05e7\u05d9\u05d1\u05dc\u05ea\u05d9 \u05de\u05db\u05ea\u05d1 / \u05e6\u05e8\u05d9\u05da \u05dc\u05d5\u05d5\u05d3\u05d0 \u05e9\u05d4\u05d7\u05d5\u05d6\u05d4 \u05ea\u05e7\u05d9\u05df...";
+      card.appendChild(ta);
+
+      var wrap2 = document.createElement("div");
+      wrap2.className = "xai-choices";
+      var b2 = document.createElement("button");
+      b2.className = "xai-chip";
+      b2.textContent = "\u05e1\u05d9\u05d5\u05dd \u05d5\u05e1\u05d9\u05db\u05d5\u05dd";
+      b2.onclick = function() { state.goal = (ta.value || "").trim(); finish(); };
+      wrap2.appendChild(b2);
+      card.appendChild(wrap2);
+    }
+
+    body.appendChild(card);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  var current = 0;
+
+  function run() {
+    typing().then(function() {
+      cardHTML({
+        step: "\u05e4\u05ea\u05d9\u05d7\u05d4",
+        text: "\u05d4\u05d9\u05d9 \ud83d\udc4b \u05d0\u05e0\u05d9 <b>\u05e8\u05d5\u05ea\u05d9</b>, \u05d4\u05e0\u05e6\u05d9\u05d2\u05d4 \u05d4\u05d7\u05db\u05de\u05d4 \u05e9\u05dc <b>" + CFG.brand + "</b>. \u05d1\u05db\u05de\u05d4 \u05dc\u05d7\u05d9\u05e6\u05d5\u05ea \u05d0\u05e2\u05d1\u05d9\u05e8 \u05dc\u05e2\u05d5\"\u05d3 \u05ea\u05de\u05d5\u05e0\u05d4 \u05d1\u05e8\u05d5\u05e8\u05d4 \u05e9\u05dc \u05d4\u05de\u05e6\u05d1 \u05e9\u05dc\u05da.",
+        hint: "3 \u05d1\u05d7\u05d9\u05e8\u05d5\u05ea + \u05de\u05e9\u05e4\u05d8 \u05d0\u05d7\u05d3. \u05d5\u05d0\u05d6 \u05ea\u05e7\u05d1\u05dc \u05e1\u05d9\u05db\u05d5\u05dd \u05de\u05e1\u05d5\u05d3\u05e8 \u05e9\u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05d1\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4 \u05d0\u05d5 \u05dc\u05de\u05dc\u05d0 \u05d1\u05d8\u05d5\u05e4\u05e1."
+      });
+      return askNext();
+    });
+  }
+
+  function askNext() {
+    var s = steps[current];
+    return typing().then(function() {
+      cardHTML({ step: s.step, text: s.text, choices: s.choices });
+    });
+  }
+
+  function askContact(method) {
+    var question, placeholder;
+    if (method === "\u05de\u05d9\u05d9\u05dc") {
+      question = "\u05de\u05d4 \u05db\u05ea\u05d5\u05d1\u05ea \u05d4\u05de\u05d9\u05d9\u05dc \u05e9\u05dc\u05da?";
+      placeholder = "\u05dc\u05d3\u05d5\u05d2\u05de\u05d0: name@gmail.com";
+    } else {
+      question = "\u05de\u05d4 \u05de\u05e1\u05e4\u05e8 \u05d4\u05d8\u05dc\u05e4\u05d5\u05df \u05e9\u05dc\u05da?";
+      placeholder = "\u05dc\u05d3\u05d5\u05d2\u05de\u05d0: 050-1234567";
+    }
+    return typing(560).then(function() {
+      var card = document.createElement("div");
+      card.className = "xai-card ai";
+      card.innerHTML =
+        '<div class="xai-step">\u05e4\u05e8\u05d8\u05d9 \u05e7\u05e9\u05e8</div>' +
+        '<div class="xai-text">' + question + '</div>';
+
+      var ta = document.createElement("textarea");
+      ta.className = "xai-input";
+      ta.rows = 1;
+      ta.placeholder = placeholder;
+      card.appendChild(ta);
+
+      var wrap = document.createElement("div");
+      wrap.className = "xai-choices";
+      var btn = document.createElement("button");
+      btn.className = "xai-chip";
+      btn.textContent = "\u05d4\u05de\u05e9\u05da";
+      btn.onclick = function() {
+        var v = (ta.value || "").trim();
+        state.contact = v || "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df";
+        sendToWebhook();
+        typing(400).then(function() {
+          cardHTML({
+            step: "\u05e9\u05dc\u05d1 4/4",
+            text: "\u05d1\u05de\u05e9\u05e4\u05d8 \u05d0\u05d7\u05d3 \u2014 \u05de\u05d4 \u05d4\u05db\u05d9 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05da \u05e9\u05d9\u05d8\u05d5\u05e4\u05dc \u05db\u05e8\u05d2\u05e2?",
+            input: true
+          });
+        });
+      };
+      wrap.appendChild(btn);
+      card.appendChild(wrap);
+
+      body.appendChild(card);
+      body.scrollTop = body.scrollHeight;
+    });
+  }
+
+  function onChoice(val) {
+    var s = steps[current];
+    state[s.key] = val;
+    typing(560).then(function() {
+      cardHTML({ step: "\u05ea\u05d5\u05d1\u05e0\u05d4", text: "\u05e7\u05d9\u05d1\u05dc\u05ea\u05d9: <b>" + val + "</b>", insight: s.insight(val) });
+      current++;
+      if (current < steps.length) {
+        return askNext();
+      } else {
+        if (val !== "\u05dc\u05d0 \u05de\u05e9\u05e0\u05d4") {
+          return askContact(val);
+        }
+        return typing().then(function() {
+          cardHTML({
+            step: "\u05e9\u05dc\u05d1 4/4",
+            text: "\u05d1\u05de\u05e9\u05e4\u05d8 \u05d0\u05d7\u05d3 \u2014 \u05de\u05d4 \u05d4\u05db\u05d9 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05da \u05e9\u05d9\u05d8\u05d5\u05e4\u05dc \u05db\u05e8\u05d2\u05e2?",
+            input: true
+          });
+        });
+      }
+    });
+  }
+
+  function score() {
+    var sc = 0;
+    var need = state.need || "";
+    var urgency = state.urgency || "";
+    if (need.indexOf("\u05de\u05e9\u05e4\u05d7\u05d4") >= 0) sc += 3;
+    if (need.indexOf("\u05d7\u05d5\u05d6\u05d9\u05dd") >= 0) sc += 2;
+    if (need.indexOf("\u05d4\u05d5\u05e6\u05d0\u05d4") >= 0 || need.indexOf("\u05d7\u05d3\u05dc\u05d5\u05ea") >= 0) sc += 2;
+    if (need.indexOf("\u05e2\u05d1\u05d5\u05d3\u05d4") >= 0) sc += 2;
+    if (urgency.indexOf("\u05d3\u05d7\u05d5\u05e3") >= 0) sc += 4;
+    else if (urgency.indexOf("\u05d7\u05e9\u05d5\u05d1") >= 0) sc += 3;
+    else sc += 1;
+    var src = state.source || "";
+    if (src === "\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4" || src === "\u05d8\u05dc\u05e4\u05d5\u05df") sc += 2;
+    else sc += 1;
+    return Math.min(10, sc);
+  }
+
+  function level(sc) {
+    if (sc >= 8) return { tag: "\ud83d\udfe2 \u05e4\u05e0\u05d9\u05d9\u05d4 \u05d3\u05d7\u05d5\u05e4\u05d4", note: "\u05db\u05d3\u05d0\u05d9 \u05dc\u05d9\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8 \u05db\u05de\u05d4 \u05e9\u05d9\u05d5\u05ea\u05e8 \u05de\u05d4\u05e8." };
+    if (sc >= 5) return { tag: "\ud83d\udfe1 \u05e4\u05e0\u05d9\u05d9\u05d4 \u05d7\u05e9\u05d5\u05d1\u05d4", note: "\u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05d1-24 \u05e9\u05e2\u05d5\u05ea \u05d4\u05e7\u05e8\u05d5\u05d1\u05d5\u05ea." };
+    return { tag: "\u26aa \u05e4\u05e0\u05d9\u05d9\u05d4 \u05dc\u05d1\u05d9\u05e8\u05d5\u05e8", note: "\u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05de\u05d9\u05d3\u05e2 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d9 \u05d5\u05dc\u05ea\u05d0\u05dd \u05d1\u05d4\u05de\u05e9\u05da." };
+  }
+
+  function recommendation() {
+    var need = state.need || "";
+    if (need.indexOf("\u05de\u05e9\u05e4\u05d7\u05d4") >= 0) return {
+      first: "\u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d9\u05ea \u05db\u05d3\u05d9 \u05dc\u05d4\u05d1\u05d9\u05df \u05d0\u05ea \u05d4\u05ea\u05de\u05d5\u05e0\u05d4 \u05d4\u05de\u05dc\u05d0\u05d4.",
+      why: "\u05e9\u05d9\u05d7\u05d4 \u05de\u05de\u05d5\u05e7\u05d3\u05ea \u05d7\u05d5\u05e1\u05db\u05ea \u05d1\u05dc\u05d1\u05d5\u05dc \u05d5\u05e0\u05d5\u05ea\u05e0\u05ea \u05dc\u05da \u05db\u05d9\u05d5\u05d5\u05df \u05d1\u05e8\u05d5\u05e8.",
+      next: "\u05dc\u05ea\u05d0\u05dd \u05de\u05d5\u05e2\u05d3 \u05e9\u05d9\u05d7\u05d4 \u05d5\u05dc\u05d1\u05d3\u05d5\u05e7 \u05d0\u05dd \u05e6\u05e8\u05d9\u05da \u05dc\u05d4\u05d1\u05d9\u05d0 \u05de\u05e1\u05de\u05db\u05d9\u05dd \u05e0\u05d5\u05e1\u05e4\u05d9\u05dd."
+    };
+    if (need.indexOf("\u05d7\u05d5\u05d6\u05d9\u05dd") >= 0) return {
+      first: "\u05dc\u05e2\u05d1\u05d5\u05e8 \u05d9\u05d7\u05d3 \u05e2\u05dc \u05d4\u05d7\u05d5\u05d6\u05d4/\u05d4\u05e1\u05db\u05dd \u05d5\u05d4\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05d4\u05e7\u05d9\u05d9\u05de\u05d9\u05dd.",
+      why: "\u05db\u05d3\u05d9 \u05dc\u05d5\u05d5\u05d3\u05d0 \u05e9\u05d4\u05e6\u05e2\u05d3\u05d9\u05dd \u05d4\u05d1\u05d0\u05d9\u05dd \u05e0\u05e2\u05e9\u05d9\u05dd \u05d1\u05e6\u05d5\u05e8\u05d4 \u05e9\u05de\u05d2\u05e0\u05d4 \u05e2\u05dc\u05d9\u05da.",
+      next: "\u05dc\u05e7\u05d1\u05d5\u05e2 \u05e4\u05d2\u05d9\u05e9\u05d4/\u05e9\u05d9\u05d7\u05d4 \u05dc\u05e2\u05d3\u05db\u05d5\u05df \u05d5\u05d4\u05db\u05e0\u05ea \u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d4 \u05dc\u05d4\u05de\u05e9\u05da."
+    };
+    if (need.indexOf("\u05d4\u05d5\u05e6\u05d0\u05d4") >= 0 || need.indexOf("\u05d7\u05d3\u05dc\u05d5\u05ea") >= 0) return {
+      first: "\u05dc\u05d4\u05e2\u05d1\u05d9\u05e8 \u05d0\u05ea \u05d4\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05dc\u05d1\u05d3\u05d9\u05e7\u05d4 \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d0\u05ea\u05d4 \u05d7\u05d5\u05ea\u05dd \u05d0\u05d5 \u05de\u05d2\u05d9\u05d1.",
+      why: "\u05db\u05d3\u05d9 \u05dc\u05d2\u05dc\u05d5\u05ea \u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05d1\u05e2\u05d9\u05d9\u05ea\u05d9\u05d5\u05ea \u05de\u05e8\u05d0\u05e9 \u05d5\u05dc\u05d0 \u05d1\u05d3\u05d9\u05e2\u05d1\u05d3.",
+      next: "\u05dc\u05ea\u05d0\u05dd \u05e9\u05dc\u05d9\u05d7\u05ea \u05de\u05e1\u05de\u05db\u05d9\u05dd + \u05e9\u05d9\u05d7\u05d4 \u05e7\u05e6\u05e8\u05d4 \u05dc\u05d4\u05e1\u05d1\u05e8 \u05d4\u05de\u05e1\u05e7\u05e0\u05d5\u05ea."
+    };
+    return {
+      first: "\u05dc\u05d4\u05d1\u05d9\u05df \u05de\u05d4 \u05de\u05d8\u05e8\u05ea \u05d4\u05ea\u05d1\u05d9\u05e2\u05d4 \u05d5\u05de\u05d4 \u05e6\u05d9\u05e4\u05d9\u05d9\u05d5\u05ea\u05da \u05de\u05d4\u05d4\u05dc\u05d9\u05da.",
+      why: "\u05db\u05d3\u05d9 \u05dc\u05d1\u05d3\u05d5\u05e7 \u05d0\u05dd \u05d6\u05d4 \u05d1\u05db\u05dc\u05dc \u05e0\u05db\u05d5\u05df \u05d5\u05db\u05d3\u05d0\u05d9 \u05e2\u05d1\u05d5\u05e8\u05da.",
+      next: "\u05dc\u05d0\u05e1\u05d5\u05e3 \u05de\u05d9\u05d3\u05e2 \u05d5\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05e8\u05dc\u05d5\u05d5\u05e0\u05d8\u05d9\u05d9\u05dd \u05d5\u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05de\u05e1\u05d5\u05d3\u05e8\u05ea."
+    };
+  }
+
+  function buildSummary() {
+    var sc = score();
+    var lv = level(sc);
+    var rec = recommendation();
+    var goal = state.goal ? state.goal : "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df";
+    return [
+      lv.tag + " | \u05e6\u05d9\u05d5\u05df: " + sc + "/10",
+      "",
+      "\u05de\u05d4 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05d8\u05e4\u05dc: " + goal,
+      "\u05e1\u05d5\u05d2 \u05e6\u05d5\u05e8\u05da: " + (state.need || ""),
+      "\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea: " + (state.urgency || ""),
+      "\u05d0\u05d5\u05e4\u05df \u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05e9\u05e8 \u05de\u05d5\u05e2\u05d3\u05e3: " + (state.source || ""),
+      "\u05e4\u05e8\u05d8\u05d9 \u05e7\u05e9\u05e8 \u05dc\u05dc\u05e7\u05d5\u05d7: " + (state.contact || "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df"),
+      "",
+      "\u05de\u05d4 \u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05e7\u05d5\u05d3\u05dd: " + rec.first,
+      "\u05dc\u05de\u05d4: " + rec.why,
+      "\u05d4\u05e9\u05dc\u05d1 \u05d4\u05d1\u05d0: " + rec.next,
+      "",
+      "\u2014",
+      "\u05e0\u05e9\u05dc\u05d7 \u05de\u05d3\u05f3" + CFG.brand
+    ].join("\n");
+  }
+
+  function finish() {
+    if (!state.webhookSent) sendToWebhook();
+    var rec = recommendation();
+    var summary = buildSummary();
+
+    typing(720).then(function() {
+      cardHTML({
+        step: "\u05ea\u05d5\u05d3\u05d4!",
+        text: "\u05e4\u05e0\u05d9\u05d9\u05ea\u05da \u05d4\u05ea\u05e7\u05d1\u05dc\u05d4 \u2014 \u05e0\u05d7\u05d6\u05d5\u05e8 \u05d0\u05dc\u05d9\u05da \u05d1\u05d4\u05e7\u05d3\u05dd.<br><br>" +
+          "<b>\u05de\u05d4 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05d8\u05e4\u05dc:</b> " + escapeHTML(state.goal || "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df") + "<br>" +
+          "<b>\u05e1\u05d5\u05d2 \u05e6\u05d5\u05e8\u05da:</b> " + escapeHTML(state.need) + "<br>" +
+          "<b>\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea:</b> " + escapeHTML(state.urgency) + "<br>" +
+          "<b>\u05d0\u05d5\u05e4\u05df \u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05e9\u05e8 \u05de\u05d5\u05e2\u05d3\u05e3:</b> " + escapeHTML(state.source) + "<br><br>" +
+          "<b>\u05de\u05d4 \u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05e7\u05d5\u05d3\u05dd:</b> " + escapeHTML(rec.first) + "<br>" +
+          "<b>\u05dc\u05de\u05d4:</b> " + escapeHTML(rec.why) + "<br>" +
+          "<b>\u05d4\u05e9\u05dc\u05d1 \u05d4\u05d1\u05d0:</b> " + escapeHTML(rec.next)
+      });
+
+      footer.style.display = "flex";
+      footer.innerHTML = "";
+
+      var btnCopy = document.createElement("button");
+      btnCopy.className = "xai-btn";
+      btnCopy.textContent = "\u05d4\u05e2\u05ea\u05e7 \u05e1\u05d9\u05db\u05d5\u05dd";
+      btnCopy.onclick = function() {
+        navigator.clipboard.writeText(summary).then(function() {
+          btnCopy.textContent = "\u05d4\u05d5\u05e2\u05ea\u05e7 \u2705";
+          setTimeout(function() { btnCopy.textContent = "\u05d4\u05e2\u05ea\u05e7 \u05e1\u05d9\u05db\u05d5\u05dd"; }, 1400);
+        }).catch(function() {
+          btnCopy.textContent = "\u05dc\u05d0 \u05d4\u05e6\u05dc\u05d9\u05d7";
+          setTimeout(function() { btnCopy.textContent = "\u05d4\u05e2\u05ea\u05e7 \u05e1\u05d9\u05db\u05d5\u05dd"; }, 1400);
+        });
+      };
+
+      var btnForm = document.createElement("button");
+      btnForm.className = "xai-btn";
+      btnForm.textContent = "\u05dc\u05d8\u05d5\u05e4\u05e1 \u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05e9\u05e8 \u05d1\u05d0\u05ea\u05e8";
+      btnForm.onclick = function() {
+        close();
+        var hash = CFG.anchor.replace("#", "");
+        if (hash) window.location.hash = hash;
+      };
+
+      footer.appendChild(btnCopy);
+      footer.appendChild(btnForm);
+
+      var promo = document.createElement("div");
+      promo.className = "xai-mini";
+      promo.innerHTML = '\u05e8\u05d5\u05e6\u05d4 \u05e1\u05d5\u05db\u05df AI \u05db\u05d6\u05d4 \u05dc\u05d0\u05ea\u05e8 \u05e9\u05dc\u05da? \u05e4\u05e0\u05d4 \u05d1\u05e7\u05dc\u05d9\u05e7: <a href="https://www.lior-ai.com" target="_blank" rel="noopener noreferrer">www.lior-ai.com</a>';
+      footer.appendChild(promo);
+    });
+  }
+
+  function reset() {
+    body.innerHTML = "";
+    footer.style.display = "none";
+    footer.innerHTML = "";
+    current = 0;
+    state.need = state.urgency = state.source = null;
+    state.goal = "";
+    state.contact = "";
+    state.webhookSent = false;
+  }
+
+  function sendToWebhook() {
+    if (state.webhookSent) return;
+    state.webhookSent = true;
+    var sc = score();
+    var lv = level(sc);
+    var summary = buildSummary();
+    fetch("https://hook.us2.make.com/tqo6n6b774m79bnmr0aeghmnfu1xwpva", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        summary: summary,
+        html_summary: summary.replace(/\n/g, "<br>"),
+        need: state.need,
+        urgency: state.urgency,
+        source: state.source,
+        goal: state.goal,
+        contact: state.contact,
+        score: sc,
+        level: lv.tag
+      })
+    }).then(function(res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+    }).catch(function() {
+      var s = buildSummary();
+      var subj = encodeURIComponent("\u05e4\u05e0\u05d9\u05d9\u05d4 \u05d7\u05d3\u05e9\u05d4 \u05d3\u05e8\u05da \u05d4\u05d0\u05ea\u05e8 \u2013 " + CFG.brand);
+      window.open("mailto:" + CFG.email + "?subject=" + subj + "&body=" + encodeURIComponent(s), "_blank");
+    });
+  }
+
+  function escapeHTML(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+})();
+</script>
+<!-- === /AI Agent Widget === -->
 
 <!-- ===== LEGAL MODALS ===== -->
 <div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
@@ -1903,146 +2082,7 @@
     }
 
 
-    // ===== CHATBOT =====
-    const chatBubble = document.getElementById('chatBubble');
-    const chatWindow = document.getElementById('chatWindow');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatInput = document.getElementById('chatInput');
-    const typingIndicator = document.getElementById('typingIndicator');
-    let chatOpened = false;
-
-    function openChat() {
-        chatBubble.classList.add('hidden');
-        chatWindow.classList.add('active');
-        if (!chatOpened) {
-            chatOpened = true;
-            showTyping();
-            setTimeout(() => {
-                hideTyping();
-                addBotMessage(`שלום! 👋 אני רותי, העוזרת הדיגיטלית של משרד אזולאי ושות'.\nאני יכולה לעזור לך עם מידע ראשוני על:\n\n👨‍👩‍👧 דיני משפחה\n📝 חוזים\n⚡ הוצאה לפועל\n🔄 חדלות פרעון\n💼 דיני עבודה\n\nבמה אוכל לעזור?`);
-            }, 1000);
-        }
-        chatInput.focus();
-    }
-
-    function closeChat() {
-        chatWindow.classList.remove('active');
-        chatBubble.classList.remove('hidden');
-        chatBubble.focus();
-    }
-
-    // Focus trap for chat window
-    chatWindow.addEventListener('keydown', (e) => {
-        if (e.key !== 'Tab') return;
-        if (!chatWindow.classList.contains('active')) return;
-        const focusable = chatWindow.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
-        if (focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    });
-
-    function showTyping() { typingIndicator.classList.add('active'); scrollChat(); }
-    function hideTyping() { typingIndicator.classList.remove('active'); }
-
-    function addBotMessage(text, buttons) {
-        const msg = document.createElement('div');
-        msg.className = 'chat-msg bot';
-        msg.textContent = text;
-        if (buttons) {
-            const btnsDiv = document.createElement('div');
-            btnsDiv.className = 'msg-btns';
-            buttons.forEach(b => {
-                const btn = document.createElement('a');
-                btn.href = b.href || '#';
-                btn.target = b.target || '';
-                btn.className = 'msg-btn ' + (b.cls || 'msg-btn-gold');
-                btn.textContent = b.label;
-                if (b.onclick) btn.onclick = b.onclick;
-                btnsDiv.appendChild(btn);
-            });
-            msg.appendChild(btnsDiv);
-        }
-        chatMessages.insertBefore(msg, typingIndicator);
-        scrollChat();
-    }
-
-    function addUserMessage(text) {
-        const msg = document.createElement('div');
-        msg.className = 'chat-msg user';
-        msg.textContent = text;
-        chatMessages.insertBefore(msg, typingIndicator);
-        scrollChat();
-    }
-
-    function scrollChat() {
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    const actionBtns = [
-        { label: '📞 חייגו עכשיו', href: 'tel:054-6969157', cls: 'msg-btn-gold' },
-        { label: '💬 WhatsApp', href: 'https://wa.me/972546969157', target: '_blank', cls: 'msg-btn-green' },
-        { label: '📋 השאירו פרטים', href: '#contact', cls: 'msg-btn-outline', onclick: (e) => { e.preventDefault(); closeChat(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); } }
-    ];
-
-    const responses = {
-        family: {
-            keywords: ['גירושין', 'גרושין', 'מזונות', 'משמורת', 'ילדים', 'ילד', 'נישואין', 'ירושה', 'צוואה', 'אפוטרופ', 'משפחה', 'גירושים', 'גט'],
-            text: 'אני מבינה שנושאי משפחה יכולים להיות רגישים מאוד. 💙\n\nמשרד אזולאי ושות\' מתמחה בדיני משפחה — גירושין, מזונות, משמורת ילדים, הסכמי ממון, צוואות וירושה. אם ניתן, המשרד מציע גם גישור שחוסך זמן וכסף.\n\nעו"ד אזולאי מתמחה בדיוק בזה. רוצה להשאיר פרטים או לתאם שיחה?'
-        },
-        contracts: {
-            keywords: ['חוזה', 'חוזים', 'הסכם', 'שכירות', 'מכר', 'הפרה', 'הפרת', 'שותפות', 'ניסוח'],
-            text: 'חוזה טוב הוא הבסיס לכל עסקה מוצלחת. 📝\n\nהמשרד מנסח, בודק ומייעץ בכל סוג של הסכם — מחוזה שכירות ועד עסקאות מורכבות. ניסוח מדויק מונע בעיות בהמשך.\n\nרוצה להתייעץ עם עו"ד אזולאי?'
-        },
-        execution: {
-            keywords: ['חוב', 'חובות', 'עיקול', 'עיקולים', 'הוצאה לפועל', 'הוצלפ', 'גבייה', 'גביה', 'שטר'],
-            text: 'נושא ההוצאה לפועל יכול להיות מורכב. ⚡\n\nבין אם מדובר בגביית חוב או בהתגוננות מפני עיקולים — המשרד יודע לנווט את ההליך ולהגיע לתוצאות.\n\nעו"ד אזולאי מטפל בתיקי הוצאה לפועל באופן שוטף. רוצה לקבוע פגישה?'
-        },
-        insolvency: {
-            keywords: ['חדלות פרעון', 'פשיטת רגל', 'הפטר', 'פרעון', 'חדלות'],
-            text: 'אני מבינה שמצב של חובות יכול להיות מלחיץ מאוד. 🔄\n\nהליך חדלות פרעון יכול לתת לך התחלה חדשה — מחיקת חובות ושיקום כלכלי. המשרד מלווה את ההליך מההתחלה ועד ההפטר.\n\nרוצה לשמוע עוד מעו"ד אזולאי?'
-        },
-        labor: {
-            keywords: ['פיטורין', 'פיטורים', 'פיצויים', 'פיצויי', 'שימוע', 'מעסיק', 'עבודה', 'הפליה', 'הטרדה', 'עובד', 'עובדים'],
-            text: 'זכויות עובדים הן דבר חשוב מאוד. 💼\n\nפוטרת ללא שימוע? לא קיבלת פיצויים? הופלית? המשרד נלחם על הזכויות שלך מול כל מעסיק.\n\nרוצה להתייעץ עם עו"ד אזולאי?'
-        },
-        price: {
-            keywords: ['מחיר', 'עלות', 'כמה עולה', 'תעריף', 'תמחור', 'עולה'],
-            text: 'המחיר תלוי בסוג השירות ובמורכבות המקרה. 💰\n\nפגישת ייעוץ ראשונית היא הדרך הטובה ביותר לקבל הצעה מדויקת ומותאמת. \n\nרוצה לתאם?'
-        },
-        hours: {
-            keywords: ['שעות', 'פתוח', 'סגור', 'פעילות', 'מתי'],
-            text: 'המשרד פתוח: 🕐\nא\'-ה\' 09:00-17:00\nו\' 09:00-13:00\n\nנשמח לראותכם!'
-        },
-        location: {
-            keywords: ['איפה', 'כתובת', 'מיקום', 'הגעה', 'חנייה', 'דימונה'],
-            text: 'המשרד נמצא בשד\' יגאל אלון 209/31, דימונה. 📍\n\nקל להגיע ויש חנייה בשפע. מוזמנים להגיע!'
-        }
-    };
-
-    function getBotResponse(input) {
-        const text = input.toLowerCase();
-        for (const [key, data] of Object.entries(responses)) {
-            for (const kw of data.keywords) {
-                if (text.includes(kw)) return data.text;
-            }
-        }
-        return 'תודה על הפנייה! 🙏\n\nכדי שאוכל לעזור בצורה הטובה ביותר, אפשר לדבר ישירות עם עו"ד אזולאי.\n\nרוצה שנחבר אותך?';
-    }
-
-    function sendMessage() {
-        const text = chatInput.value.trim();
-        if (!text) return;
-        addUserMessage(text);
-        chatInput.value = '';
-        showTyping();
-        setTimeout(() => {
-            hideTyping();
-            const response = getBotResponse(text);
-            addBotMessage(response, actionBtns);
-        }, 800 + Math.random() * 700);
-    }
+    // ===== CHATBOT removed - AI Agent Widget is loaded separately =====
 
     // ===== LEGAL MODALS =====
     const legalData = {
@@ -2121,7 +2161,7 @@
 <!-- ==================== LIOR-AI ACCESSIBILITY WIDGET START ==================== -->
 <style>
 /* Accessibility Widget - lior-ai.com Standard */
-.liorai-a11y-trigger{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4aa,#00b894);border:none;cursor:pointer;z-index:99998;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,170,0.4);transition:transform .3s,box-shadow .3s}
+.liorai-a11y-trigger{position:fixed;bottom:100px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4aa,#00b894);border:none;cursor:pointer;z-index:99998;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,170,0.4);transition:transform .3s,box-shadow .3s}
 .liorai-a11y-trigger:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,212,170,0.6)}
 .liorai-a11y-trigger:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .liorai-a11y-trigger svg{width:28px;height:28px;fill:#fff}
