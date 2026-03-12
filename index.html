@@ -1473,9 +1473,9 @@
     <div class="footer-bottom">
         <p>© 2026 אזולאי ושות' — עורכי דין וגישור. כל הזכויות שמורות.</p>
         <div class="footer-legal">
-            <a href="/accessibility-statement.html">הצהרת נגישות</a>
-            <a href="/privacy-policy.html">מדיניות פרטיות</a>
-            <a href="/terms.html">תנאי שימוש</a>
+            <a href="accessibility-statement.html">הצהרת נגישות</a>
+            <a href="privacy-policy.html">מדיניות פרטיות</a>
+            <a href="terms.html">תנאי שימוש</a>
         </div>
         <p class="footer-credit">נבנה באהבה <span aria-hidden="true">❤️</span> על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
     </div>
@@ -1526,6 +1526,10 @@
   launcher.addEventListener("click", open);
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", function(e) { if (e.target === overlay) close(); });
+
+  // Expose open/close globally so hero button onclick="openChat()" works
+  window.openChat = open;
+  window.closeChat = close;
   document.addEventListener("keydown", function(e) { if (e.key === "Escape" && overlay.style.display === "block") close(); });
 
   var state = { need: null, urgency: null, source: null, goal: "", contact: "" };
@@ -2286,7 +2290,7 @@ body.liorai-dyslexia-font,body.liorai-dyslexia-font *{font-family:'OpenDyslexic'
 
     <!-- Links -->
     <div class="liorai-a11y-links">
-      <a href="/accessibility-statement.html">הצהרת נגישות מלאה ←</a>
+      <a href="accessibility-statement.html">הצהרת נגישות מלאה ←</a>
     </div>
 
     <!-- Credit -->
