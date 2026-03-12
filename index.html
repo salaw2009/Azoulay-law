@@ -1473,9 +1473,9 @@
     <div class="footer-bottom">
         <p>© 2026 אזולאי ושות' — עורכי דין וגישור. כל הזכויות שמורות.</p>
         <div class="footer-legal">
-            <a href="/accessibility-statement.html">הצהרת נגישות</a>
-            <a href="/privacy-policy.html">מדיניות פרטיות</a>
-            <a href="/terms.html">תנאי שימוש</a>
+            <a href="accessibility-statement.html">הצהרת נגישות</a>
+            <a href="privacy-policy.html">מדיניות פרטיות</a>
+            <a href="terms.html">תנאי שימוש</a>
         </div>
         <p class="footer-credit">נבנה באהבה <span aria-hidden="true">❤️</span> על ידי <a href="https://lior-ai.com" target="_blank">lior_Ai</a></p>
     </div>
@@ -1526,6 +1526,10 @@
   launcher.addEventListener("click", open);
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", function(e) { if (e.target === overlay) close(); });
+
+  // Expose open/close globally so hero button onclick="openChat()" works
+  window.openChat = open;
+  window.closeChat = close;
   document.addEventListener("keydown", function(e) { if (e.key === "Escape" && overlay.style.display === "block") close(); });
 
   var state = { need: null, urgency: null, source: null, goal: "", contact: "" };
@@ -1853,7 +1857,7 @@
     var sc = score();
     var lv = level(sc);
     var summary = buildSummary();
-    fetch("https://hook.us2.make.com/tqo6n6b774m79bnmr0aeghmnfu1xwpva", {
+    fetch("https://hook.us2.make.com/t62nbth3r2by2d3qu65zm59fg29k1lq5", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2071,9 +2075,27 @@
         e.preventDefault();
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
         const subjectEl = document.getElementById('subject');
         const subjectText = subjectEl.options[subjectEl.selectedIndex].text;
         const message = document.getElementById('message').value;
+
+        // Send to Make webhook
+        fetch("https://hook.us2.make.com/t62nbth3r2by2d3qu65zm59fg29k1lq5", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                source: "contact_form",
+                summary: `ליד מטופס יצירת קשר\nשם: ${name}\nטלפון: ${phone}\nאימייל: ${email || 'לא צוין'}\nנושא: ${subjectText}\nהודעה: ${message || 'ללא'}`,
+                html_summary: `<b>ליד מטופס יצירת קשר</b><br>שם: ${name}<br>טלפון: ${phone}<br>אימייל: ${email || 'לא צוין'}<br>נושא: ${subjectText}<br>הודעה: ${message || 'ללא'}`,
+                contact: `${name} | ${phone}${email ? ' | ' + email : ''}`,
+                need: subjectText,
+                goal: message || '',
+                level: "form_lead"
+            })
+        }).catch(() => {});
+
+        // Also open WhatsApp
         const waText = `שלום, שמי ${name}.\nטלפון: ${phone}\nנושא: ${subjectText}${message ? '\n' + message : ''}`;
         window.open('https://wa.me/972546969157?text=' + encodeURIComponent(waText), '_blank');
         document.getElementById('formSuccess').classList.add('active');
@@ -2286,7 +2308,7 @@ body.liorai-dyslexia-font,body.liorai-dyslexia-font *{font-family:'OpenDyslexic'
 
     <!-- Links -->
     <div class="liorai-a11y-links">
-      <a href="/accessibility-statement.html">הצהרת נגישות מלאה ←</a>
+      <a href="accessibility-statement.html">הצהרת נגישות מלאה ←</a>
     </div>
 
     <!-- Credit -->
