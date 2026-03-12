@@ -1857,19 +1857,27 @@
     var sc = score();
     var lv = level(sc);
     var summary = buildSummary();
+    var emailBody = '<div style="font-family:Arial,sans-serif;direction:rtl;padding:20px;max-width:600px;margin:0 auto;background:#f9f9f9;border-radius:12px">'
+      + '<h2 style="color:#C9A84C;border-bottom:2px solid #C9A84C;padding-bottom:8px;margin-top:0">📋 ליד חדש מהסוכנת רותי</h2>'
+      + '<table style="width:100%;border-collapse:collapse;font-size:15px">'
+      + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;width:100px;vertical-align:top">📌 סיכום:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + summary.replace(/\n/g, "<br>") + '</td></tr>'
+      + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;vertical-align:top">👤 קשר:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + (state.contact || "") + '</td></tr>'
+      + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;vertical-align:top">📂 תחום:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + (state.need || "") + '</td></tr>'
+      + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;vertical-align:top">⏰ דחיפות:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + (state.urgency || "") + '</td></tr>'
+      + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;vertical-align:top">🎯 מקור:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + (state.source || "") + '</td></tr>'
+      + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;vertical-align:top">💬 מטרה:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + (state.goal || "") + '</td></tr>'
+      + '<tr><td style="padding:10px 8px;font-weight:bold;vertical-align:top">🔥 ציון:</td><td style="padding:10px 8px">' + sc + ' (' + lv.tag + ')</td></tr>'
+      + '</table>'
+      + '<p style="color:#999;font-size:12px;margin-top:16px;text-align:center">נשלח אוטומטית מאתר אזולאי ושות׳ עורכי דין</p></div>';
     fetch("https://hook.us2.make.com/t62nbth3r2by2d3qu65zm59fg29k1lq5", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        email_body: emailBody,
         summary: summary,
-        html_summary: summary.replace(/\n/g, "<br>"),
-        need: state.need,
-        urgency: state.urgency,
-        source: state.source,
-        goal: state.goal,
         contact: state.contact,
-        score: sc,
-        level: lv.tag
+        need: state.need,
+        source: state.source
       })
     }).then(function(res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
@@ -2081,17 +2089,25 @@
         const message = document.getElementById('message').value;
 
         // Send to Make webhook
+        const formEmailBody = '<div style="font-family:Arial,sans-serif;direction:rtl;padding:20px;max-width:600px;margin:0 auto;background:#f9f9f9;border-radius:12px">'
+            + '<h2 style="color:#C9A84C;border-bottom:2px solid #C9A84C;padding-bottom:8px;margin-top:0">📋 ליד חדש מטופס יצירת קשר</h2>'
+            + '<table style="width:100%;border-collapse:collapse;font-size:15px">'
+            + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold;width:100px">👤 שם:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + name + '</td></tr>'
+            + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold">📱 טלפון:</td><td style="padding:10px 8px;border-bottom:1px solid #eee"><a href="tel:' + phone + '">' + phone + '</a></td></tr>'
+            + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold">📧 אימייל:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + (email || 'לא צוין') + '</td></tr>'
+            + '<tr><td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:bold">📂 נושא:</td><td style="padding:10px 8px;border-bottom:1px solid #eee">' + subjectText + '</td></tr>'
+            + '<tr><td style="padding:10px 8px;font-weight:bold;vertical-align:top">💬 הודעה:</td><td style="padding:10px 8px">' + (message || 'ללא') + '</td></tr>'
+            + '</table>'
+            + '<p style="color:#999;font-size:12px;margin-top:16px;text-align:center">נשלח אוטומטית מאתר אזולאי ושות׳ עורכי דין</p></div>';
         fetch("https://hook.us2.make.com/t62nbth3r2by2d3qu65zm59fg29k1lq5", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                source: "contact_form",
-                summary: `ליד מטופס יצירת קשר\nשם: ${name}\nטלפון: ${phone}\nאימייל: ${email || 'לא צוין'}\nנושא: ${subjectText}\nהודעה: ${message || 'ללא'}`,
-                html_summary: `<b>ליד מטופס יצירת קשר</b><br>שם: ${name}<br>טלפון: ${phone}<br>אימייל: ${email || 'לא צוין'}<br>נושא: ${subjectText}<br>הודעה: ${message || 'ללא'}`,
-                contact: `${name} | ${phone}${email ? ' | ' + email : ''}`,
+                email_body: formEmailBody,
+                summary: 'ליד מטופס: ' + name + ' | ' + phone + ' | ' + subjectText,
+                contact: name + ' | ' + phone,
                 need: subjectText,
-                goal: message || '',
-                level: "form_lead"
+                source: "contact_form"
             })
         }).catch(() => {});
 
