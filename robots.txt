@@ -1,0 +1,9 @@
+# robots.txt - Azoulay Law Office
+# https://azoulay-law.co.il
+
+User-agent: *
+Allow: /
+Disallow:
+
+# Sitemap
+Sitemap: https://azoulay-law.co.il/sitemap.xml
