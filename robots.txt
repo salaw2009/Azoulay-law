@@ -7,3 +7,6 @@ Disallow:
 
 # Sitemap
 Sitemap: https://azoulay-law.co.il/sitemap.xml
+
+# AI crawler hint file
+LLMS: https://azoulay-law.co.il/llms.txt
