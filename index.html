@@ -917,6 +917,89 @@
     }
     .slider-dot.active { background: var(--gold); width: 28px; border-radius: 5px; }
 
+    /* ========== GEO ROADMAP ========== */
+    .geo-plan { background: var(--gold-light); }
+    .geo-summary {
+        max-width: 900px;
+        margin: 0 auto 26px;
+        background: var(--white);
+        border: 1px solid rgba(10,22,40,0.08);
+        border-radius: 16px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+        font-size: 0.96rem;
+    }
+    .quick-wins-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+    .quick-win {
+        background: var(--white);
+        border: 1px solid rgba(10,22,40,0.08);
+        border-radius: 14px;
+        padding: 16px;
+    }
+    .quick-win h3 {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        font-family: 'Rubik', sans-serif;
+    }
+    .quick-win p {
+        font-size: 0.86rem;
+        color: #4b5563;
+        margin-bottom: 10px;
+        line-height: 1.65;
+    }
+    .quick-win-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .geo-tag {
+        font-size: 0.74rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 999px;
+    }
+    .geo-tag.impact-high { background: #dcfce7; color: #166534; }
+    .geo-tag.effort-low { background: #dbeafe; color: #1d4ed8; }
+    .geo-tag.effort-medium { background: #fef3c7; color: #92400e; }
+    .geo-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+    .geo-column {
+        background: var(--white);
+        border-radius: 16px;
+        border: 1px solid rgba(10,22,40,0.08);
+        padding: 20px;
+    }
+    .geo-column h3 {
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+        font-family: 'Rubik', sans-serif;
+    }
+    .geo-list { list-style: none; display: grid; gap: 12px; }
+    .geo-list li {
+        border-bottom: 1px dashed rgba(10,22,40,0.12);
+        padding-bottom: 12px;
+    }
+    .geo-list li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .geo-list h4 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    .geo-list p {
+        font-size: 0.84rem;
+        color: #4b5563;
+        line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+        .geo-columns { grid-template-columns: 1fr; }
+    }
+
     /* ========== FAQ ========== */
     .faq { background: var(--white); }
     .faq-list { max-width: 700px; margin: 0 auto; }
@@ -1333,6 +1416,7 @@
         <nav class="nav" aria-label="ניווט ראשי">
             <a href="#about">אודות</a>
             <a href="#practice">תחומי עיסוק</a>
+            <a href="#geo-plan">תוכנית GEO</a>
             <a href="#why-us">למה אנחנו</a>
             <a href="#testimonials">המלצות</a>
             <a href="#faq">שאלות נפוצות</a>
@@ -1347,6 +1431,7 @@
 <nav class="mobile-nav" id="mobileNav" aria-label="תפריט נייד">
     <a href="#about">אודות</a>
     <a href="#practice">תחומי עיסוק</a>
+    <a href="#geo-plan">תוכנית GEO</a>
     <a href="#why-us">למה אנחנו</a>
     <a href="#testimonials">המלצות</a>
     <a href="#faq">שאלות נפוצות</a>
@@ -1555,6 +1640,92 @@
                 </div>
             </div>
             <div class="slider-dots" id="sliderDots"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GEO ROADMAP ===== -->
+<section class="geo-plan" id="geo-plan">
+    <div class="container">
+        <h2 class="section-title fade-in">תוכנית GEO לחיזוק הנוכחות הדיגיטלית</h2>
+        <div class="gold-line" aria-hidden="true"></div>
+        <p class="section-subtitle fade-in">צעדים מעשיים לבניית סמכות משפטית בדימונה, באר שבע ומחוז הדרום</p>
+
+        <div class="geo-summary fade-in">
+            המותג "שמעון אזולאי" דורש חיזוק מואץ של סמכות דיגיטלית במנועי AI. האסטרטגיה מבוססת על בניית גרף ידע עקבי שמחבר בין שם המשרד, תחומי התמחות משפטיים ומיקוד גיאוגרפי ברור: דימונה, באר שבע והנגב.
+        </div>
+
+        <div class="quick-wins-grid">
+            <article class="quick-win fade-in">
+                <h3>Schema משפטי ממוקד מיקום</h3>
+                <p>הטמעת Structured Data מסוג LegalService עם מיקוד מפורש בדימונה ובאר שבע.</p>
+                <div class="quick-win-tags">
+                    <span class="geo-tag impact-high">Impact: High</span>
+                    <span class="geo-tag effort-low">Effort: Low</span>
+                </div>
+            </article>
+            <article class="quick-win fade-in">
+                <h3>Google Business Profile</h3>
+                <p>אופטימיזציה מלאה לפרופיל העסק וצבירת ביקורות לקוחות עם ביטויי מיקום רלוונטיים.</p>
+                <div class="quick-win-tags">
+                    <span class="geo-tag impact-high">Impact: High</span>
+                    <span class="geo-tag effort-medium">Effort: Medium</span>
+                </div>
+            </article>
+            <article class="quick-win fade-in">
+                <h3>מאמרי סמכות בדרום</h3>
+                <p>פרסום 3 מאמרי דעה באתרים חדשותיים בדרום עם אזכור שם המשרד וקישור חוזר.</p>
+                <div class="quick-win-tags">
+                    <span class="geo-tag impact-high">Impact: High</span>
+                    <span class="geo-tag effort-medium">Effort: Medium</span>
+                </div>
+            </article>
+        </div>
+
+        <div class="geo-columns">
+            <article class="geo-column fade-in">
+                <h3>אבני יסוד אסטרטגיות</h3>
+                <ul class="geo-list">
+                    <li>
+                        <h4>📊 ניתוח מצב קיים</h4>
+                        <p>לבנות הקשרים ברורים בין "שמעון אזולאי", "עורך דין" וערי היעד כדי לייצר סיגנלים חזקים ל-LLMs.</p>
+                    </li>
+                    <li>
+                        <h4>✍️ אסטרטגיית תוכן</h4>
+                        <p>להקים עמודי Pillar עם מדריכים משפטיים אזוריים ופורמט FAQ מבוסס שאילתות נפוצות.</p>
+                    </li>
+                    <li>
+                        <h4>⚙️ אופטימיזציה טכנית</h4>
+                        <p>להחזיק Schema עדכני, להוסיף llms.txt, ולשמור על NAP אחיד בכל הנכסים הדיגיטליים.</p>
+                    </li>
+                    <li>
+                        <h4>🏛️ בניית סמכות</h4>
+                        <p>להופיע באינדקסים משפטיים ופורטלים מקומיים עם אותו שם, כתובת וטלפון בכל מקום.</p>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="geo-column fade-in">
+                <h3>Roadmap לפי זמן ומודל</h3>
+                <ul class="geo-list">
+                    <li>
+                        <h4>🤖 Gemini / Google (חודש 1–2)</h4>
+                        <p>חיזוק Google Business Profile, ביקורות איכותיות ומיפוי שירותים לפי אזורים.</p>
+                    </li>
+                    <li>
+                        <h4>🧠 ChatGPT / OpenAI (רבעון)</h4>
+                        <p>אזכורים באתרי תוכן חזקים עם קישורים ותוכן משפטי ממוקד דימונה ובאר שבע.</p>
+                    </li>
+                    <li>
+                        <h4>📚 Claude / Anthropic (רבעון)</h4>
+                        <p>פרסום מאמרים ארוכים וניתוחי מקרה שמדגישים עומק מקצועי ואמינות משפטית.</p>
+                    </li>
+                    <li>
+                        <h4>📅 לוחות זמנים</h4>
+                        <p>חודש 1: תשתית Schema + llms.txt + אינדקסים. חודש 2: 4 מאמרים ו-5–10 ביקורות לקוח ממוקדות מיקום.</p>
+                    </li>
+                </ul>
+            </article>
         </div>
     </div>
 </section>
