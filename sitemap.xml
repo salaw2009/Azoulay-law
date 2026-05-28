@@ -26,7 +26,7 @@
     </url>
     <url>
         <loc>https://azoulay-law.co.il/blog.html</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -57,6 +57,12 @@
     <url>
         <loc>https://azoulay-law.co.il/blog/yipuy-koach-mitmashech-mdrich-2026.html</loc>
         <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://azoulay-law.co.il/blog/sichsuchey-yerusha-2026.html</loc>
+        <lastmod>2026-05-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
