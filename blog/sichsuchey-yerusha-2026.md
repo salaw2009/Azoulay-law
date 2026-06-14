@@ -6,7 +6,7 @@ date: 2026-05-28
 author: עו״ד שמעון אזולאי
 category: ירושה
 tags: [סכסוכי ירושה, התנגדות לצוואה, ניהול עיזבון, צו ירושה, צו קיום צוואה, גישור משפחתי, ירושה בישראל, נגב, דימונה]
-canonical: https://azoulay-law.co.il/blog/sichsuchey-yerusha-2026.html
+canonical: https://azoulay-law.com/blog/sichsuchey-yerusha-2026.html
 ---
 
 # סכסוכי ירושה 2026: עילות, הליכים, ניהול עיזבון וטעויות שהורסות משפחות — מדריך מלא

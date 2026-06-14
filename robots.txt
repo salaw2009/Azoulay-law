@@ -1,5 +1,5 @@
 # robots.txt - Azoulay Law Office
-# https://azoulay-law.co.il
+# https://azoulay-law.com
 # Last updated: 2026-06-07
 
 # ===== Search engines =====
@@ -56,9 +56,9 @@ User-agent: cohere-ai
 Allow: /
 
 # ===== Sitemap =====
-Sitemap: https://azoulay-law.co.il/sitemap.xml
+Sitemap: https://azoulay-law.com/sitemap.xml
 Sitemap: https://balol100.github.io/Azoulay-law/sitemap.xml
 
 # AI crawler hint file
-LLMS: https://azoulay-law.co.il/llms.txt
+LLMS: https://azoulay-law.com/llms.txt
 LLMS: https://balol100.github.io/Azoulay-law/llms.txt

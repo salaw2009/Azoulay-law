@@ -21,7 +21,7 @@ practice_areas = [
 [contact]
 phone = "+972-54-6969157"
 email = "office.lawsa@gmail.com"
-website = "https://azoulay-law.co.il"
+website = "https://azoulay-law.com"
 address = "שד׳ יגאל אלון 209/31, דימונה, ישראל"
 
 [knowledge_graph_hints]
