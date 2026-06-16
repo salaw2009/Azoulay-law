@@ -108,4 +108,10 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://azoulay-law.com/blog/heharat-azhara-mdrich-2026.html</loc>
+        <lastmod>2026-06-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
