@@ -59,4 +59,4 @@ keywords: ["הסכם גירושין", "גירושין בהסכמה", "חלוקת
 
 **צרו קשר עם משרד אזולאי ושות'**
 📞 [054-6969157](tel:054-6969157) · 📧 [office.lawsa@gmail.com](mailto:office.lawsa@gmail.com) · 💬 [WhatsApp](https://wa.me/972546969157)
-[azulaylegal.com](../index.html) · שד' יגאל אלון 209/31, דימונה
+[azoulay-law.com](../index.html) · שד' יגאל אלון 209/31, דימונה
