@@ -1,0 +1,5 @@
+Contact: tel:+972-54-6969157
+Contact: https://azoulay-law.com/
+Expires: 2027-06-22T00:00:00.000Z
+Preferred-Languages: he, en
+Canonical: https://azoulay-law.com/.well-known/security.txt
