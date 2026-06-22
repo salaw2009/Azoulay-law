@@ -1416,6 +1416,7 @@
         <nav class="nav" aria-label="ניווט ראשי">
             <a href="#about">אודות</a>
             <a href="#practice">תחומי עיסוק</a>
+            <a href="#services">שירותים</a>
             <a href="blog.html">מאמרים</a>
             <!-- <a href="#geo-plan">תוכנית GEO</a> -->
             <a href="#why-us">למה אנחנו</a>
@@ -1432,6 +1433,7 @@
 <nav class="mobile-nav" id="mobileNav" aria-label="תפריט נייד">
     <a href="#about">אודות</a>
     <a href="#practice">תחומי עיסוק</a>
+    <a href="#services">שירותים</a>
     <a href="blog.html">מאמרים</a>
     <!-- <a href="#geo-plan">תוכנית GEO</a> -->
     <a href="#why-us">למה אנחנו</a>
@@ -1544,6 +1546,85 @@
                 <p>פיצויים, זכויות, הפליה</p>
                 <span class="arrow" aria-hidden="true">פרטים נוספים ←</span>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICE PAGES ===== -->
+<section class="services-index" id="services">
+    <style>
+        .services-index { background: var(--cream, #F8F6F0); padding: 80px 0; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .service-card {
+            display: flex; flex-direction: column;
+            background: #fff;
+            border: 1px solid rgba(10,22,40,0.07);
+            border-radius: 14px;
+            padding: 30px 26px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+            transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s, border-color .3s;
+            position: relative; overflow: hidden;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; right: 0; left: 0; height: 4px;
+            background: linear-gradient(90deg, #C9A84C, #e0c06a);
+            transform: scaleX(0); transform-origin: right; transition: transform .3s;
+        }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 14px 44px rgba(10,22,40,0.14); border-color: rgba(201,168,76,0.4); text-decoration: none; }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card .svc-icon { font-size: 38px; margin-bottom: 14px; }
+        .service-card h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.25rem; font-weight: 700;
+            color: #0A1628; margin-bottom: 10px;
+        }
+        .service-card p { font-size: 0.95rem; color: #5a6373; line-height: 1.7; margin-bottom: 18px; flex-grow: 1; }
+        .service-card .svc-arrow { color: #1A3A6B; font-weight: 700; font-size: 0.92rem; }
+        .service-card:hover .svc-arrow { color: #C9A84C; }
+        @media (max-width: 600px){ .services-index { padding: 56px 0; } }
+    </style>
+    <div class="container">
+        <h2 class="section-title fade-in">תחומי השירות שלנו</h2>
+        <div class="gold-line" aria-hidden="true"></div>
+        <p class="section-subtitle fade-in">לחצו על תחום כדי לקרוא מידע מפורט, שאלות נפוצות ויצירת קשר</p>
+        <div class="services-grid">
+            <a class="service-card fade-in" href="services/diney-mishpacha.html">
+                <span class="svc-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
+                <h3>דיני משפחה</h3>
+                <p>גירושין והסכמי גירושין, מזונות ילדים ואישה, משמורת והסדרי שהות, חלוקת רכוש והסכמי ממון.</p>
+                <span class="svc-arrow" aria-hidden="true">למידע מלא ←</span>
+            </a>
+            <a class="service-card fade-in" href="services/chozim-ve-iskaot.html">
+                <span class="svc-icon" aria-hidden="true">📝</span>
+                <h3>חוזים ועסקאות</h3>
+                <p>ניסוח חוזים והסכמים, בדיקת חוזה לפני חתימה, טיפול בהפרת חוזה וליווי עסקאות מסחריות.</p>
+                <span class="svc-arrow" aria-hidden="true">למידע מלא ←</span>
+            </a>
+            <a class="service-card fade-in" href="services/mekarkein-nadlan.html">
+                <span class="svc-icon" aria-hidden="true">🏠</span>
+                <h3>מקרקעין ונדל"ן</h3>
+                <p>ליווי עסקאות רכישה ומכירה, הערת אזהרה ורישום זכויות, מיסוי מקרקעין והסכמי שכירות.</p>
+                <span class="svc-arrow" aria-hidden="true">למידע מלא ←</span>
+            </a>
+            <a class="service-card fade-in" href="services/gishur-livuy-mishpati.html">
+                <span class="svc-icon" aria-hidden="true">🔄</span>
+                <h3>גישור וליווי משפטי</h3>
+                <p>פתרון סכסוכים בהסכמה — גישור משפחתי בגירושין ומשמורת, גישור עסקי וסכסוכי ירושה.</p>
+                <span class="svc-arrow" aria-hidden="true">למידע מלא ←</span>
+            </a>
+            <a class="service-card fade-in" href="services/diney-avoda.html">
+                <span class="svc-icon" aria-hidden="true">💼</span>
+                <h3>דיני עבודה</h3>
+                <p>פיצויי פיטורים, זכויות סוציאליות ושכר, הטרדה והפליה, פיטורים שלא כדין וליווי מעסיקים.</p>
+                <span class="svc-arrow" aria-hidden="true">למידע מלא ←</span>
+            </a>
         </div>
     </div>
 </section>
