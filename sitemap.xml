@@ -56,9 +56,15 @@
     </url>
     <url>
         <loc>https://azoulay-law.com/blog.html</loc>
-        <lastmod>2026-06-18</lastmod>
+        <lastmod>2026-06-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://azoulay-law.com/blog/hesem-horut-mdrich-2026.html</loc>
+        <lastmod>2026-06-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azoulay-law.com/blog/hesem-mamon-mdrich-2026.html</loc>
