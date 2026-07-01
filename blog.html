@@ -263,6 +263,35 @@
     }
     .post-cta:hover { gap: 10px; }
 
+    /* Share buttons on each post card */
+    .card-share {
+        display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+        margin-top: 4px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(10,22,40,0.07);
+    }
+    .card-share__label {
+        font-size: 0.72rem; font-weight: 600; color: #6b7280;
+        margin-inline-end: 2px;
+    }
+    .card-share-btn {
+        width: 32px; height: 32px; padding: 0;
+        border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center;
+        background: rgba(10,22,40,0.05);
+        border: 1px solid rgba(10,22,40,0.1);
+        color: var(--navy);
+        cursor: pointer; text-decoration: none;
+        transition: var(--transition);
+        -webkit-tap-highlight-color: transparent;
+    }
+    .card-share-btn svg { width: 15px; height: 15px; fill: currentColor; }
+    .card-share-btn:hover, .card-share-btn:focus-visible {
+        background: var(--gold); border-color: var(--gold); color: var(--navy);
+        transform: translateY(-2px); outline: none;
+    }
+    .card-share-btn--copied { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+
     .empty-note {
         text-align: center;
         color: #6b7280;
@@ -713,4 +742,121 @@
             <h4>צור קשר</h4>
             <div class="footer-links">
                 <a href="tel:054-6969157"><span aria-hidden="true">📞</span> 054-6969157</a>
-                <a href="mailto:office.lawsa@gmail.com"><span aria-hidden="true">📧</span> office.lawsa@gmail.co
+                <a href="mailto:office.lawsa@gmail.com"><span aria-hidden="true">📧</span> office.lawsa@gmail.com</a>
+                <a href="https://wa.me/972546969157" target="_blank" rel="noopener"><span aria-hidden="true">💬</span> WhatsApp</a>
+                <span style="font-size:0.85rem;color:rgba(255,255,255,0.72);"><span aria-hidden="true">📍</span> שד' יגאל אלון 209/31, דימונה</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 אזולאי ושות' — עורכי דין וגישור. כל הזכויות שמורות.</p>
+        <div class="footer-legal">
+            <a href="accessibility-statement.html">הצהרת נגישות</a>
+            <a href="privacy-policy.html">מדיניות פרטיות</a>
+            <a href="terms.html">תנאי שימוש</a>
+        </div>
+        <p class="footer-credit">נבנה באהבה <span aria-hidden="true">❤️</span> על ידי <a href="https://lior-ai.com" target="_blank" rel="noopener">lior_Ai</a></p>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    var burger = document.getElementById('hamburger');
+    var mNav = document.getElementById('mobileNav');
+    if (burger && mNav) {
+        burger.addEventListener('click', function () {
+            var open = mNav.classList.toggle('active');
+            burger.classList.toggle('active');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        mNav.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                mNav.classList.remove('active');
+                burger.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Inject share buttons into each post card
+    (function () {
+        var ICONS = {
+            whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.947 11.947 0 005.71 1.454h.005c6.582 0 11.946-5.359 11.949-11.893a11.821 11.821 0 00-3.479-8.46"/></svg>',
+            facebook: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+            x: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+            link: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>',
+            check: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>'
+        };
+
+        var cards = document.querySelectorAll('.post-card');
+        Array.prototype.forEach.call(cards, function (card) {
+            var link = card.querySelector('h2 a');
+            if (!link) return;
+            var url = link.href;                 // absolute URL, resolved by the browser
+            var title = link.textContent.trim();
+            var eu = encodeURIComponent(url);
+            var et = encodeURIComponent(title);
+
+            var row = document.createElement('div');
+            row.className = 'card-share';
+            row.setAttribute('aria-label', 'שיתוף המאמר');
+
+            var lbl = document.createElement('span');
+            lbl.className = 'card-share__label';
+            lbl.textContent = 'שיתוף:';
+            row.appendChild(lbl);
+
+            function addLink(href, aria, ico) {
+                var a = document.createElement('a');
+                a.className = 'card-share-btn';
+                a.href = href;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.setAttribute('aria-label', aria + ' — ' + title);
+                a.innerHTML = ICONS[ico];
+                row.appendChild(a);
+            }
+
+            addLink('https://wa.me/?text=' + et + '%20' + eu, 'שיתוף ב-WhatsApp', 'whatsapp');
+            addLink('https://www.facebook.com/sharer/sharer.php?u=' + eu, 'שיתוף בפייסבוק', 'facebook');
+            addLink('https://twitter.com/intent/tweet?text=' + et + '&url=' + eu, 'שיתוף ב-X', 'x');
+
+            var copyBtn = document.createElement('button');
+            copyBtn.type = 'button';
+            copyBtn.className = 'card-share-btn';
+            copyBtn.setAttribute('aria-label', 'העתקת קישור — ' + title);
+            copyBtn.innerHTML = ICONS.link;
+
+            var timer;
+            function done() {
+                copyBtn.classList.add('card-share-btn--copied');
+                copyBtn.innerHTML = ICONS.check;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    copyBtn.classList.remove('card-share-btn--copied');
+                    copyBtn.innerHTML = ICONS.link;
+                }, 2000);
+            }
+            function fallback() {
+                try {
+                    var ta = document.createElement('textarea');
+                    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+                    document.body.appendChild(ta); ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    done();
+                } catch (e) { done(); }
+            }
+            copyBtn.addEventListener('click', function () {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(done, fallback);
+                } else { fallback(); }
+            });
+            row.appendChild(copyBtn);
+
+            card.appendChild(row);
+        });
+    })();
+</script>
+</body>
+</html>
