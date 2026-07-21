@@ -56,9 +56,15 @@
     </url>
     <url>
         <loc>https://azoulay-law.com/blog.html</loc>
-        <lastmod>2026-07-19</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://azoulay-law.com/blog/chadalut-piraon-2026.html</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azoulay-law.com/blog/apotropsut-2026.html</loc>
