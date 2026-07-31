@@ -36,6 +36,18 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+  <url>
+    <loc>https://azoulay-law.com/services/hotza-lapoal.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://azoulay-law.com/services/hadlut-piraon.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
     <url>
         <loc>https://azoulay-law.com/privacy-policy.html</loc>
         <lastmod>2026-03-13</lastmod>
