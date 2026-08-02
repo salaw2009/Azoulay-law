@@ -98,9 +98,15 @@
     </url>
     <url>
         <loc>https://azoulay-law.com/blog.html</loc>
-        <lastmod>2026-07-30</lastmod>
+        <lastmod>2026-08-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://azoulay-law.com/blog/chatifat-yeladim-hague-2026.html</loc>
+        <lastmod>2026-08-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azoulay-law.com/blog/bitul-tzvaa-2026.html</loc>
