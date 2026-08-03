@@ -1420,6 +1420,7 @@
             <a href="#about">אודות</a>
             <a href="#practice">תחומי עיסוק</a>
             <a href="#services">שירותים</a>
+            <a href="modiin.html">שלוחת מודיעין</a>
             <a href="blog.html">מאמרים</a>
             <!-- <a href="#geo-plan">תוכנית GEO</a> -->
             <a href="#why-us">למה אנחנו</a>
@@ -1437,6 +1438,7 @@
     <a href="#about">אודות</a>
     <a href="#practice">תחומי עיסוק</a>
     <a href="#services">שירותים</a>
+    <a href="modiin.html">שלוחת מודיעין</a>
     <a href="blog.html">מאמרים</a>
     <!-- <a href="#geo-plan">תוכנית GEO</a> -->
     <a href="#why-us">למה אנחנו</a>
@@ -1859,6 +1861,42 @@
 </section>
 
 <!-- ===== CONTACT ===== -->
+<!-- ===== BRANCHES ===== -->
+<style>
+  .branches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:32px;}
+  .branch-card{background:var(--white);border:1px solid rgba(10,22,40,0.08);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);}
+  .branch-card h3{color:var(--navy);margin-bottom:12px;}
+  .branch-card .branch-note{color:var(--gold-hover);font-weight:600;margin-bottom:12px;}
+</style>
+<section class="branches" id="branches">
+    <div class="container">
+        <h2 class="section-title fade-in">שתי שלוחות לשירותכם</h2>
+        <div class="gold-line" aria-hidden="true"></div>
+        <p class="section-subtitle fade-in">אותו משרד, אותו ליווי אישי — בשתי שלוחות</p>
+        <div class="branches-grid">
+            <div class="branch-card fade-in">
+                <h3>שלוחת דימונה</h3>
+                <p class="branch-note">המשרד הראשי — פרטי ההתקשרות המלאים למטה בעמוד</p>
+                <a href="#contact" class="btn-outline">לפרטי יצירת קשר <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="branch-card fade-in">
+                <h3>שלוחת מודיעין</h3>
+                <p class="branch-note">קבלת קהל בתיאום מראש</p>
+                <div class="info-item">
+                    <div class="info-icon" aria-hidden="true">📞</div>
+                    <a href="tel:053-300-0566">053-300-0566</a>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon" aria-hidden="true">📧</div>
+                    <a href="mailto:office.lawmod@gmail.com">office.lawmod@gmail.com</a>
+                </div>
+                <a href="https://wa.me/972533000566" target="_blank" rel="noopener" class="wa-btn"><span aria-hidden="true">💬</span> WhatsApp — שלוחת מודיעין</a>
+                <a href="modiin.html" class="btn-outline">לדף שלוחת מודיעין <span aria-hidden="true">←</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="contact" id="contact">
     <div class="container">
         <h2 class="section-title fade-in">צור קשר</h2>
@@ -1986,6 +2024,7 @@
 <!-- ===== FLOATING BUTTONS ===== -->
 <a href="https://wa.me/972546969157" target="_blank" rel="noopener" class="float-wa" aria-label="שלחו הודעת WhatsApp"><span aria-hidden="true">💬</span></a>
 
+<script>window.SITE_BRANCH = "dimona";</script>
 
 <!-- === AI Agent Widget - Azoulay Law (Lior-AI) === -->
 <script>
@@ -2365,6 +2404,7 @@
       body: JSON.stringify({
         summary: summary,
         html_summary: summary.replace(/\n/g, "<br>"),
+        branch: window.SITE_BRANCH,
         need: state.need,
         urgency: state.urgency,
         source: state.source,
@@ -2588,6 +2628,7 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 source: "contact_form",
+                branch: window.SITE_BRANCH,
                 summary: `ליד מטופס יצירת קשר\nשם: ${name}\nטלפון: ${phone}\nאימייל: ${email || 'לא צוין'}\nנושא: ${subjectText}\nהודעה: ${message || 'ללא'}`,
                 html_summary: `<b>ליד מטופס יצירת קשר</b><br>שם: ${name}<br>טלפון: ${phone}<br>אימייל: ${email || 'לא צוין'}<br>נושא: ${subjectText}<br>הודעה: ${message || 'ללא'}`,
                 contact: `${name} | ${phone}${email ? ' | ' + email : ''}`,
