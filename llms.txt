@@ -36,9 +36,9 @@ entity_intents = [
 ]
 
 [trust_signals]
-experience = "15+ שנות ניסיון"
-clients = "1,000+ לקוחות"
-service_mode = "ליווי אישי, מענה מהיר, מחירים הוגנים"
+experience = "מלווה לקוחות מאז 2018"
+branches = "שתי שלוחות — מודיעין והסביבה | דימונה והסביבה"
+service_mode = "ליווי אישי לאורך כל ההליך, מענה מהיר, מחירים הוגנים"
 
 [crawl_policy]
 allow_ai_crawlers = true
