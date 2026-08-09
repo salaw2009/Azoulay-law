@@ -1628,6 +1628,7 @@
   .branch-tab.active { background: #F4F6F8; color: #25282B; border-color: #A9B2BB; }
   .branch-tab:focus-visible { outline: 2px solid #25282B; outline-offset: 2px; }
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 0; }
+  .services-grid[hidden] { display: none; }
   .service-card {
     display: flex; flex-direction: column;
     background: #fff; border: 1px solid #D9DEE3; border-radius: 14px;
@@ -1636,13 +1637,18 @@
     transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   }
   .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(37,40,43,0.09); border-color: #A9B2BB; text-decoration: none; }
-  .service-card .svc-icon-badge { width: 36px; height: 36px; border-radius: 10px; background: #F4F6F8; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .service-card .svc-icon-badge { width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
   .service-card .svc-icon { color: #25282B; }
+  .service-card img.svc-icon { width: 96px; height: 96px; object-fit: contain; display: block; }
   .service-card h3 { font-family: 'Rubik', sans-serif; font-size: 1rem; font-weight: 700; color: #25282B; margin-bottom: 6px; }
   .service-card p { font-size: 0.85rem; color: #626A73; line-height: 1.6; margin-bottom: 14px; flex-grow: 1; }
   .service-card .svc-arrow { color: #25282B; font-weight: 600; font-size: 0.8rem; }
   @media (min-width: 901px) { #panel-dimona .service-card:nth-child(7) { grid-column: 2 / 3; } }
-  @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-card .svc-icon-badge { width: 80px; height: 80px; }
+    .service-card img.svc-icon { width: 80px; height: 80px; }
+  }
   @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } .branch-tabs { flex-direction: column; } }
 
   .about-section { background: #FFFFFF; padding: 72px 24px; scroll-margin-top: 90px; }
@@ -1667,19 +1673,19 @@
 
     <div class="services-grid" id="panel-modiin" role="tabpanel" aria-labelledby="tab-modiin">
       <a class="service-card fade-in" href="services/diney-mishpacha.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-family"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-family.webp" alt=""></span>
         <h3>משפחה וגירושין</h3>
         <p>ליווי אסטרטגי בהליכי גירושין, מזונות, אחריות הורית וחלוקת רכוש.</p>
         <span class="svc-arrow" aria-hidden="true">לדיני משפחה במודיעין ←</span>
       </a>
       <a class="service-card fade-in" href="services/yerusha-tzvaot.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-tree"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-inheritance.webp" alt=""></span>
         <h3>ירושה וצוואות</h3>
         <p>עריכת צוואות, צווי ירושה וקיום צוואה, התנגדויות וסכסוכי ירושה.</p>
         <span class="svc-arrow" aria-hidden="true">לירושה וצוואות במודיעין ←</span>
       </a>
       <a class="service-card fade-in" href="services/mekarkein-nadlan.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-building"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-real-estate.webp" alt=""></span>
         <h3>מקרקעין</h3>
         <p>ליווי בעסקאות רכישה ומכירה, בדיקות משפטיות, חוזים ורישום זכויות.</p>
         <span class="svc-arrow" aria-hidden="true">למקרקעין במודיעין ←</span>
@@ -1688,43 +1694,43 @@
 
     <div class="services-grid" id="panel-dimona" role="tabpanel" aria-labelledby="tab-dimona" hidden>
       <a class="service-card fade-in" href="services/diney-mishpacha.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-family"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-family.webp" alt=""></span>
         <h3>משפחה וגירושין</h3>
         <p>ליווי אסטרטגי בהליכי גירושין, מזונות, אחריות הורית וחלוקת רכוש.</p>
         <span class="svc-arrow" aria-hidden="true">לדיני משפחה בדימונה ←</span>
       </a>
       <a class="service-card fade-in" href="services/yerusha-tzvaot.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-tree"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-inheritance.webp" alt=""></span>
         <h3>ירושה וצוואות</h3>
         <p>עריכת צוואות, צווי ירושה וקיום צוואה, התנגדויות וסכסוכי ירושה.</p>
         <span class="svc-arrow" aria-hidden="true">לירושה וצוואות בדימונה ←</span>
       </a>
       <a class="service-card fade-in" href="services/tviot-ezrachiot.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-gavel"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-civil.webp" alt=""></span>
         <h3>משפט אזרחי ותביעות כספיות</h3>
         <p>ייצוג בתביעות כספיות, סכסוכים חוזיים ומחלוקות אזרחיות.</p>
         <span class="svc-arrow" aria-hidden="true">למשפט אזרחי בדימונה ←</span>
       </a>
       <a class="service-card fade-in" href="services/diney-avoda.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-briefcase"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-labor.webp" alt=""></span>
         <h3>דיני עבודה</h3>
         <p>ייצוג עובדים ומעסיקים בענייני שכר, פיטורים, שימוע וזכויות סוציאליות.</p>
         <span class="svc-arrow" aria-hidden="true">לדיני עבודה בדימונה ←</span>
       </a>
       <a class="service-card fade-in" href="services/hotza-lapoal.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-gavel"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-enforcement.webp" alt=""></span>
         <h3>הוצאה לפועל</h3>
         <p>ייצוג חייבים וזוכים, התנגדויות, הסדרי חוב וטיפול בהליכי גבייה.</p>
         <span class="svc-arrow" aria-hidden="true">להוצאה לפועל בדימונה ←</span>
       </a>
       <a class="service-card fade-in" href="services/hadlut-piraon.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-unlock"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-insolvency.webp" alt=""></span>
         <h3>חדלות פירעון</h3>
         <p>ליווי בהסדרת חובות, הליכי חדלות פירעון וקבלת הפטר.</p>
         <span class="svc-arrow" aria-hidden="true">לחדלות פירעון בדימונה ←</span>
       </a>
       <a class="service-card fade-in" href="blog/lashon-hara-mdrich-2026.html">
-        <span class="svc-icon-badge"><svg class="svc-icon" width="18" height="18"><use href="#ic-speech-shield"/></svg></span>
+        <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-defamation.webp" alt=""></span>
         <h3>לשון הרע</h3>
         <p>ייצוג בתביעות ובהגנה מפני פרסומים הפוגעים בשם הטוב.</p>
         <span class="svc-arrow" aria-hidden="true">ללשון הרע בדימונה ←</span>
