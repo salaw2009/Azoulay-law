@@ -54,10 +54,10 @@
     banner.setAttribute("tabindex", "-1");
     banner.innerHTML =
       '<div class="consent-banner-inner">' +
-      '<p>האתר משתמש במדידה סטטיסטית (Google Analytics) רק לאחר אישורך. תוכל לשנות את בחירתך בכל עת דרך "הגדרות פרטיות" בפוטר.</p>' +
+      '<p><strong>האתר משתמש בעוגיות ובכלי מדידה סטטיסטיים</strong><br>אנו משתמשים בעוגיות וב-Google Analytics לצורך מדידת השימוש באתר ושיפור השירות, רק לאחר קבלת הסכמתך. ניתן לשנות את הבחירה בכל עת דרך "הגדרות פרטיות" בתחתית האתר.</p>' +
       '<div class="consent-banner-btns">' +
-      '<button type="button" class="primary" id="consent-accept">אישור מדידה</button>' +
-      '<button type="button" id="consent-decline">המשך ללא מדידה</button>' +
+      '<button type="button" class="primary" id="consent-accept">אישור עוגיות</button>' +
+      '<button type="button" id="consent-decline">המשך ללא עוגיות לא חיוניות</button>' +
       "</div></div>";
     document.body.appendChild(banner);
     document.body.classList.add("consent-banner-open");
