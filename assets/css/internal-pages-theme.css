@@ -1,0 +1,155 @@
+/* Shared light theme for internal pages — overrides the legacy dark navy/gold custom properties.
+   Loaded after each page's inline <style> block so it wins on cascade order without !important
+   for most rules; !important is used only where a page has a hardcoded (non-variable) dark color. */
+
+:focus-visible {
+  outline: 3px solid #25282B;
+  outline-offset: 3px;
+}
+
+:root {
+  --navy: #25282B;
+  --navy-light: #3A3F44;
+  --blue-mid: #626A73;
+  --gold: #A9B2BB;
+  --gold-light: #F4F6F8;
+  --gold-hover: #8D97A2;
+  --cream: #FFFFFF;
+  --white: #FFFFFF;
+  --card: #FFFFFF;
+  --card-border: #D9DEE3;
+  --text: #25282B;
+  --muted: #626A73;
+  --dim: #8A919A;
+}
+
+body { background: #FFFFFF !important; color: #25282B; }
+
+.header, header.header {
+  background: rgba(255,255,255,0.94) !important;
+  border-bottom: 1px solid #D9DEE3 !important;
+  backdrop-filter: blur(16px);
+}
+.header .nav a, header.header .nav a, nav .nav-back { color: #25282B !important; }
+.header .nav a:hover, .header .nav a.active { color: #626A73 !important; }
+.hamburger span { background: #25282B !important; }
+.mobile-nav { background: #FFFFFF !important; border-bottom: 1px solid #D9DEE3 !important; }
+.mobile-nav a { color: #25282B !important; }
+
+nav { background: rgba(255,255,255,0.94) !important; border-bottom: 1px solid #D9DEE3 !important; backdrop-filter: blur(16px); }
+.logo, .logo-name { color: #25282B !important; }
+.logo-sub { color: #626A73 !important; }
+
+.article-hero, .page-hero, section.article-hero {
+  background: #F4F6F8 !important;
+  color: #25282B !important;
+}
+.article-hero *, .page-hero * { color: inherit; }
+.article-hero h1, .page-hero h1 { color: #25282B !important; }
+.article-hero p, .page-hero p { color: #626A73 !important; }
+
+.page-label, .tag, .post-tag, .breadcrumbs, .breadcrumb {
+  background: #FFFFFF !important;
+  color: #25282B !important;
+  border: 1px solid #D9DEE3 !important;
+}
+.breadcrumbs a, .breadcrumb a { color: #626A73 !important; }
+
+.card, [class*="card"] {
+  background: #FFFFFF;
+  border-color: #D9DEE3 !important;
+  box-shadow: 0 4px 24px rgba(37,40,43,0.08);
+}
+
+a { color: #25282B; }
+a:hover { color: #626A73; }
+
+.btn-gold, .btn-primary, button.header-cta, .header-cta {
+  background: #F4F6F8 !important;
+  color: #25282B !important;
+  border: 1px solid #D9DEE3 !important;
+}
+
+.gold-line { background: #D9DEE3 !important; }
+
+.footer, footer {
+  background: #FFFFFF !important;
+  color: #25282B !important;
+  border-top: 1px solid #D9DEE3 !important;
+}
+.footer a, footer a { color: #626A73 !important; }
+.footer h4 { color: #25282B !important; }
+
+/* Unified action buttons: primary (btn-gold) + secondary (btn-outline) */
+.btn-gold, .btn-primary, button.header-cta, .header-cta {
+  background: #F4F6F8 !important;
+  color: #25282B !important;
+  border: 1px solid #D9DEE3 !important;
+  background-image: none !important;
+}
+.btn-gold:hover, .btn-primary:hover, .header-cta:hover {
+  background: #D9DEE3 !important;
+  color: #25282B !important;
+}
+.btn-outline {
+  background: #FFFFFF !important;
+  color: #25282B !important;
+  border: 1px solid #D9DEE3 !important;
+}
+.btn-outline:hover {
+  background: #D9DEE3 !important;
+  color: #25282B !important;
+}
+
+/* Icons in structural chrome: charcoal or muted silver only */
+.header svg, .article-hero svg, .page-hero svg, .page-label svg,
+.breadcrumb svg, .breadcrumbs svg, .article-tag svg, .btn-gold svg, .btn-outline svg,
+.footer svg, footer svg { color: #25282B !important; fill: currentColor !important; }
+
+.article-tag, .article-tags .article-tag {
+  background: #F4F6F8 !important;
+  color: #25282B !important;
+  border: 1px solid #D9DEE3 !important;
+}
+
+/* Header logo — scoped strictly to the logo image inside .header, not other images on the page */
+.header img.logo-img {
+  width: 52px !important;
+  height: 52px !important;
+  max-width: 52px !important;
+  max-height: 52px !important;
+  min-width: 0 !important;
+  object-fit: contain !important;
+  position: static !important;
+  inset: auto !important;
+  display: block !important;
+}
+
+/* Header call button — visible on desktop, right side, matches index.html's whatsapp-pill */
+.header .whatsapp-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px;
+  background: #F4F6F8 !important;
+  color: #25282B !important;
+  border: 1px solid #D9DEE3 !important;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+.header .whatsapp-pill:hover { background: #D9DEE3 !important; }
+
+/* Mobile header: logo on the right, hamburger on the left (call pill hidden) */
+@media (max-width: 900px) {
+  .whatsapp-pill,
+  .header .whatsapp-pill { display: none !important; }
+  .header img.logo-img {
+    width: 44px !important;
+    height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+  }
+}

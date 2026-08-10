@@ -1,8 +1,9 @@
+REPLACED 1
 <!DOCTYPE html>
 
 <html lang="he" dir="rtl">
 <head>
-<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TJD7RD42');</script><!-- End Google Tag Manager -->
+<!-- Consent-gated analytics loader --><script src="/assets/js/consent-gtm.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>עורך דין בדימונה | אזולאי ושות' — דיני משפחה, חוזים וגישור</title>
@@ -117,7 +118,7 @@
         {
             "@type": "Question",
             "name": "כמה עולה ייעוץ ראשוני אצל עורך דין בדימונה?",
-            "acceptedAnswer": {"@type": "Answer", "text": "פגישת ייעוץ ראשונית מתומחרת בהתאם לנושא. צרו קשר לקבלת פרטים."}
+            "acceptedAnswer": {"@type": "Answer", "text": "ייעוץ ראשוני במשרד ניתן ללא עלות."}
         },
         {
             "@type": "Question",
@@ -1031,6 +1032,8 @@
     }
     .slider-arrow:hover { border-color: var(--navy); }
     .reviews-link { display: block; text-align: center; margin-top: 20px; font-size: 0.88rem; font-weight: 600; color: var(--navy); }
+    .testi-pause-btn { display: block; margin: 12px auto 0; padding: 6px 16px; font-size: 0.8rem; font-weight: 600; color: #25282B; background: #FFFFFF; border: 1px solid #D9DEE3; border-radius: 20px; cursor: pointer; }
+    .testi-pause-btn:hover { background: #F4F6F8; }
     .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
     .slider-dots .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(10,22,40,0.18); transition: width .2s ease, background .2s ease; }
     .slider-dots .dot.active { width: 20px; border-radius: 4px; background: var(--navy); }
@@ -1359,9 +1362,6 @@
         transition: var(--transition);
     }
     .float-wa:hover { transform: scale(1.1); }
-    #xai-launcher { display: none !important; }
-
-    /* Chatbot CSS removed - using AI Agent Widget instead */
 
     /* Legal Modals */
     .legal-modal {
@@ -1522,7 +1522,7 @@
 
 </head>
 <body>
-<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJD7RD42" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
   <symbol id="ic-scale" viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M5 7 2.5 12a2.5 2.5 0 0 0 5 0L5 7ZM19 7l-2.5 5a2.5 2.5 0 0 0 5 0L19 7ZM8 21h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -1896,7 +1896,7 @@
                         <p>אזכורים באתרי תוכן חזקים עם קישורים ותוכן משפטי ממוקד דימונה ובאר שבע.</p>
                     </li>
                     <li>
-                        <h4>📚 Claude / Anthropic (רבעון)</h4>
+                        <h4>📚 כלי בינה מלאכותית (רבעון)</h4>
                         <p>פרסום מאמרים ארוכים וניתוחי מקרה שמדגישים עומק מקצועי ואמינות משפטית.</p>
                     </li>
                     <li>
@@ -1918,7 +1918,7 @@
         <div class="faq-list">
             <div class="faq-item fade-in">
                 <button class="faq-question" aria-expanded="false">כמה עולה ייעוץ ראשוני? <span class="faq-icon" aria-hidden="true">+</span></button>
-                <div class="faq-answer"><p>פגישת ייעוץ ראשונית מתומחרת בהתאם לנושא. צרו קשר לקבלת פרטים.</p></div>
+                <div class="faq-answer"><p>ייעוץ ראשוני במשרד ניתן ללא עלות.</p></div>
             </div>
             <div class="faq-item fade-in">
                 <button class="faq-question" aria-expanded="false">איך מתחילים הליך גירושין? <span class="faq-icon" aria-hidden="true">+</span></button>
@@ -1993,6 +1993,7 @@
             <button class="slider-arrow" id="testiPrev" aria-label="הביקורת הקודמת">→</button>
         </div>
         <div class="slider-dots" id="testiDots" aria-hidden="true"></div>
+        <button type="button" class="testi-pause-btn" id="testiPauseBtn" aria-pressed="false">השהיית המלצות</button>
         <a class="reviews-link" href="https://www.google.com/maps/search/%D7%90%D7%96%D7%95%D7%9C%D7%90%D7%99+%D7%95%D7%A9%D7%95%D7%AA%27+%D7%A2%D7%95%D7%A8%D7%9A+%D7%93%D7%99%D7%9F+%D7%93%D7%99%D7%9E%D7%95%D7%A0%D7%94" target="_blank" rel="noopener">לכל הביקורות בגוגל ←</a>
     </div>
 </section>
@@ -2005,6 +2006,14 @@
         .contact-simple h2 { font-family: 'Rubik', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: #25282B; margin-bottom: 12px; }
         .contact-simple .cs-sub { font-size: 1rem; color: #626A73; margin-bottom: 32px; }
         .contact-simple .cs-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .contact-simple .btn-platinum {
+            display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+            background: #F4F6F8; border: 1.5px solid #D9DEE3; color: #25282B;
+            padding: 12px 32px; border-radius: 26px; font-weight: 600; font-size: 1rem;
+            text-decoration: none; cursor: pointer;
+            transition: box-shadow .22s ease, transform .22s ease, background-color .22s ease;
+        }
+        .contact-simple .btn-platinum:hover { background: #D9DEE3; }
         @media (max-width: 560px) { .contact-simple .cs-btns { flex-direction: column; align-items: stretch; } }
     </style>
     <div class="container">
@@ -2013,6 +2022,8 @@
         <div class="cs-btns fade-in">
             <a href="tel:054-6969157" class="btn-gold"><svg width="15" height="15"><use href="#ic-phone"/></svg> לשיחה עם עו״ד שמעון אזולאי</a>
             <a href="https://wa.me/972546969157" target="_blank" rel="noopener" class="btn-outline"><svg width="15" height="15"><use href="#ic-whatsapp"/></svg> לשליחת הודעה ב-WhatsApp</a>
+            <a href="mailto:office.lawmod@gmail.com" class="btn-platinum"><svg width="15" height="15"><use href="#ic-mail"/></svg> שליחת מייל — מודיעין</a>
+            <a href="mailto:office.lawsa@gmail.com" class="btn-platinum"><svg width="15" height="15"><use href="#ic-mail"/></svg> שליחת מייל — דימונה</a>
         </div>
     </div>
 </section>
@@ -2076,21 +2087,17 @@
 
 <script>window.SITE_BRANCH = "dimona";</script>
 
-<!-- === AI Agent Widget - Azoulay Law === -->
+<!-- ===== Eden — automated inquiry widget (fixed questions, no AI, no third-party data transfer) ===== -->
 <script>
 (function () {
   var CFG = {
-    title: "\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8 \u05de\u05e9\u05e4\u05d8\u05d9 \u05d7\u05db\u05dd",
-    sub: '\u05e2\u05d3\u05df \u2014 \u05e0\u05e6\u05d9\u05d2\u05d4 \u05d7\u05db\u05de\u05d4 \u05e9\u05de\u05e1\u05e0\u05e0\u05ea \u05e4\u05e0\u05d9\u05d5\u05ea \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d9\u05d7\u05d4 \u05e2\u05dd \u05e2\u05d5"\u05d3',
-    whatsapp: "972546969157",
-    email: "office.lawsa@gmail.com",
-    anchor: "#contact",
-    brand: "\u05de\u05e9\u05e8\u05d3 \u05d0\u05d6\u05d5\u05dc\u05d0\u05d9 \u05d5\u05e9\u05d5\u05ea\u05f3",
-    launcherSide: "right",
-    launcherBottom: 18
+    title: "עדן – עוזר דיגיטלי משרדי",
+    sub: "מערכת פניות אוטומטית עם שאלות קבועות מראש, ללא ניתוח או עיבוד חכם.",
+    brand: "משרד אזולאי ושות'",
+    whatsappByBranch: { "מודיעין": "972533000566", "דימונה": "972546969157" }
   };
 
-  var css = "\n  :root{\n    --x-bg:#050713;\n    --x-panel:#F4F6FA;\n    --x-card:#FFFFFF;\n    --x-text:#0B1220;\n    --x-muted:#667085;\n    --x-border:rgba(15,23,42,.10);\n    --x-shadow:0 18px 55px rgba(0,0,0,.35);\n    --x-shadow2:0 10px 26px rgba(0,0,0,.10);\n    --x-r:26px;\n    --x-r2:18px;\n    --x-grad:linear-gradient(92deg,#1AD6C9 0%, #5B3CF4 55%, #A855F7 100%);\n    --x-grad2:linear-gradient(135deg,rgba(26,214,201,.20),rgba(168,85,247,.18));\n    --x-grad3:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.92));\n  }\n  #xai-launcher{\n    position:fixed;\n    right:18px;\n    bottom:18px;\n    width:64px;height:64px;border-radius:999px;\n    border:none;cursor:pointer;z-index:99999;\n    background:var(--x-grad);\n    box-shadow:0 18px 40px rgba(0,0,0,.35);\n    display:grid;place-items:center;\n    transition:transform .18s ease, filter .18s ease;\n  }\n  #xai-launcher:hover{transform:translateY(-2px); filter:saturate(1.1)}\n  #xai-launcher::after{\n    content:\"\";\n    position:absolute;inset:3px;\n    border-radius:999px;\n    background:rgba(7,10,18,.92);\n    box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);\n  }\n  #xai-launcher svg{position:relative;z-index:1}\n  #xai-launcher img{position:relative;z-index:1;width:38px;height:38px;border-radius:50%;object-fit:cover;}\n  #xai-launcher .dot{\n    position:absolute;right:7px;top:7px;\n    width:10px;height:10px;border-radius:50%;\n    background:#22C55E;\n    box-shadow:0 0 0 3px rgba(34,197,94,.18);\n    z-index:2;\n  }\n  #xai-overlay{\n    position:fixed; inset:0; z-index:99998;\n    display:none;\n    background:rgba(0,0,0,.42);\n    backdrop-filter: blur(10px);\n  }\n  #xai-sheet{\n    position:absolute;\n    left:50%; top:50%;\n    transform:translate(-50%,-50%);\n    width:min(560px, calc(100vw - 26px));\n    height:min(78vh, 690px);\n    background:var(--x-panel);\n    border-radius:calc(var(--x-r) + 4px);\n    box-shadow:var(--x-shadow);\n    overflow:hidden;\n    direction:rtl;\n    font-family:Heebo, Arial, sans-serif;\n    display:flex; flex-direction:column;\n    animation:xai-pop .18s ease;\n  }\n  @keyframes xai-pop{from{transform:translate(-50%,-49%) scale(.985);opacity:.7}to{transform:translate(-50%,-50%) scale(1);opacity:1}}\n  #xai-header{\n    height:86px;\n    background:var(--x-grad);\n    position:relative;\n    display:flex;\n    align-items:flex-end;\n    justify-content:flex-start;\n    padding:14px 16px;\n    box-shadow:0 14px 30px rgba(0,0,0,.18);\n  }\n  #xai-header::after{\n    content:\"\";\n    position:absolute; inset:0;\n    background:radial-gradient(800px 120px at 20% 0%, rgba(255,255,255,.22), transparent 60%);\n    pointer-events:none;\n  }\n  #xai-title{\n    color:white; font-weight:900; font-size:28px; line-height:1.1; margin:0;\n    letter-spacing:.2px;\n  }\n  #xai-sub{\n    color:rgba(255,255,255,.86);\n    font-size:13px; margin-top:6px;\n    font-weight:600;\n  }\n  #xai-close{\n    position:absolute; left:16px; top:16px;\n    width:42px;height:42px;border-radius:14px;\n    border:1px solid rgba(255,255,255,.30);\n    background:rgba(0,0,0,.14);\n    color:white; font-size:22px;\n    cursor:pointer;\n    display:grid;place-items:center;\n    transition:transform .12s ease, background .12s ease;\n  }\n  #xai-close:hover{transform:scale(1.02); background:rgba(0,0,0,.20)}\n  #xai-badge{\n    position:absolute; right:16px; top:16px;\n    padding:8px 10px;\n    border-radius:999px;\n    background:rgba(255,255,255,.16);\n    border:1px solid rgba(255,255,255,.22);\n    color:white; font-size:12px; font-weight:800;\n    backdrop-filter: blur(8px);\n  }\n  #xai-body{\n    padding:16px;\n    overflow:auto;\n    flex:1;\n    background:\n      radial-gradient(900px 420px at 30% 0%, rgba(26,214,201,.14), transparent 60%),\n      radial-gradient(700px 360px at 90% 20%, rgba(168,85,247,.14), transparent 55%),\n      var(--x-panel);\n  }\n  .xai-card{\n    background:var(--x-card);\n    border:1px solid rgba(15,23,42,.08);\n    border-radius:18px;\n    padding:14px 14px;\n    margin:10px 0;\n    box-shadow:var(--x-shadow2);\n  }\n  .xai-card.ai{background:var(--x-grad3)}\n  .xai-step{\n    font-size:12px;\n    color:var(--x-muted);\n    font-weight:700;\n    margin-bottom:6px;\n  }\n  .xai-text{\n    font-size:15px;\n    color:var(--x-text);\n    line-height:1.5;\n    font-weight:600;\n  }\n  .xai-hint{\n    margin-top:10px;\n    font-size:13px;\n    color:var(--x-muted);\n    font-weight:600;\n  }\n  .xai-insight{\n    margin-top:10px;\n    padding:10px 12px;\n    border-radius:14px;\n    background:var(--x-grad2);\n    border:1px solid rgba(91,60,244,.14);\n    color:#111827;\n    font-size:13px;\n    font-weight:700;\n  }\n  .xai-choices{\n    display:flex;\n    flex-wrap:wrap;\n    gap:10px;\n    margin-top:12px;\n  }\n  .xai-chip{\n    border:none;\n    cursor:pointer;\n    padding:10px 12px;\n    border-radius:999px;\n    background:white;\n    border:1px solid rgba(15,23,42,.10);\n    box-shadow:0 8px 18px rgba(0,0,0,.06);\n    font-size:14px;\n    font-weight:800;\n    color:#0B1220;\n    transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;\n  }\n  .xai-chip:hover{\n    transform:translateY(-1px);\n    border-color:rgba(168,85,247,.40);\n    box-shadow:0 12px 22px rgba(0,0,0,.08);\n  }\n  .xai-typing{\n    display:flex; align-items:center; gap:10px;\n    color:var(--x-muted);\n    font-weight:800;\n    font-size:13px;\n  }\n  .xai-dots{\n    display:inline-flex; gap:4px;\n  }\n  .xai-dots i{\n    width:6px;height:6px;border-radius:50%;\n    background:#7C3AED;\n    opacity:.25;\n    animation:xai-dot 1.05s infinite;\n  }\n  .xai-dots i:nth-child(2){animation-delay:.15s}\n  .xai-dots i:nth-child(3){animation-delay:.30s}\n  @keyframes xai-dot{0%,100%{transform:translateY(0);opacity:.25}50%{transform:translateY(-3px);opacity:.8}}\n  .xai-input{\n    width:100%;\n    margin-top:12px;\n    border-radius:16px;\n    border:1px solid rgba(15,23,42,.12);\n    padding:12px 12px;\n    font-family:inherit;\n    font-size:14px;\n    line-height:1.4;\n    resize:none;\n    background:white;\n    box-shadow:0 10px 22px rgba(0,0,0,.06);\n  }\n  #xai-footer{\n    padding:12px;\n    border-top:1px solid rgba(15,23,42,.10);\n    background:white;\n    display:none;\n    gap:10px;\n    flex-wrap:wrap;\n    justify-content:flex-start;\n  }\n  .xai-btn{\n    cursor:pointer;\n    border-radius:14px;\n    padding:11px 14px;\n    border:1px solid rgba(15,23,42,.12);\n    background:#F7F8FC;\n    font-family:inherit;\n    font-weight:900;\n    font-size:14px;\n    color:#0B1220;\n    transition:transform .12s ease, filter .12s ease;\n  }\n  .xai-btn:hover{transform:translateY(-1px); filter:saturate(1.05)}\n  .xai-btn.primary{\n    border:none;\n    background:var(--x-grad);\n    color:white;\n    box-shadow:0 14px 28px rgba(91,60,244,.25);\n  }\n  .xai-mini{\n    font-size:12px;\n    color:var(--x-muted);\n    font-weight:700;\n    margin-top:8px;\n  }\n  @media (max-width: 520px){\n    #xai-sheet{height:min(86vh, 720px)}\n    #xai-title{font-size:24px}\n  }\n  ";
+  var css = "\n  :root{\n    --x-panel:#F4F6F8;\n    --x-card:#FFFFFF;\n    --x-text:#25282B;\n    --x-muted:#626A73;\n    --x-border:#D9DEE3;\n    --x-shadow:0 18px 55px rgba(37,40,43,.28);\n    --x-shadow2:0 10px 26px rgba(37,40,43,.10);\n    --x-r:26px;\n  }\n  #xai-launcher{\n    position:fixed;\n    right:18px;\n    bottom:18px;\n    height:52px;padding:0 18px 0 16px;border-radius:999px;\n    border:1px solid var(--x-border);cursor:pointer;z-index:99999;\n    background:#25282B;\n    box-shadow:0 18px 40px rgba(37,40,43,.30);\n    display:flex;align-items:center;gap:8px;\n    transition:transform .18s ease;\n  }\n  #xai-launcher:hover{transform:translateY(-2px)}\n  #xai-launcher svg{position:relative;z-index:1;flex:none}\n  #xai-launcher-label{color:#fff;font-size:14px;font-weight:700;font-family:Heebo,Arial,sans-serif;white-space:nowrap}\n  #xai-overlay{\n    position:fixed; inset:0; z-index:99998;\n    display:none;\n    background:rgba(37,40,43,.42);\n  }\n  #xai-sheet{\n    position:absolute;\n    left:50%; top:50%;\n    transform:translate(-50%,-50%);\n    width:min(560px, calc(100vw - 26px));\n    height:min(80vh, 690px);\n    background:var(--x-panel);\n    border-radius:var(--x-r);\n    box-shadow:var(--x-shadow);\n    overflow:hidden;\n    direction:rtl;\n    font-family:Heebo, Arial, sans-serif;\n    display:flex; flex-direction:column;\n  }\n  #xai-header{\n    padding:16px 16px;\n    background:#FFFFFF;\n    border-bottom:1px solid var(--x-border);\n    position:relative;\n  }\n  #xai-title{\n    color:#25282B; font-weight:800; font-size:20px; line-height:1.2; margin:0;\n  }\n  #xai-sub{\n    color:var(--x-muted);\n    font-size:12px; margin-top:4px;\n    font-weight:500;\n  }\n  #xai-close{\n    position:absolute; left:14px; top:14px;\n    width:36px;height:36px;border-radius:10px;\n    border:1px solid var(--x-border);\n    background:#FFFFFF;\n    color:#25282B; font-size:20px;\n    cursor:pointer;\n    display:grid;place-items:center;\n  }\n  #xai-body{\n    padding:16px;\n    overflow:auto;\n    flex:1;\n    background:var(--x-panel);\n  }\n  .xai-card{\n    background:var(--x-card);\n    border:1px solid var(--x-border);\n    border-radius:16px;\n    padding:14px;\n    margin:0 0 12px;\n    box-shadow:var(--x-shadow2);\n  }\n  .xai-step{\n    font-size:12px;\n    color:var(--x-muted);\n    font-weight:700;\n    margin-bottom:6px;\n  }\n  .xai-text{\n    font-size:15px;\n    color:var(--x-text);\n    line-height:1.5;\n    font-weight:600;\n  }\n  .xai-choices{\n    display:flex;\n    flex-wrap:wrap;\n    gap:8px;\n    margin-top:12px;\n  }\n  .xai-chip{\n    border:1px solid var(--x-border);\n    cursor:pointer;\n    padding:10px 14px;\n    border-radius:999px;\n    background:#FFFFFF;\n    font-size:14px;\n    font-weight:700;\n    color:#25282B;\n  }\n  .xai-chip:hover{ background:#F4F6F8; }\n  .xai-input{\n    width:100%;\n    margin-top:10px;\n    border-radius:12px;\n    border:1px solid var(--x-border);\n    padding:10px 12px;\n    font-family:inherit;\n    font-size:14px;\n    line-height:1.4;\n    resize:none;\n    background:#FFFFFF;\n  }\n  .xai-notice{\n    font-size:12px;\n    color:var(--x-muted);\n    line-height:1.6;\n    margin:4px 0 12px;\n  }\n  .xai-notice a{ color:#25282B; text-decoration:underline; }\n  #xai-footer{\n    padding:12px 16px;\n    border-top:1px solid var(--x-border);\n    background:#FFFFFF;\n    display:none;\n  }\n  .xai-btn{\n    cursor:pointer;\n    border-radius:12px;\n    padding:12px 16px;\n    border:1px solid var(--x-border);\n    background:#F4F6F8;\n    font-family:inherit;\n    font-weight:800;\n    font-size:14px;\n    color:#25282B;\n    width:100%;\n  }\n  .xai-btn.primary{\n    border:none;\n    background:#25282B;\n    color:#FFFFFF;\n  }\n  @media(max-width:420px){\n    #xai-launcher{\n      max-width:min(220px, calc(100vw - 90px));\n      height:auto;\n      min-height:52px;\n      padding:10px 16px 10px 14px;\n      border-radius:24px;\n    }\n    #xai-launcher-label{\n      white-space:normal;\n      font-size:12px;\n      line-height:1.3;\n    }\n  }\n  ";
 
   var style = document.createElement("style");
   style.textContent = css;
@@ -2098,100 +2105,82 @@
 
   var launcher = document.createElement("button");
   launcher.id = "xai-launcher";
-  launcher.setAttribute("aria-label", "\u05e4\u05ea\u05d7 \u05e6\u05f3\u05d0\u05d8 \u05e2\u05dd \u05e2\u05d3\u05df, \u05e0\u05e6\u05d9\u05d2\u05d4 \u05d7\u05db\u05de\u05d4");
-  launcher.innerHTML = '<div class="dot"></div><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff" fill-opacity="0.15"/><path d="M6 10.5c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5c0 3-2.7 5.5-6 5.5-.8 0-1.6-.15-2.3-.42L7 17l.6-2.7C6.6 13.4 6 12 6 10.5z" fill="#fff"/></svg>';
+  launcher.setAttribute("aria-label", "פתח את עדן, מערכת הפניות של המשרד");
+  launcher.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff" fill-opacity="0.12"/><path d="M6 10.5c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5c0 3-2.7 5.5-6 5.5-.8 0-1.6-.15-2.3-.42L7 17l.6-2.7C6.6 13.4 6 12 6 10.5z" fill="#fff"/></svg>  <span id="xai-launcher-label">עדן – עוזר דיגיטלי משרדי</span>';
   document.body.appendChild(launcher);
 
   var overlay = document.createElement("div");
   overlay.id = "xai-overlay";
-  overlay.innerHTML = '<div id="xai-sheet" role="dialog" aria-modal="true" aria-labelledby="xai-title"><div id="xai-header"><button id="xai-close" aria-label="\u05e1\u05d2\u05d5\u05e8 \u05d7\u05dc\u05d5\u05df">\u00d7</button><div id="xai-badge">\u05e2\u05d3\u05df \u00b7 \u05e0\u05e6\u05d9\u05d2\u05d4 \u05d7\u05db\u05de\u05d4</div><div><h2 id="xai-title">' + CFG.title + '</h2><div id="xai-sub">' + CFG.sub + '</div></div></div><div id="xai-body"></div><div id="xai-footer"></div></div>';
+  overlay.innerHTML = '<div id="xai-sheet" role="dialog" aria-modal="true" aria-labelledby="xai-title"><div id="xai-header"><button id="xai-close" aria-label="סגור חלון">×</button><h2 id="xai-title">' + CFG.title + '</h2><div id="xai-sub">' + CFG.sub + '</div></div><div id="xai-body" aria-live="polite"></div><div id="xai-footer"></div></div>';
   document.body.appendChild(overlay);
 
   var body = overlay.querySelector("#xai-body");
   var footer = overlay.querySelector("#xai-footer");
   var closeBtn = overlay.querySelector("#xai-close");
+  var edenTrigger = null;
 
-  function open() { overlay.style.display = "block"; document.body.style.overflow = "hidden"; reset(); run(); }
-  function close() { overlay.style.display = "none"; document.body.style.overflow = ""; }
+  function open() {
+    edenTrigger = document.activeElement;
+    overlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+    reset();
+    render();
+    closeBtn.focus();
+  }
+  function close() {
+    overlay.style.display = "none";
+    document.body.style.overflow = "";
+    if (edenTrigger) { edenTrigger.focus(); edenTrigger = null; }
+  }
+  overlay.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab" || overlay.style.display !== "block") return;
+    var focusable = overlay.querySelectorAll('button, a[href], textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusable.length === 0) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 
   launcher.addEventListener("click", open);
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", function(e) { if (e.target === overlay) close(); });
-
-  // Expose open/close globally so hero button onclick="openChat()" works
   window.openChat = open;
   window.closeChat = close;
   document.addEventListener("keydown", function(e) { if (e.key === "Escape" && overlay.style.display === "block") close(); });
 
-  var state = { need: null, urgency: null, source: null, goal: "", contact: "" };
+  var state = { name: "", branch: "", subject: "", urgency: "", details: "" };
+  var current = 0;
 
   var steps = [
-    {
-      key: "need",
-      step: "\u05e9\u05dc\u05d1 1/4",
-      text: "\u05db\u05d3\u05d9 \u05e9\u05e0\u05db\u05d5\u05d5\u05df \u05d0\u05d5\u05ea\u05da \u05dc\u05e2\u05d5\"\u05d3 \u05d4\u05e0\u05db\u05d5\u05df \u05d5\u05dc\u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05de\u05d3\u05d5\u05d9\u05e7 \u2014 \u05de\u05d4 \u05d4\u05db\u05d9 \u05e0\u05db\u05d5\u05df \u05dc\u05da \u05db\u05e8\u05d2\u05e2?",
-      choices: ["\u05d3\u05d9\u05e0\u05d9 \u05de\u05e9\u05e4\u05d7\u05d4", "\u05d7\u05d5\u05d6\u05d9\u05dd \u05d5\u05d4\u05e1\u05db\u05de\u05d9\u05dd", "\u05d4\u05d5\u05e6\u05d0\u05d4 \u05dc\u05e4\u05d5\u05e2\u05dc / \u05d7\u05d3\u05dc\u05d5\u05ea \u05e4\u05e8\u05e2\u05d5\u05df", "\u05d3\u05d9\u05e0\u05d9 \u05e2\u05d1\u05d5\u05d3\u05d4"],
-      insight: function(v) {
-        if (v.indexOf("\u05de\u05e9\u05e4\u05d7\u05d4") >= 0) return "\u05d3\u05d9\u05e0\u05d9 \u05de\u05e9\u05e4\u05d7\u05d4 \u05d3\u05d5\u05e8\u05e9\u05d9\u05dd \u05e8\u05d2\u05d9\u05e9\u05d5\u05ea \u05d5\u05dc\u05d9\u05d5\u05d5\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u2014 \u05e2\u05d5\"\u05d3 \u05d0\u05d6\u05d5\u05dc\u05d0\u05d9 \u05de\u05ea\u05de\u05d7\u05d4 \u05d1\u05d3\u05d9\u05d5\u05e7 \u05d1\u05d6\u05d4.";
-        if (v.indexOf("\u05d7\u05d5\u05d6\u05d9\u05dd") >= 0) return "\u05d7\u05d5\u05d6\u05d4 \u05d8\u05d5\u05d1 \u05de\u05d5\u05e0\u05e2 \u05d1\u05e2\u05d9\u05d5\u05ea \u05d1\u05d4\u05de\u05e9\u05da \u2014 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05d1\u05d3\u05d5\u05e7 \u05db\u05dc \u05e1\u05e2\u05d9\u05e3 \u05dc\u05e4\u05e0\u05d9 \u05d7\u05ea\u05d9\u05de\u05d4.";
-        if (v.indexOf("\u05d4\u05d5\u05e6\u05d0\u05d4") >= 0 || v.indexOf("\u05d7\u05d3\u05dc\u05d5\u05ea") >= 0) return "\u05d4\u05dc\u05d9\u05db\u05d9 \u05d4\u05d5\u05e6\u05d0\u05d4 \u05dc\u05e4\u05d5\u05e2\u05dc \u05d5\u05d7\u05d3\u05dc\u05d5\u05ea \u05e4\u05e8\u05e2\u05d5\u05df \u05d3\u05d5\u05e8\u05e9\u05d9\u05dd \u05dc\u05d9\u05d5\u05d5\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u2014 \u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05dc\u05d5\u05d5\u05d9\u05dd \u05de\u05d4\u05ea\u05d7\u05dc\u05d4 \u05e2\u05d3 \u05d4\u05e1\u05d5\u05e3.";
-        return "\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05d4\u05df \u05d3\u05d1\u05e8 \u05d7\u05e9\u05d5\u05d1 \u2014 \u05d4\u05de\u05e9\u05e8\u05d3 \u05e0\u05dc\u05d7\u05dd \u05e2\u05dc \u05d4\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e9\u05dc\u05da \u05de\u05d5\u05dc \u05db\u05dc \u05de\u05e2\u05e1\u05d9\u05e7.";
-      }
-    },
-    {
-      key: "urgency",
-      step: "\u05e9\u05dc\u05d1 2/4",
-      text: "\u05db\u05de\u05d4 \u05d4\u05de\u05e6\u05d1 \u05d3\u05d7\u05d5\u05e3 \u05d0\u05e6\u05dc\u05da?",
-      choices: ["\u05d3\u05d7\u05d5\u05e3 (\u05d9\u05de\u05d9\u05dd \u05e1\u05e4\u05d5\u05e8\u05d9\u05dd)", "\u05d7\u05e9\u05d5\u05d1 \u05d0\u05d1\u05dc \u05dc\u05d0 \u05de\u05d9\u05d3\u05d9", "\u05e8\u05e7 \u05d1\u05d5\u05d3\u05e7 \u05d0\u05d5\u05e4\u05e6\u05d9\u05d5\u05ea"],
-      insight: function(v) {
-        if (v.indexOf("\u05d3\u05d7\u05d5\u05e3") >= 0) return "\u05d1\u05d3\u05d7\u05d5\u05e3 \u2014 \u05db\u05d3\u05d0\u05d9 \u05de\u05d0\u05d5\u05d3 \u05dc\u05e9\u05d5\u05d7\u05d7 \u05db\u05de\u05d4 \u05e9\u05d9\u05d5\u05ea\u05e8 \u05de\u05d4\u05e8 \u05db\u05d3\u05d9 \u05e9\u05dc\u05d0 \u05ea\u05e4\u05e1\u05e4\u05e1 \u05de\u05d5\u05e2\u05d3 \u05d0\u05d5 \u05d6\u05db\u05d5\u05ea.";
-        if (v.indexOf("\u05d7\u05e9\u05d5\u05d1") >= 0) return "\u05db\u05e9\u05d6\u05d4 \u05d7\u05e9\u05d5\u05d1 \u05d0\u05d1\u05dc \u05dc\u05d0 \u05d1\u05d5\u05e2\u05e8, \u05d0\u05e4\u05e9\u05e8 \u05dc\u05ea\u05db\u05e0\u05df \u05e6\u05e2\u05d3-\u05d0\u05d7\u05e8-\u05e6\u05e2\u05d3 \u05d1\u05e6\u05d5\u05e8\u05d4 \u05e8\u05d2\u05d5\u05e2\u05d4.";
-        return "\u05db\u05e9\u05d0\u05ea\u05d4 \u05d1\u05d5\u05d3\u05e7 \u05d0\u05d5\u05e4\u05e6\u05d9\u05d5\u05ea \u2014 \u05e0\u05e2\u05d6\u05d5\u05e8 \u05dc\u05da \u05dc\u05d4\u05d1\u05d9\u05df \u05de\u05d4 \u05d4\u05de\u05e9\u05de\u05e2\u05d5\u05ea \u05dc\u05e4\u05e0\u05d9 \u05e9\u05de\u05ea\u05d7\u05d9\u05d9\u05d1\u05d9\u05dd.";
-      }
-    },
-    {
-      key: "source",
-      step: "\u05e9\u05dc\u05d1 3/4",
-      text: "\u05d0\u05d9\u05da \u05e0\u05d5\u05d7 \u05dc\u05da \u05e9\u05d9\u05d7\u05d6\u05e8\u05d5 \u05d0\u05dc\u05d9\u05da?",
-      choices: ["\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4", "\u05d8\u05dc\u05e4\u05d5\u05df", "\u05de\u05d9\u05d9\u05dc", "\u05dc\u05d0 \u05de\u05e9\u05e0\u05d4"],
-      insight: function(v) {
-        if (v === "\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4") return "\u05d1\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4 \u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05dc\u05da \u05d1\u05e7\u05e6\u05e8\u05d4 \u05d0\u05e4\u05e9\u05e8\u05d5\u05d9\u05d5\u05ea \u05d5\u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05d1\u05d6\u05de\u05df \u05e0\u05d5\u05d7.";
-        if (v === "\u05d8\u05dc\u05e4\u05d5\u05df") return "\u05e9\u05d9\u05d7\u05ea \u05d8\u05dc\u05e4\u05d5\u05df \u05e7\u05e6\u05e8\u05d4 \u05de\u05d0\u05e4\u05e9\u05e8\u05ea \u05dc\u05d4\u05d1\u05d9\u05df \u05de\u05d4\u05e8 \u05d0\u05ea \u05e2\u05d9\u05e7\u05e8 \u05d4\u05e1\u05d9\u05e4\u05d5\u05e8.";
-        if (v === "\u05de\u05d9\u05d9\u05dc") return "\u05d1\u05de\u05d9\u05d9\u05dc \u05d0\u05e4\u05e9\u05e8 \u05dc\u05e4\u05e8\u05d8 \u05d5\u05dc\u05d4\u05e2\u05d1\u05d9\u05e8 \u05de\u05e1\u05de\u05db\u05d9\u05dd \u05d1\u05e6\u05d5\u05e8\u05d4 \u05de\u05e1\u05d5\u05d3\u05e8\u05ea.";
-        return "\u05e0\u05d5\u05db\u05dc \u05dc\u05d7\u05d6\u05d5\u05e8 \u05d0\u05dc\u05d9\u05da \u05d1\u05d3\u05e8\u05da \u05e9\u05e0\u05d5\u05d7\u05d4 \u05dc\u05da \u05d5\u05dc\u05d4\u05ea\u05d0\u05d9\u05dd \u05d0\u05ea \u05d4\u05e9\u05d9\u05d7\u05d4 \u05d0\u05dc\u05d9\u05da.";
-      }
-    }
+    { key: "name", step: "שאלה 1 מתוך 5", text: "מה שמך?", input: true, placeholder: "לדוגמה: ישראל ישראלי" },
+    { key: "branch", step: "שאלה 2 מתוך 5", text: "לאיזו שלוחה תרצה לפנות?", choices: ["מודיעין", "דימונה"] },
+    { key: "subject", step: "שאלה 3 מתוך 5", text: "מהו נושא הפנייה?", input: true, placeholder: "לדוגמה: גירושין, ירושה, מקרקעין..." },
+    { key: "urgency", step: "שאלה 4 מתוך 5", text: "מה מידת הדחיפות?", choices: ["דחוף", "בינונית", "לא דחוף"] },
+    { key: "details", step: "שאלה 5 מתוך 5", text: "תיאור קצר של הפנייה", input: true, placeholder: "כמה מילים על מה שקורה..." }
   ];
 
-  function typing(ms) {
-    ms = ms || 740;
-    return new Promise(function(res) {
-      var card = document.createElement("div");
-      card.className = "xai-card ai";
-      card.innerHTML = '<div class="xai-typing"><span>\u05de\u05d7\u05e9\u05d1</span><span class="xai-dots"><i></i><i></i><i></i></span></div>';
-      body.appendChild(card);
-      body.scrollTop = body.scrollHeight;
-      setTimeout(function() { card.remove(); res(); }, ms + Math.random() * 260);
-    });
+  function reset() {
+    body.innerHTML = "";
+    footer.style.display = "none";
+    footer.innerHTML = "";
+    current = 0;
+    state = { name: "", branch: "", subject: "", urgency: "", details: "" };
   }
 
-  function cardHTML(opts) {
+  function addCard(opts) {
     var card = document.createElement("div");
-    card.className = "xai-card ai";
-    card.innerHTML =
-      '<div class="xai-step">' + (opts.step || "") + '</div>' +
-      '<div class="xai-text">' + opts.text + '</div>' +
-      (opts.hint ? '<div class="xai-hint">' + opts.hint + '</div>' : "") +
-      (opts.insight ? '<div class="xai-insight">\ud83d\udca1 ' + opts.insight + '</div>' : "");
+    card.className = "xai-card";
+    card.innerHTML = '<div class="xai-step">' + (opts.step || "") + '</div><div class="xai-text">' + opts.text + '</div>';
 
     if (opts.choices) {
       var wrap = document.createElement("div");
       wrap.className = "xai-choices";
-      opts.choices.forEach(function(c) {
+      opts.choices.forEach(function (c) {
         var b = document.createElement("button");
         b.className = "xai-chip";
+        b.type = "button";
         b.textContent = c;
-        b.onclick = function() { onChoice(c); };
+        b.onclick = function () { answer(c); };
         wrap.appendChild(b);
       });
       card.appendChild(wrap);
@@ -2201,270 +2190,46 @@
       var ta = document.createElement("textarea");
       ta.className = "xai-input";
       ta.rows = 2;
-      ta.placeholder = "\u05dc\u05d3\u05d5\u05d2\u05de\u05d0: \u05d9\u05e9 \u05dc\u05d9 \u05d3\u05d9\u05d5\u05df \u05e7\u05e8\u05d5\u05d1 / \u05e7\u05d9\u05d1\u05dc\u05ea\u05d9 \u05de\u05db\u05ea\u05d1 / \u05e6\u05e8\u05d9\u05da \u05dc\u05d5\u05d5\u05d3\u05d0 \u05e9\u05d4\u05d7\u05d5\u05d6\u05d4 \u05ea\u05e7\u05d9\u05df...";
+      ta.placeholder = opts.placeholder || "";
       card.appendChild(ta);
 
       var wrap2 = document.createElement("div");
       wrap2.className = "xai-choices";
-      var b2 = document.createElement("button");
-      b2.className = "xai-chip";
-      b2.textContent = "\u05e1\u05d9\u05d5\u05dd \u05d5\u05e1\u05d9\u05db\u05d5\u05dd";
-      b2.onclick = function() { state.goal = (ta.value || "").trim(); finish(); };
-      wrap2.appendChild(b2);
+      var btn = document.createElement("button");
+      btn.className = "xai-chip";
+      btn.type = "button";
+      btn.textContent = "המשך";
+      btn.onclick = function () { answer((ta.value || "").trim()); };
+      wrap2.appendChild(btn);
       card.appendChild(wrap2);
+
+      setTimeout(function () { ta.focus(); }, 50);
     }
 
     body.appendChild(card);
     body.scrollTop = body.scrollHeight;
   }
 
-  var current = 0;
-
-  function run() {
-    typing().then(function() {
-      cardHTML({
-        step: "\u05e4\u05ea\u05d9\u05d7\u05d4",
-        text: "\u05d4\u05d9\u05d9 \ud83d\udc4b \u05d0\u05e0\u05d9 <b>\u05e2\u05d3\u05df</b>, \u05d4\u05e0\u05e6\u05d9\u05d2\u05d4 \u05d4\u05d7\u05db\u05de\u05d4 \u05e9\u05dc <b>" + CFG.brand + "</b>. \u05d1\u05db\u05de\u05d4 \u05dc\u05d7\u05d9\u05e6\u05d5\u05ea \u05d0\u05e2\u05d1\u05d9\u05e8 \u05dc\u05e2\u05d5\"\u05d3 \u05ea\u05de\u05d5\u05e0\u05d4 \u05d1\u05e8\u05d5\u05e8\u05d4 \u05e9\u05dc \u05d4\u05de\u05e6\u05d1 \u05e9\u05dc\u05da.",
-        hint: "3 \u05d1\u05d7\u05d9\u05e8\u05d5\u05ea + \u05de\u05e9\u05e4\u05d8 \u05d0\u05d7\u05d3. \u05d5\u05d0\u05d6 \u05ea\u05e7\u05d1\u05dc \u05e1\u05d9\u05db\u05d5\u05dd \u05de\u05e1\u05d5\u05d3\u05e8 \u05e9\u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05d1\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4 \u05d0\u05d5 \u05dc\u05de\u05dc\u05d0 \u05d1\u05d8\u05d5\u05e4\u05e1."
-      });
-      return askNext();
-    });
+  function render() {
+    addCard({ step: "שלום", text: "היי, אני <b>עדן</b>, מערכת הפניות האוטומטית של <b>" + CFG.brand + "</b>. אענה על 5 שאלות קצרות כדי להעביר את פנייתך לשלוחה הנכונה." });
+    askCurrent();
   }
 
-  function askNext() {
+  function askCurrent() {
     var s = steps[current];
-    return typing().then(function() {
-      cardHTML({ step: s.step, text: s.text, choices: s.choices });
-    });
+    addCard({ step: s.step, text: s.text, choices: s.choices, input: s.input, placeholder: s.placeholder });
   }
 
-  function askContact(method) {
-    var question, placeholder;
-    if (method === "\u05de\u05d9\u05d9\u05dc") {
-      question = "\u05de\u05d4 \u05db\u05ea\u05d5\u05d1\u05ea \u05d4\u05de\u05d9\u05d9\u05dc \u05e9\u05dc\u05da?";
-      placeholder = "\u05dc\u05d3\u05d5\u05d2\u05de\u05d0: name@gmail.com";
-    } else {
-      question = "\u05de\u05d4 \u05de\u05e1\u05e4\u05e8 \u05d4\u05d8\u05dc\u05e4\u05d5\u05df \u05e9\u05dc\u05da?";
-      placeholder = "\u05dc\u05d3\u05d5\u05d2\u05de\u05d0: 050-1234567";
-    }
-    return typing(560).then(function() {
-      var card = document.createElement("div");
-      card.className = "xai-card ai";
-      card.innerHTML =
-        '<div class="xai-step">\u05e4\u05e8\u05d8\u05d9 \u05e7\u05e9\u05e8</div>' +
-        '<div class="xai-text">' + question + '</div>';
-
-      var ta = document.createElement("textarea");
-      ta.className = "xai-input";
-      ta.rows = 1;
-      ta.placeholder = placeholder;
-      card.appendChild(ta);
-
-      var wrap = document.createElement("div");
-      wrap.className = "xai-choices";
-      var btn = document.createElement("button");
-      btn.className = "xai-chip";
-      btn.textContent = "\u05d4\u05de\u05e9\u05da";
-      btn.onclick = function() {
-        var v = (ta.value || "").trim();
-        state.contact = v || "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df";
-        sendToWebhook();
-        typing(400).then(function() {
-          cardHTML({
-            step: "\u05e9\u05dc\u05d1 4/4",
-            text: "\u05d1\u05de\u05e9\u05e4\u05d8 \u05d0\u05d7\u05d3 \u2014 \u05de\u05d4 \u05d4\u05db\u05d9 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05da \u05e9\u05d9\u05d8\u05d5\u05e4\u05dc \u05db\u05e8\u05d2\u05e2?",
-            input: true
-          });
-        });
-      };
-      wrap.appendChild(btn);
-      card.appendChild(wrap);
-
-      body.appendChild(card);
-      body.scrollTop = body.scrollHeight;
-    });
-  }
-
-  function onChoice(val) {
+  function answer(val) {
+    if (!val) return;
     var s = steps[current];
     state[s.key] = val;
-    typing(560).then(function() {
-      cardHTML({ step: "\u05ea\u05d5\u05d1\u05e0\u05d4", text: "\u05e7\u05d9\u05d1\u05dc\u05ea\u05d9: <b>" + val + "</b>", insight: s.insight(val) });
-      current++;
-      if (current < steps.length) {
-        return askNext();
-      } else {
-        if (val !== "\u05dc\u05d0 \u05de\u05e9\u05e0\u05d4") {
-          return askContact(val);
-        }
-        return typing().then(function() {
-          cardHTML({
-            step: "\u05e9\u05dc\u05d1 4/4",
-            text: "\u05d1\u05de\u05e9\u05e4\u05d8 \u05d0\u05d7\u05d3 \u2014 \u05de\u05d4 \u05d4\u05db\u05d9 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05da \u05e9\u05d9\u05d8\u05d5\u05e4\u05dc \u05db\u05e8\u05d2\u05e2?",
-            input: true
-          });
-        });
-      }
-    });
-  }
-
-  function score() {
-    var sc = 0;
-    var need = state.need || "";
-    var urgency = state.urgency || "";
-    if (need.indexOf("\u05de\u05e9\u05e4\u05d7\u05d4") >= 0) sc += 3;
-    if (need.indexOf("\u05d7\u05d5\u05d6\u05d9\u05dd") >= 0) sc += 2;
-    if (need.indexOf("\u05d4\u05d5\u05e6\u05d0\u05d4") >= 0 || need.indexOf("\u05d7\u05d3\u05dc\u05d5\u05ea") >= 0) sc += 2;
-    if (need.indexOf("\u05e2\u05d1\u05d5\u05d3\u05d4") >= 0) sc += 2;
-    if (urgency.indexOf("\u05d3\u05d7\u05d5\u05e3") >= 0) sc += 4;
-    else if (urgency.indexOf("\u05d7\u05e9\u05d5\u05d1") >= 0) sc += 3;
-    else sc += 1;
-    var src = state.source || "";
-    if (src === "\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4" || src === "\u05d8\u05dc\u05e4\u05d5\u05df") sc += 2;
-    else sc += 1;
-    return Math.min(10, sc);
-  }
-
-  function level(sc) {
-    if (sc >= 8) return { tag: "\ud83d\udfe2 \u05e4\u05e0\u05d9\u05d9\u05d4 \u05d3\u05d7\u05d5\u05e4\u05d4", note: "\u05db\u05d3\u05d0\u05d9 \u05dc\u05d9\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8 \u05db\u05de\u05d4 \u05e9\u05d9\u05d5\u05ea\u05e8 \u05de\u05d4\u05e8." };
-    if (sc >= 5) return { tag: "\ud83d\udfe1 \u05e4\u05e0\u05d9\u05d9\u05d4 \u05d7\u05e9\u05d5\u05d1\u05d4", note: "\u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05d1-24 \u05e9\u05e2\u05d5\u05ea \u05d4\u05e7\u05e8\u05d5\u05d1\u05d5\u05ea." };
-    return { tag: "\u26aa \u05e4\u05e0\u05d9\u05d9\u05d4 \u05dc\u05d1\u05d9\u05e8\u05d5\u05e8", note: "\u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05de\u05d9\u05d3\u05e2 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d9 \u05d5\u05dc\u05ea\u05d0\u05dd \u05d1\u05d4\u05de\u05e9\u05da." };
-  }
-
-  function recommendation() {
-    var need = state.need || "";
-    if (need.indexOf("\u05de\u05e9\u05e4\u05d7\u05d4") >= 0) return {
-      first: "\u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d9\u05ea \u05db\u05d3\u05d9 \u05dc\u05d4\u05d1\u05d9\u05df \u05d0\u05ea \u05d4\u05ea\u05de\u05d5\u05e0\u05d4 \u05d4\u05de\u05dc\u05d0\u05d4.",
-      why: "\u05e9\u05d9\u05d7\u05d4 \u05de\u05de\u05d5\u05e7\u05d3\u05ea \u05d7\u05d5\u05e1\u05db\u05ea \u05d1\u05dc\u05d1\u05d5\u05dc \u05d5\u05e0\u05d5\u05ea\u05e0\u05ea \u05dc\u05da \u05db\u05d9\u05d5\u05d5\u05df \u05d1\u05e8\u05d5\u05e8.",
-      next: "\u05dc\u05ea\u05d0\u05dd \u05de\u05d5\u05e2\u05d3 \u05e9\u05d9\u05d7\u05d4 \u05d5\u05dc\u05d1\u05d3\u05d5\u05e7 \u05d0\u05dd \u05e6\u05e8\u05d9\u05da \u05dc\u05d4\u05d1\u05d9\u05d0 \u05de\u05e1\u05de\u05db\u05d9\u05dd \u05e0\u05d5\u05e1\u05e4\u05d9\u05dd."
-    };
-    if (need.indexOf("\u05d7\u05d5\u05d6\u05d9\u05dd") >= 0) return {
-      first: "\u05dc\u05e2\u05d1\u05d5\u05e8 \u05d9\u05d7\u05d3 \u05e2\u05dc \u05d4\u05d7\u05d5\u05d6\u05d4/\u05d4\u05e1\u05db\u05dd \u05d5\u05d4\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05d4\u05e7\u05d9\u05d9\u05de\u05d9\u05dd.",
-      why: "\u05db\u05d3\u05d9 \u05dc\u05d5\u05d5\u05d3\u05d0 \u05e9\u05d4\u05e6\u05e2\u05d3\u05d9\u05dd \u05d4\u05d1\u05d0\u05d9\u05dd \u05e0\u05e2\u05e9\u05d9\u05dd \u05d1\u05e6\u05d5\u05e8\u05d4 \u05e9\u05de\u05d2\u05e0\u05d4 \u05e2\u05dc\u05d9\u05da.",
-      next: "\u05dc\u05e7\u05d1\u05d5\u05e2 \u05e4\u05d2\u05d9\u05e9\u05d4/\u05e9\u05d9\u05d7\u05d4 \u05dc\u05e2\u05d3\u05db\u05d5\u05df \u05d5\u05d4\u05db\u05e0\u05ea \u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d4 \u05dc\u05d4\u05de\u05e9\u05da."
-    };
-    if (need.indexOf("\u05d4\u05d5\u05e6\u05d0\u05d4") >= 0 || need.indexOf("\u05d7\u05d3\u05dc\u05d5\u05ea") >= 0) return {
-      first: "\u05dc\u05d4\u05e2\u05d1\u05d9\u05e8 \u05d0\u05ea \u05d4\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05dc\u05d1\u05d3\u05d9\u05e7\u05d4 \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d0\u05ea\u05d4 \u05d7\u05d5\u05ea\u05dd \u05d0\u05d5 \u05de\u05d2\u05d9\u05d1.",
-      why: "\u05db\u05d3\u05d9 \u05dc\u05d2\u05dc\u05d5\u05ea \u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05d1\u05e2\u05d9\u05d9\u05ea\u05d9\u05d5\u05ea \u05de\u05e8\u05d0\u05e9 \u05d5\u05dc\u05d0 \u05d1\u05d3\u05d9\u05e2\u05d1\u05d3.",
-      next: "\u05dc\u05ea\u05d0\u05dd \u05e9\u05dc\u05d9\u05d7\u05ea \u05de\u05e1\u05de\u05db\u05d9\u05dd + \u05e9\u05d9\u05d7\u05d4 \u05e7\u05e6\u05e8\u05d4 \u05dc\u05d4\u05e1\u05d1\u05e8 \u05d4\u05de\u05e1\u05e7\u05e0\u05d5\u05ea."
-    };
-    return {
-      first: "\u05dc\u05d4\u05d1\u05d9\u05df \u05de\u05d4 \u05de\u05d8\u05e8\u05ea \u05d4\u05ea\u05d1\u05d9\u05e2\u05d4 \u05d5\u05de\u05d4 \u05e6\u05d9\u05e4\u05d9\u05d9\u05d5\u05ea\u05da \u05de\u05d4\u05d4\u05dc\u05d9\u05da.",
-      why: "\u05db\u05d3\u05d9 \u05dc\u05d1\u05d3\u05d5\u05e7 \u05d0\u05dd \u05d6\u05d4 \u05d1\u05db\u05dc\u05dc \u05e0\u05db\u05d5\u05df \u05d5\u05db\u05d3\u05d0\u05d9 \u05e2\u05d1\u05d5\u05e8\u05da.",
-      next: "\u05dc\u05d0\u05e1\u05d5\u05e3 \u05de\u05d9\u05d3\u05e2 \u05d5\u05de\u05e1\u05de\u05db\u05d9\u05dd \u05e8\u05dc\u05d5\u05d5\u05e0\u05d8\u05d9\u05d9\u05dd \u05d5\u05dc\u05ea\u05d0\u05dd \u05e9\u05d9\u05d7\u05d4 \u05de\u05e1\u05d5\u05d3\u05e8\u05ea."
-    };
-  }
-
-  function buildSummary() {
-    var sc = score();
-    var lv = level(sc);
-    var rec = recommendation();
-    var goal = state.goal ? state.goal : "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df";
-    return [
-      lv.tag + " | \u05e6\u05d9\u05d5\u05df: " + sc + "/10",
-      "",
-      "\u05de\u05d4 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05d8\u05e4\u05dc: " + goal,
-      "\u05e1\u05d5\u05d2 \u05e6\u05d5\u05e8\u05da: " + (state.need || ""),
-      "\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea: " + (state.urgency || ""),
-      "\u05d0\u05d5\u05e4\u05df \u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05e9\u05e8 \u05de\u05d5\u05e2\u05d3\u05e3: " + (state.source || ""),
-      "\u05e4\u05e8\u05d8\u05d9 \u05e7\u05e9\u05e8 \u05dc\u05dc\u05e7\u05d5\u05d7: " + (state.contact || "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df"),
-      "",
-      "\u05de\u05d4 \u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05e7\u05d5\u05d3\u05dd: " + rec.first,
-      "\u05dc\u05de\u05d4: " + rec.why,
-      "\u05d4\u05e9\u05dc\u05d1 \u05d4\u05d1\u05d0: " + rec.next,
-      "",
-      "\u2014",
-      "\u05e0\u05e9\u05dc\u05d7 \u05de\u05d3\u05f3" + CFG.brand
-    ].join("\n");
-  }
-
-  function finish() {
-    if (!state.webhookSent) sendToWebhook();
-    var rec = recommendation();
-    var summary = buildSummary();
-
-    typing(720).then(function() {
-      cardHTML({
-        step: "\u05ea\u05d5\u05d3\u05d4!",
-        text: "\u05e4\u05e0\u05d9\u05d9\u05ea\u05da \u05d4\u05ea\u05e7\u05d1\u05dc\u05d4 \u2014 \u05e0\u05d7\u05d6\u05d5\u05e8 \u05d0\u05dc\u05d9\u05da \u05d1\u05d4\u05e7\u05d3\u05dd.<br><br>" +
-          "<b>\u05de\u05d4 \u05d7\u05e9\u05d5\u05d1 \u05dc\u05d8\u05e4\u05dc:</b> " + escapeHTML(state.goal || "\u05dc\u05d0 \u05e6\u05d5\u05d9\u05df") + "<br>" +
-          "<b>\u05e1\u05d5\u05d2 \u05e6\u05d5\u05e8\u05da:</b> " + escapeHTML(state.need) + "<br>" +
-          "<b>\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea:</b> " + escapeHTML(state.urgency) + "<br>" +
-          "<b>\u05d0\u05d5\u05e4\u05df \u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05e9\u05e8 \u05de\u05d5\u05e2\u05d3\u05e3:</b> " + escapeHTML(state.source) + "<br><br>" +
-          "<b>\u05de\u05d4 \u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05e7\u05d5\u05d3\u05dd:</b> " + escapeHTML(rec.first) + "<br>" +
-          "<b>\u05dc\u05de\u05d4:</b> " + escapeHTML(rec.why) + "<br>" +
-          "<b>\u05d4\u05e9\u05dc\u05d1 \u05d4\u05d1\u05d0:</b> " + escapeHTML(rec.next)
-      });
-
-      footer.style.display = "flex";
-      footer.innerHTML = "";
-
-      var btnCopy = document.createElement("button");
-      btnCopy.className = "xai-btn";
-      btnCopy.textContent = "\u05d4\u05e2\u05ea\u05e7 \u05e1\u05d9\u05db\u05d5\u05dd";
-      btnCopy.onclick = function() {
-        navigator.clipboard.writeText(summary).then(function() {
-          btnCopy.textContent = "\u05d4\u05d5\u05e2\u05ea\u05e7 \u2705";
-          setTimeout(function() { btnCopy.textContent = "\u05d4\u05e2\u05ea\u05e7 \u05e1\u05d9\u05db\u05d5\u05dd"; }, 1400);
-        }).catch(function() {
-          btnCopy.textContent = "\u05dc\u05d0 \u05d4\u05e6\u05dc\u05d9\u05d7";
-          setTimeout(function() { btnCopy.textContent = "\u05d4\u05e2\u05ea\u05e7 \u05e1\u05d9\u05db\u05d5\u05dd"; }, 1400);
-        });
-      };
-
-      var btnForm = document.createElement("button");
-      btnForm.className = "xai-btn";
-      btnForm.textContent = "\u05dc\u05d8\u05d5\u05e4\u05e1 \u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05e9\u05e8 \u05d1\u05d0\u05ea\u05e8";
-      btnForm.onclick = function() {
-        close();
-        var hash = CFG.anchor.replace("#", "");
-        if (hash) window.location.hash = hash;
-      };
-
-      footer.appendChild(btnCopy);
-      footer.appendChild(btnForm);
-    });
-  }
-
-  function reset() {
-    body.innerHTML = "";
-    footer.style.display = "none";
-    footer.innerHTML = "";
-    current = 0;
-    state.need = state.urgency = state.source = null;
-    state.goal = "";
-    state.contact = "";
-    state.webhookSent = false;
-  }
-
-  function sendToWebhook() {
-    if (state.webhookSent) return;
-    state.webhookSent = true;
-    var sc = score();
-    var lv = level(sc);
-    var summary = buildSummary();
-    fetch("https://hook.us2.make.com/t62nbth3r2by2d3qu65zm59fg29k1lq5", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        summary: summary,
-        html_summary: summary.replace(/\n/g, "<br>"),
-        branch: window.SITE_BRANCH,
-        need: state.need,
-        urgency: state.urgency,
-        source: state.source,
-        goal: state.goal,
-        contact: state.contact,
-        score: sc,
-        level: lv.tag
-      })
-    }).then(function(res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-    }).catch(function() {
-      var s = buildSummary();
-      var subj = encodeURIComponent("\u05e4\u05e0\u05d9\u05d9\u05d4 \u05d7\u05d3\u05e9\u05d4 \u05d3\u05e8\u05da \u05d4\u05d0\u05ea\u05e8 \u2013 " + CFG.brand);
-      window.open("mailto:" + CFG.email + "?subject=" + subj + "&body=" + encodeURIComponent(s), "_blank");
-    });
+    current++;
+    if (current < steps.length) {
+      askCurrent();
+    } else {
+      showSummary();
+    }
   }
 
   function escapeHTML(str) {
@@ -2476,9 +2241,50 @@
       .replace(/'/g, "&#039;");
   }
 
+  function buildMessage() {
+    var lines = [
+      "פנייה חדשה דרך אתר משרד אזולאי ושות'",
+      "שם: " + state.name,
+      "שלוחה: " + state.branch,
+      "נושא הפנייה: " + state.subject,
+      "מידת הדחיפות: " + state.urgency,
+      "תיאור הפנייה: " + state.details
+    ];
+    return lines.join("\n");
+  }
+
+  function showSummary() {
+    addCard({
+      step: "סיכום",
+      text:
+        "<b>שם:</b> " + escapeHTML(state.name) + "<br>" +
+        "<b>שלוחה:</b> " + escapeHTML(state.branch) + "<br>" +
+        "<b>נושא הפנייה:</b> " + escapeHTML(state.subject) + "<br>" +
+        "<b>מידת הדחיפות:</b> " + escapeHTML(state.urgency) + "<br>" +
+        "<b>תיאור הפנייה:</b> " + escapeHTML(state.details)
+    });
+
+    var notice = document.createElement("div");
+    notice.className = "xai-notice";
+    notice.innerHTML = 'בעל השליטה במידע הוא משרד עורכי דין שמעון אזולאי ושות׳. מסירת הפרטים היא מרצונך ואינה חובה חוקית; ללא מסירתם לא ניתן יהיה להעביר את הפנייה באמצעות עדן. הפרטים ישמשו לטיפול בפנייה וליצירת קשר, ויועברו ל-WhatsApp/Meta רק לאחר לחיצה על כפתור השליחה. ניתן לבקש לעיין במידע ולתקנו באמצעות פרטי הקשר שב<a href="/privacy-policy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>. מומלץ שלא למסור בשלב זה מסמכים או מידע רגיש שאינו נדרש לפנייה הראשונית.';
+    body.appendChild(notice);
+    body.scrollTop = body.scrollHeight;
+
+    footer.style.display = "block";
+    footer.innerHTML = "";
+    var sendBtn = document.createElement("button");
+    sendBtn.className = "xai-btn primary";
+    sendBtn.type = "button";
+    sendBtn.textContent = "שליחת הפנייה ב-WhatsApp";
+    sendBtn.onclick = function () {
+      var number = CFG.whatsappByBranch[state.branch] || CFG.whatsappByBranch["דימונה"];
+      var text = buildMessage();
+      window.open("https://wa.me/" + number + "?text=" + encodeURIComponent(text), "_blank");
+    };
+    footer.appendChild(sendBtn);
+  }
 })();
 </script>
-<!-- === /AI Agent Widget === -->
 
 <!-- ===== LEGAL MODALS ===== -->
 <div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
@@ -2526,7 +2332,22 @@
             });
             Object.keys(panels).forEach(function(k){ panels[k].hidden = (k !== branch); });
         }
+        const tabList = Array.from(tabs);
         tabs.forEach(function(t){ t.addEventListener('click', function(){ activateBranch(t.dataset.branch); }); });
+        tabs.forEach(function(t, i){
+            t.addEventListener('keydown', function(e){
+                var newIndex = null;
+                if (e.key === 'ArrowLeft') newIndex = (i + 1) % tabList.length;
+                else if (e.key === 'ArrowRight') newIndex = (i - 1 + tabList.length) % tabList.length;
+                else if (e.key === 'Home') newIndex = 0;
+                else if (e.key === 'End') newIndex = tabList.length - 1;
+                if (newIndex === null) return;
+                e.preventDefault();
+                var next = tabList[newIndex];
+                activateBranch(next.dataset.branch);
+                next.focus();
+            });
+        });
 
         document.querySelectorAll('.hero-region-card').forEach(function(c){
             c.addEventListener('click', function(){
@@ -2618,24 +2439,35 @@
         const track = document.getElementById('testimonialTrack');
         if (!track) return;
         function itemWidth(){ const it = track.querySelector('.testimonial-item'); return it ? it.offsetWidth + 16 : 300; }
-        let isDown = false, startX = 0, startScroll = 0, paused = false;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let isDown = false, startX = 0, startScroll = 0, paused = false, manuallyPaused = reduceMotion;
         track.addEventListener('pointerdown', e => { isDown = true; track.classList.add('dragging'); startX = e.clientX; startScroll = track.scrollLeft; });
         window.addEventListener('pointerup', () => { isDown = false; track.classList.remove('dragging'); });
         window.addEventListener('pointermove', e => { if (!isDown) return; track.scrollLeft = startScroll - (e.clientX - startX); });
         const nextBtn = document.getElementById('testiNext');
         const prevBtn = document.getElementById('testiPrev');
-        if (nextBtn) nextBtn.addEventListener('click', () => track.scrollBy({ left: -itemWidth(), behavior: 'smooth' }));
-        if (prevBtn) prevBtn.addEventListener('click', () => track.scrollBy({ left: itemWidth(), behavior: 'smooth' }));
+        if (nextBtn) nextBtn.addEventListener('click', () => track.scrollBy({ left: -itemWidth(), behavior: reduceMotion ? 'auto' : 'smooth' }));
+        if (prevBtn) prevBtn.addEventListener('click', () => track.scrollBy({ left: itemWidth(), behavior: reduceMotion ? 'auto' : 'smooth' }));
         track.addEventListener('mouseenter', () => paused = true);
         track.addEventListener('mouseleave', () => paused = false);
         track.addEventListener('focusin', () => paused = true);
         track.addEventListener('focusout', () => paused = false);
+        const pauseBtn = document.getElementById('testiPauseBtn');
+        function updatePauseBtn() {
+            if (!pauseBtn) return;
+            pauseBtn.setAttribute('aria-pressed', manuallyPaused ? 'true' : 'false');
+            pauseBtn.textContent = manuallyPaused ? 'הפעלת המלצות' : 'השהיית המלצות';
+        }
+        if (pauseBtn) {
+            updatePauseBtn();
+            pauseBtn.addEventListener('click', () => { manuallyPaused = !manuallyPaused; updatePauseBtn(); });
+        }
         setInterval(() => {
-            if (paused || isDown) return;
+            if (paused || isDown || manuallyPaused) return;
             if (Math.abs(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 4) {
-                track.scrollTo({ left: 0, behavior: 'smooth' });
+                track.scrollTo({ left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
             } else {
-                track.scrollBy({ left: -itemWidth(), behavior: 'smooth' });
+                track.scrollBy({ left: -itemWidth(), behavior: reduceMotion ? 'auto' : 'smooth' });
             }
         }, 5000);
 
@@ -2672,42 +2504,7 @@
         });
     });
 
-    // ===== CONTACT FORM =====
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const email = document.getElementById('email').value;
-        const subjectEl = document.getElementById('subject');
-        const subjectText = subjectEl.options[subjectEl.selectedIndex].text;
-        const message = document.getElementById('message').value;
-
-        // Send to Make webhook
-        fetch("https://hook.us2.make.com/t62nbth3r2by2d3qu65zm59fg29k1lq5", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                source: "contact_form",
-                branch: window.SITE_BRANCH,
-                summary: `ליד מטופס יצירת קשר\nשם: ${name}\nטלפון: ${phone}\nאימייל: ${email || 'לא צוין'}\nנושא: ${subjectText}\nהודעה: ${message || 'ללא'}`,
-                html_summary: `<b>ליד מטופס יצירת קשר</b><br>שם: ${name}<br>טלפון: ${phone}<br>אימייל: ${email || 'לא צוין'}<br>נושא: ${subjectText}<br>הודעה: ${message || 'ללא'}`,
-                contact: `${name} | ${phone}${email ? ' | ' + email : ''}`,
-                need: subjectText,
-                goal: message || '',
-                level: "form_lead"
-            })
-        }).catch(() => {});
-
-        // Also open WhatsApp
-        const waText = `שלום, שמי ${name}.\nטלפון: ${phone}\nנושא: ${subjectText}${message ? '\n' + message : ''}`;
-        window.open('https://wa.me/972546969157?text=' + encodeURIComponent(waText), '_blank');
-        document.getElementById('formSuccess').classList.add('active');
-        e.target.reset();
-        setTimeout(() => document.getElementById('formSuccess').classList.remove('active'), 5000);
-    }
-
-
-    // ===== CHATBOT removed - AI Agent Widget is loaded separately =====
+    // Legacy contact-form handler removed together with the unused Make.com webhook.
 
     // ===== LEGAL MODALS =====
     const legalData = {
@@ -2792,34 +2589,34 @@
 .a11ywidget-a11y-trigger svg{width:28px;height:28px;fill:#fff}
 .a11ywidget-a11y-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99999;justify-content:center;align-items:center;padding:16px}
 .a11ywidget-a11y-overlay.open{display:flex}
-.a11ywidget-a11y-panel{background:#1a1a2e;color:#e0e0e0;border-radius:20px;width:100%;max-width:420px;max-height:90vh;overflow-y:auto;padding:28px 24px 20px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.5);font-family:'Segoe UI','Heebo','Assistant',sans-serif;direction:rtl}
+.a11ywidget-a11y-panel{background:#FFFFFF;color:#25282B;border-radius:20px;width:100%;max-width:420px;max-height:90vh;overflow-y:auto;padding:28px 24px 20px;position:relative;box-shadow:0 20px 60px rgba(37,40,43,0.25);font-family:'Segoe UI','Heebo','Assistant',sans-serif;direction:rtl}
 .a11ywidget-a11y-panel::-webkit-scrollbar{width:6px}
 .a11ywidget-a11y-panel::-webkit-scrollbar-track{background:transparent}
-.a11ywidget-a11y-panel::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
-.a11ywidget-a11y-close{position:absolute;top:16px;left:16px;background:none;border:none;color:#888;font-size:24px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s}
-.a11ywidget-a11y-close:hover{background:rgba(255,255,255,0.1);color:#fff}
+.a11ywidget-a11y-panel::-webkit-scrollbar-thumb{background:#D9DEE3;border-radius:3px}
+.a11ywidget-a11y-close{position:absolute;top:16px;left:16px;background:none;border:none;color:#626A73;font-size:24px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s}
+.a11ywidget-a11y-close:hover{background:#F4F6F8;color:#25282B}
 .a11ywidget-a11y-header{text-align:center;margin-bottom:20px}
-.a11ywidget-a11y-header h2{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:8px}
-.a11ywidget-a11y-header h2 svg{width:22px;height:22px;fill:#00d4aa}
-.a11ywidget-a11y-header p{font-size:0.78rem;color:#888;line-height:1.5}
+.a11ywidget-a11y-header h2{font-size:1.3rem;font-weight:700;color:#25282B;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+.a11ywidget-a11y-header h2 svg{width:22px;height:22px;fill:#25282B}
+.a11ywidget-a11y-header p{font-size:0.78rem;color:#626A73;line-height:1.5}
 .a11ywidget-a11y-section{margin-bottom:18px}
-.a11ywidget-a11y-section-title{font-size:0.82rem;color:#888;margin-bottom:10px;font-weight:500}
+.a11ywidget-a11y-section-title{font-size:0.82rem;color:#626A73;margin-bottom:10px;font-weight:500}
 .a11ywidget-a11y-font-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.a11ywidget-a11y-font-btn{width:44px;height:44px;border-radius:12px;border:1px solid #333;background:#252540;color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
-.a11ywidget-a11y-font-btn:hover{background:#333;border-color:#00d4aa}
-.a11ywidget-a11y-font-display{flex:1;text-align:center;background:#252540;border:1px solid #333;border-radius:12px;padding:10px;font-size:0.95rem;color:#fff;font-weight:500}
+.a11ywidget-a11y-font-btn{width:44px;height:44px;border-radius:12px;border:1px solid #D9DEE3;background:#F4F6F8;color:#25282B;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.a11ywidget-a11y-font-btn:hover{background:#D9DEE3;border-color:#25282B}
+.a11ywidget-a11y-font-display{flex:1;text-align:center;background:#F4F6F8;border:1px solid #D9DEE3;border-radius:12px;padding:10px;font-size:0.95rem;color:#25282B;font-weight:500}
 .a11ywidget-a11y-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.a11ywidget-a11y-btn{background:#252540;border:1px solid #333;border-radius:12px;padding:12px 10px;color:#e0e0e0;font-size:0.85rem;cursor:pointer;text-align:center;transition:background .2s,border-color .2s,color .2s;font-family:inherit}
-.a11ywidget-a11y-btn:hover{background:#333;border-color:#555}
-.a11ywidget-a11y-btn.active{background:rgba(0,212,170,0.15);border-color:#00d4aa;color:#00d4aa}
+.a11ywidget-a11y-btn{background:#F4F6F8;border:1px solid #D9DEE3;border-radius:12px;padding:12px 10px;color:#25282B;font-size:0.85rem;cursor:pointer;text-align:center;transition:background .2s,border-color .2s,color .2s;font-family:inherit}
+.a11ywidget-a11y-btn:hover{background:#D9DEE3;border-color:#A7B0B8}
+.a11ywidget-a11y-btn.active{background:#25282B;border-color:#25282B;color:#FFFFFF}
 .a11ywidget-a11y-btn-full{grid-column:1/-1}
-.a11ywidget-a11y-reset{display:block;width:100%;background:#252540;border:1px solid #444;border-radius:12px;padding:14px;color:#e0e0e0;font-size:0.9rem;cursor:pointer;text-align:center;margin-top:8px;transition:background .2s;font-family:inherit}
-.a11ywidget-a11y-reset:hover{background:#333}
-.a11ywidget-a11y-links{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid #333}
-.a11ywidget-a11y-links a{color:#00d4aa;text-decoration:none;font-size:0.82rem;transition:opacity .2s}
-.a11ywidget-a11y-links a:hover{opacity:0.8;text-decoration:underline}
-.a11ywidget-a11y-credit{text-align:center;margin-top:12px;font-size:0.72rem;color:#555}
-.a11ywidget-a11y-credit a{color:#00d4aa;text-decoration:none}
+.a11ywidget-a11y-reset{display:block;width:100%;background:#F4F6F8;border:1px solid #D9DEE3;border-radius:12px;padding:14px;color:#25282B;font-size:0.9rem;cursor:pointer;text-align:center;margin-top:8px;transition:background .2s;font-family:inherit}
+.a11ywidget-a11y-reset:hover{background:#D9DEE3}
+.a11ywidget-a11y-links{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid #D9DEE3}
+.a11ywidget-a11y-links a{color:#25282B;text-decoration:underline;font-size:0.82rem;transition:opacity .2s}
+.a11ywidget-a11y-links a:hover{opacity:0.7}
+.a11ywidget-a11y-credit{text-align:center;margin-top:12px;font-size:0.72rem;color:#626A73}
+.a11ywidget-a11y-credit a{color:#25282B;text-decoration:underline}
 
 /* Accessibility state classes */
 body.a11ywidget-high-contrast{filter:contrast(1.5)!important}
