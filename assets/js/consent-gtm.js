@@ -22,7 +22,7 @@
     try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {}
   }
 
-  var css = ".consent-banner{position:fixed;left:0;right:0;bottom:0;z-index:99997;background:#FFFFFF;border-top:1px solid #D9DEE3;box-shadow:0 -8px 24px rgba(37,40,43,.12);padding:16px;direction:rtl;font-family:Heebo,Arial,sans-serif}.consent-banner-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.consent-banner p{margin:0;font-size:.85rem;color:#25282B;line-height:1.6;flex:1 1 260px}.consent-banner-btns{display:flex;gap:10px;flex-wrap:wrap}.consent-banner-btns button{font-family:inherit;font-size:.85rem;font-weight:700;border-radius:10px;padding:10px 18px;cursor:pointer;border:1px solid #D9DEE3;background:#FFFFFF;color:#25282B}.consent-banner-btns button.primary{background:#25282B;color:#FFFFFF;border-color:#25282B}@media(max-width:560px){.consent-banner-inner{flex-direction:column;align-items:stretch}.consent-banner-btns{justify-content:stretch}.consent-banner-btns button{flex:1}}.privacy-settings-link{cursor:pointer;background:none;border:none;padding:0;font:inherit;text-decoration:underline;color:inherit}";
+  var css = ".consent-banner{position:fixed;left:0;right:0;bottom:0;z-index:99997;background:#FFFFFF;border-top:1px solid #D9DEE3;box-shadow:0 -8px 24px rgba(37,40,43,.12);padding:16px;direction:rtl;font-family:Heebo,Arial,sans-serif}.consent-banner-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.consent-banner p{margin:0;font-size:.85rem;color:#25282B;line-height:1.6;flex:1 1 260px}.consent-banner-btns{display:flex;gap:10px;flex-wrap:wrap}.consent-banner-btns button{font-family:inherit;font-size:.85rem;font-weight:700;border-radius:10px;padding:10px 18px;cursor:pointer;border:1px solid #D9DEE3;background:#FFFFFF;color:#25282B}.consent-banner-btns button.primary{background:#25282B;color:#FFFFFF;border-color:#25282B}@media(max-width:560px){.consent-banner-inner{flex-direction:column;align-items:stretch}.consent-banner-btns{flex-direction:column;align-items:stretch;gap:12px}.consent-banner-btns button{width:100%;padding:14px 18px}}.privacy-settings-link{cursor:pointer;background:none;border:none;padding:0;font:inherit;text-decoration:underline;color:inherit}body.consent-banner-open #xai-launcher,body.consent-banner-open .float-wa,body.consent-banner-open .a11ywidget-a11y-trigger{display:none!important;pointer-events:none!important}";
   var styleTag = document.createElement("style");
   styleTag.textContent = css;
   document.head.appendChild(styleTag);
@@ -60,6 +60,7 @@
       '<button type="button" id="consent-decline">המשך ללא מדידה</button>' +
       "</div></div>";
     document.body.appendChild(banner);
+    document.body.classList.add("consent-banner-open");
     document.addEventListener("keydown", bannerKeydown);
 
     document.getElementById("consent-accept").addEventListener("click", function () {
@@ -77,6 +78,7 @@
     if (!banner) return;
     banner.remove();
     banner = null;
+    document.body.classList.remove("consent-banner-open");
     document.removeEventListener("keydown", bannerKeydown);
     var settingsLink = document.querySelector(".privacy-settings-link");
     if (settingsLink) settingsLink.focus();
