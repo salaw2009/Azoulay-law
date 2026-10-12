@@ -1,4 +1,3 @@
-REPLACED 1
 <!DOCTYPE html>
 
 <html lang="he" dir="rtl">
@@ -558,7 +557,7 @@ REPLACED 1
     .hero-branch-single .bi svg { color: var(--navy); flex: none; }
     .hero-branch-single .chev { color: rgba(10,22,40,0.3); flex: none; }
     .hero-region-picker { width: 100%; display: flex; gap: 14px; }
-    .hero-region-card {
+    .hero-region-card { text-decoration: none; color: inherit;
         flex: 1 1 0; min-width: 0;
         display: flex; flex-direction: column; align-items: center;
         background: #fff; border: 1px solid #D9DEE3; border-radius: 16px;
@@ -1601,7 +1600,7 @@ REPLACED 1
         <p class="hero-sub">ליווי משפטי מדויק, אסטרטגי ואישי — תוך מיקוד בתוצאה הרצויה לכל לקוח.</p>
         <div class="hero-branch-label">בחרו באיזה אזור תרצו לקבל שירות</div>
         <div class="hero-region-picker">
-            <button type="button" class="hero-region-card" data-branch="modiin"><svg width="20" height="20"><use href="#ic-pin"/></svg><b>מודיעין והסביבה</b><span class="sub">ליווי משפטי במרכז</span></button>
+            <a class="hero-region-card" href="https://azulaylegal.com/" aria-label="לשלוחת מודיעין — אתר מודיעין"><svg width="20" height="20"><use href="#ic-pin"/></svg><b>מודיעין והסביבה</b><span class="sub">למעבר לאתר שלוחת מודיעין</span></a>
             <button type="button" class="hero-region-card" data-branch="dimona"><svg width="20" height="20"><use href="#ic-pin"/></svg><b>דימונה והסביבה</b><span class="sub">ליווי משפטי בדרום</span></button>
         </div>
     </div>
@@ -1615,7 +1614,7 @@ REPLACED 1
 </section>
 
 <!-- ===== PRACTICE AREAS (TABS) ===== -->
-<span id="services" style="position:absolute;top:-90px;" aria-hidden="true"></span>
+<span id="services" style="display:block;scroll-margin-top:90px;" aria-hidden="true"></span>
 <style>
   .practice-tabs-section { background: #FFFFFF; padding: 72px 24px; scroll-margin-top: 90px; }
   .branch-tabs { display: flex; justify-content: center; gap: 12px; margin: 28px 0 40px; }
@@ -1667,24 +1666,24 @@ REPLACED 1
     <h2 class="section-title fade-in">תחומי העיסוק</h2>
     <div class="gold-line" aria-hidden="true"></div>
     <div class="branch-tabs" role="tablist" aria-label="בחירת שלוחה לתחומי העיסוק">
-      <button type="button" class="branch-tab active" id="tab-modiin" role="tab" aria-selected="true" aria-controls="panel-modiin" data-branch="modiin">שלוחת מודיעין</button>
-      <button type="button" class="branch-tab" id="tab-dimona" role="tab" aria-selected="false" aria-controls="panel-dimona" data-branch="dimona" tabindex="-1">שלוחת דימונה</button>
+      <button type="button" class="branch-tab" id="tab-modiin" role="tab" aria-selected="false" aria-controls="panel-modiin" data-branch="modiin" tabindex="-1">שלוחת מודיעין</button>
+      <button type="button" class="branch-tab active" id="tab-dimona" role="tab" aria-selected="true" aria-controls="panel-dimona" data-branch="dimona">שלוחת דימונה</button>
     </div>
 
-    <div class="services-grid" id="panel-modiin" role="tabpanel" aria-labelledby="tab-modiin">
-      <a class="service-card fade-in" href="services/diney-mishpacha.html">
+    <div class="services-grid" id="panel-modiin" role="tabpanel" aria-labelledby="tab-modiin" hidden>
+      <a class="service-card fade-in" href="https://azulaylegal.com/diney-mishpacha/">
         <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-family.webp" alt=""></span>
         <h3>משפחה וגירושין</h3>
         <p>ליווי אסטרטגי בהליכי גירושין, מזונות, אחריות הורית וחלוקת רכוש.</p>
         <span class="svc-arrow" aria-hidden="true">לדיני משפחה במודיעין ←</span>
       </a>
-      <a class="service-card fade-in" href="services/yerusha-tzvaot.html">
+      <a class="service-card fade-in" href="https://azulaylegal.com/yerusha-tzvaot/">
         <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-inheritance.webp" alt=""></span>
         <h3>ירושה וצוואות</h3>
         <p>עריכת צוואות, צווי ירושה וקיום צוואה, התנגדויות וסכסוכי ירושה.</p>
         <span class="svc-arrow" aria-hidden="true">לירושה וצוואות במודיעין ←</span>
       </a>
-      <a class="service-card fade-in" href="services/mekarkein-nadlan.html">
+      <a class="service-card fade-in" href="https://azulaylegal.com/mekarkein-nadlan/">
         <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-real-estate.webp" alt=""></span>
         <h3>מקרקעין</h3>
         <p>ליווי בעסקאות רכישה ומכירה, בדיקות משפטיות, חוזים ורישום זכויות.</p>
@@ -1692,7 +1691,7 @@ REPLACED 1
       </a>
     </div>
 
-    <div class="services-grid" id="panel-dimona" role="tabpanel" aria-labelledby="tab-dimona" hidden>
+    <div class="services-grid" id="panel-dimona" role="tabpanel" aria-labelledby="tab-dimona">
       <a class="service-card fade-in" href="services/diney-mishpacha.html">
         <span class="svc-icon-badge"><img class="svc-icon" src="images/icons/practice-family.webp" alt=""></span>
         <h3>משפחה וגירושין</h3>
@@ -1740,6 +1739,7 @@ REPLACED 1
 </section>
 
 <!-- ===== ABOUT THE FIRM ===== -->
+<span id="why-us" style="display:block;scroll-margin-top:90px;" aria-hidden="true"></span>
 <section class="about-section" id="about">
   <div class="container about-grid">
     <div class="about-text">
@@ -2022,7 +2022,7 @@ REPLACED 1
         <div class="cs-btns fade-in">
             <a href="tel:054-6969157" class="btn-gold"><svg width="15" height="15"><use href="#ic-phone"/></svg> לשיחה עם עו״ד שמעון אזולאי</a>
             <a href="https://wa.me/972546969157" target="_blank" rel="noopener" class="btn-outline"><svg width="15" height="15"><use href="#ic-whatsapp"/></svg> לשליחת הודעה ב-WhatsApp</a>
-            <a href="mailto:office.lawmod@gmail.com" class="btn-platinum"><svg width="15" height="15"><use href="#ic-mail"/></svg> שליחת מייל — מודיעין</a>
+            <a href="https://azulaylegal.com/" class="btn-platinum">לשלוחת מודיעין ←</a>
             <a href="mailto:office.lawsa@gmail.com" class="btn-platinum"><svg width="15" height="15"><use href="#ic-mail"/></svg> שליחת מייל — דימונה</a>
         </div>
     </div>
@@ -2060,9 +2060,8 @@ REPLACED 1
                 <span style="font-size:0.85rem;font-weight:700;">דימונה והסביבה</span>
                 <a href="tel:054-6969157"><svg width="13" height="13"><use href="#ic-phone"/></svg> 054-6969157</a>
                 <a href="mailto:office.lawsa@gmail.com"><svg width="13" height="13"><use href="#ic-mail"/></svg> office.lawsa@gmail.com</a>
-                <span style="font-size:0.85rem;margin-top:8px;font-weight:700;">מודיעין והסביבה</span>
-                <a href="tel:053-300-0566"><svg width="13" height="13"><use href="#ic-phone"/></svg> 053-300-0566</a>
-                <a href="mailto:office.lawmod@gmail.com"><svg width="13" height="13"><use href="#ic-mail"/></svg> office.lawmod@gmail.com</a>
+                <span style="font-size:0.85rem;margin-top:8px;font-weight:700;">שלוחת מודיעין</span>
+                <a href="https://azulaylegal.com/">לאתר שלוחת מודיעין ←</a>
             </div>
         </div>
     </div>
@@ -2349,7 +2348,7 @@ REPLACED 1
             });
         });
 
-        document.querySelectorAll('.hero-region-card').forEach(function(c){
+        document.querySelectorAll('button.hero-region-card[data-branch]').forEach(function(c){
             c.addEventListener('click', function(){
                 activateBranch(c.dataset.branch);
                 const target = document.getElementById('practice');
